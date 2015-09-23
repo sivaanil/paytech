@@ -396,8 +396,6 @@ exit;*/
         $this->renderLayout();
     }
 
-    public function testAcction(){
-        print_r($_REQUEST);
-    }
+
 }
 ?>
