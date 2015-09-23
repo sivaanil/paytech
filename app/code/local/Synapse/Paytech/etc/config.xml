@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+<config>
+
+	<modules>
+		<Synapse_Paytech>
+			<version>1.0.0</version>
+		</Synapse_Paytech>
+	</modules>
+
+    <default>
+        <paytech>
+            <papercut>
+                <secretkey>sZazbh7yVLYlFSxxCl5T6jNQERnA9u2DBDBh5uvJ7PzSZE3kSlKB9ZNm2Kruo4B</secretkey>
+                <authId>ptsa</authId>
+            </papercut>
+        </paytech>
+    </default>
+
+	<frontend>
+		<routers>
+			<paytech>
+				<use>standard</use>
+				<args>
+					<module>Synapse_Paytech</module>
+					<frontName>paytech</frontName>
+				</args>
+			</paytech>
+			<sales>
+				<args>
+					<modules>
+						<Synapse_Paytech before="Mage_Sales_OrderController">Synapse_Paytech_Frontend_Sales</Synapse_Paytech>
+					</modules>
+				</args>
+			</sales>
+		</routers>
+		<layout>
+			<updates>
+				<paytech>
+					<file>paytech.xml</file>
+				</paytech>
+			</updates>
+		</layout>
+	</frontend>	
+	<global>
+		<models>
+			<!-- <paypal>
+				<rewrite>
+					<standard>Synapse_Paytech_Model_Standard</standard>
+				</rewrite>
+			</paypal> -->
+			<!--<checkout>-->
+                <!--<rewrite>-->
+                    <!--<cart>Synapse_Paytech_Model_Cart</cart>-->
+                <!--</rewrite>-->
+            <!--</checkout>-->
+		</models>
+	      <resources>
+		    <paytech_setup>
+		        <setup>
+		            <module>Synapse_Paytech</module>
+		            <class>Synapse_Paytech_Model_Resource_Setup</class>
+		        </setup>
+		        <connection>
+		            <use>core_setup</use>
+		        </connection>
+		    </paytech_setup>
+		    <paytech_write>
+		        <connection>
+		            <use>core_write</use>
+		        </connection>
+		    </paytech_write>
+		    <paytech_read>
+		        <connection>
+		            <use>core_read</use>
+		        </connection>
+		    </paytech_read>
+	      </resources>
+	      <helpers>
+			<paytech>
+				<class>Synapse_Paytech_Helper</class>
+			</paytech>
+	      </helpers>		      
+	</global>
+	<admin>
+		<routers>
+		    <paytech>
+		        <use>admin</use>
+		        <args>
+		            <module>Synapse_Paytech</module>
+		            <frontName>paytech</frontName>
+		        </args>
+		    </paytech>
+		</routers>
+    	</admin>
+	<adminhtml>
+		<menu>
+			<system module="paytech">				             
+				<children>
+					<subs1 module="paytech">
+						<title>Upload License Master File</title>
+						<sort_order>20</sort_order>
+						<action>paytech/adminhtml_uploadform</action>
+					</subs1>
+				</children>
+			</system>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+							<title>Upload License Master File</title>
+							<sort_order>10</sort_order>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+		    <updates>
+		        <paytech>
+		            <file>paytech.xml</file>
+		        </paytech>
+		    </updates>
+        </layout>		
+	</adminhtml>
+</config>

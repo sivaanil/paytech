@@ -1,0 +1,22 @@
+#NOTE: Changing any part of this file will invalidate the license.
+#Wed Jul 02 23:49:14 UTC 2014
+ext-devices-toshiba=6
+organization-type=COMMERCIAL
+issued-by=PaperCut Software International Pty. Ltd.
+edition=MF
+advanced-clients-licensed=2
+modules-licensed=PRINT
+licensed-version=14
+release-stations-licensed=1
+issued-date=2014-07-02
+order-reference=57066
+users-purchased=350
+expiry-date=indefinite
+unique-id=1404344954885
+created-by=siobhan.kamper@papercut.com
+updates-expiry-policy=ALLOW_UPDATES_WITHIN_SAME_VERSION
+support-expiry-date=2016-07-17
+users-licensed=350
+organization-name=APP Corporation
+updates-expiry-date=2016-07-17
+signature=cqS3xYW7dENYscQIoU9/cL7Uz3mx7rCj/zByHmVNIN/JICzuCL+hgfeY3U96jhaUzAenD79JJbY8lrxJiKzJQfFUWSXbpMC/JDVtR7G/jhUUA8NrG2MNrxR++gEWKwsWBny1BCDK4iQScCQd+kzQTY1rhcxkn8u4BggpeToVCEo=

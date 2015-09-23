@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/bannerslider/css/default.css</stylesheet></action>
+			<!--action method="addJs"><script>bannerslider/jquery-1.9.1.min.js</script></action-->
+			<action method="addJs"><script>bannerslider/jssor.js</script></action>
+			<action method="addJs"><script>bannerslider/jssor.slider.js</script></action>
+		</reference>
+    </default>
+    <bannerslider_index_index>
+		<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="bannerslider" template="bannerslider/bannerslider.phtml" />
+        </reference>
+    </bannerslider_index_index>
+    
+    
+        <!-- homepage -->
+	<cms_index_index>
+		<reference name="content">
+			<block type="bannerslider/bannerslider" name="cms.page.content.top" before="-">
+				<action method="setTemplate" ifconfig="tab1/general/slider_mode">
+					<template>bannerslider/bannerslider.phtml</template>
+				</action>
+			</block>
+		</reference>
+	</cms_index_index>
+     <!--End homepage -->
+</layout> 

@@ -1,0 +1,24 @@
+#NOTE: Changing any part of this file will invalidate the license.
+#Tue Jul 08 06:47:48 UTC 2014
+organization-type=EDUCATIONAL
+payment-gateways-pc-pay=2
+issued-by=PaperCut Software International Pty. Ltd.
+edition=MF
+advanced-clients-licensed=2
+modules-licensed=PRINT
+ext-devices-konica-minolta=2
+licensed-version=14
+release-stations-licensed=6
+issued-date=2014-07-08
+order-reference=57251
+users-purchased=1500
+ext-devices-kyocera-mita=4
+expiry-date=indefinite
+unique-id=1404802068379
+created-by=siobhan.kamper@papercut.com
+updates-expiry-policy=ALLOW_UPDATES_WITHIN_SAME_VERSION
+support-expiry-date=2015-07-12
+users-licensed=1500
+organization-name=PARALOWIE R-12 SCHOOL
+updates-expiry-date=2015-07-12
+signature=Png/TyDYmW9eQEkxHHr6hLEnwEpRpGGCLA406gqhzECOHZgrv3G6VQKVNtdXfAOXl1wDJeRLaRqV+ETlqUjl2K4gMTVL7HAvOGamcY3HbSsOfpfOwuo72nQcY3o23f+riPQKlNcywaDK/aUwknVTAhzjpHuOWlVsZVTRyWZ8dP0=

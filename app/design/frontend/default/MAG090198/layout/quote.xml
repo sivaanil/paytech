@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<layout version="1.0.0">
+    <!--<quote_index_quotes>
+		<label>Customer Sub Accounts</label>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>		
+		</reference>	
+		<reference name="content">		   
+			<block type="core/template" name="quotes" template="customer/quotes.phtml" />	
+		</reference>
+    </quote_index_quotes>-->
+	<quote_index_quotes>
+		<label>Customer Sub Accounts</label>
+        <!-- Mage_Customer -->
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">		   
+			<block type="core/template" name="quotes" template="customer/quotes.phtml" />	
+        </reference>
+    </quote_index_quotes>
+    <quote_index_view>
+	<label>Customer Sub Accounts</label>
+        <!-- Mage_Customer -->
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">		   
+			<block type="core/template" name="quote_detail" template="quote/view.phtml" />	
+        </reference>
+    </quote_index_view>	
+    <quote_index_create>
+	<label>Customer Sub Accounts</label>
+        <!-- Mage_Customer -->
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">		   
+			<block type="core/template" name="quote_creation" template="quote/view.phtml" />	
+        </reference>
+    </quote_index_create>	  
+      		
+</layout>

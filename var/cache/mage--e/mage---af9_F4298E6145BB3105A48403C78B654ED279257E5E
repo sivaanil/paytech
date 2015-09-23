@@ -1,0 +1,85 @@
+<footer class="footer-container">	
+	<div class="footer">		
+		<div class="footer_top" id="footer">		
+			<div id="block_1" class="footer-area">
+				<h6>OFFICE ADDRESS</h6>
+<ul>
+<li class="address">
+<div class="inner_contact"><strong>Paytec Technology That Counts</strong><br />79 King William St<br />Kent Town SA 5076</div>
+</li>
+<li class="phoneno">
+<div class="inner_contact"><strong>ABN: 66 299 029 355</strong></div>
+</li>
+</ul> 
+			</div>
+			<div id="block_2" class="footer-area">
+				<h6>POSTAL ADDRESS</h6>
+<ul>
+<li class="address">
+<div class="inner_contact"><strong>Paytec Technology That Counts</strong><br />PO Box 655<br />Kensington SA 5068</div>
+</li>
+</ul> 
+			</div>
+			<div id="block_3" class="footer-area">
+				<h6>LINKS</h6>
+<ul>
+<li><a href="http://localhost/paytec/index.php/" >Home</a></li>
+<li><a href="http://localhost/paytec/index.php/educational.html/">Online Shop</a></li>
+<li class="orders-link"><a href="#">Orders</a></li>
+<li><a href="http://localhost/paytec/index.php/contacts/">Contact us</a></li>
+</ul> 
+			</div>		
+			<div id="block_4" class="footer-area">				
+				<h6>CONNECT WITH US</h6>
+<div class="social_block">
+<ul>
+<li class="facebook"><a href="http://www.facebook.com">&nbsp;</a></li>
+<li class="twitter"><a href="http://www.twiiter.com">&nbsp;</a></li>
+<li class="google"><a href="http://www.twiiter.com">&nbsp;</a></li>
+<li class="rss"><a href="http://www.rss.com">&nbsp;</a></li>
+</ul>
+</div> 			
+			 </div>		
+		</div> 
+		<div class="footer_bottom"> 
+						        		<!--<address>&copy; 2014 Magento Demo Store. All Rights Reserved.</address> 
+				<div class="footer-bottom-paypal"> 
+					<ul class="paypal_block">
+<li class="mastercard"><a href="#">&nbsp;</a></li>
+<li class="discover"><a href="#">&nbsp;</a></li>
+<li class="paypal"><a href="#">&nbsp;</a></li>
+<li class="visa"><a href="#">&nbsp;</a></li>
+</ul> 	
+				</div>	-->
+		</div>
+    </div>
+</footer>
+<div id="inline1" style="width:400px;display: none;">
+ <div class="quote-container">	
+	<p>Select the Customer for the Quote</p>
+	<form action="http://localhost/paytec/index.php/quote/index/save/" method="POST" name="quote-customer-form">		
+		<select name="quote-customer" class="quote-select-customer">
+				<option value="28">shankar bolla</option>
+				<option value="29">john abraham</option>
+				<option value="30">test test</option>
+				<option value="31">test test</option>
+				<option value="32">test test</option>
+				<option value="33">sd sds</option>
+				<option value="34">test t</option>
+				<option value="35">testing 2</option>
+				
+		</select>
+		<input type="hidden" name="product_id" id="quote-product-id" value="" />
+		<input type="hidden" name="product_price" id="quote-product-price" value="" />
+		<button type="submit" class="button" title="Submit"><span>SUBMIT</span></button>
+	</form>	
+	</div>
+ </div>	
+</div> 
+ 
+ 
+<script>
+	jQuery(document).ready(function($){
+		$('.orders-link a').attr('href','http://localhost/paytec/index.php/paytech/index/allorders/');	
+	});
+</script>

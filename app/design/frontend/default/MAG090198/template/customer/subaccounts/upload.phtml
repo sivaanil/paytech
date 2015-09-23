@@ -1,0 +1,17 @@
+<div class="page-title">
+<h1><?php echo $this->__('Upload the license file'); ?></h1>
+</div>
+<div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form action="<?php echo $this->getUrl('paytech/index/uploadLicense') ?>" method="post" id="form-validate" enctype="multipart/form-data">
+<div style="margin-bottom:20px;">
+<p style="float:left;margin-right:10px;font-size:16px">Browse Your License File</p>
+<input type="file" name="uploadlicense" id="uploadlicense" />
+</div>
+<div>
+<button class="button" type="submit">
+<span><span>UPLOAD FILE</span></span>
+</button>
+</div>
+</form>
+</div>

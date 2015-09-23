@@ -1,0 +1,342 @@
+<?php
+$current_quote_id = $this->getRequest()->getParam('id');
+$labels = array();
+$current_quote = Mage::getModel('quote/quote')->load($current_quote_id);
+
+if(isset($current_quote['quote_product_params'])){
+    $productOptions = unserialize($current_quote['quote_product_params']);
+}
+
+
+
+?>
+<div class="page-title">
+    <h1>
+        <?php
+        if(isset($current_quote_id) && $current_quote_id!=""){
+            echo $this->__('Quote #'.$current_quote_id);
+        }else{
+            echo "Create Quote";
+        }
+        ?>
+    </h1>
+</div>
+<div>
+    <form id="my-quote" name="createquote" action="<?php echo Mage::getUrl('quote/index/save'); ?>" method="post">
+        <input type="hidden" name="quoteid" value="<?php echo $current_quote_id; ?>" />
+        <div class="quotefield">
+            <label>Quote Number #: <?php if(isset($current_quote_id) && $current_quote_id!=""){ echo $current_quote_id; }else{ echo "NA"; } ?></label>
+        </div>
+
+        <?php
+        $service_number = "";
+        if(isset($current_quote_id) && $current_quote_id!=""){
+            $service_number = $current_quote['quote_service_num'];
+        }else{
+            $service_number = Mage::getSingleton('customer/session')->getNewservicenumber();
+        }
+        ?>
+        <div class="quotefield">
+            <label>End User Organization: <em>*</em></label>
+            <input type="text" class="input-text" name="service_number" id="service_number" value="<?php echo $service_number; ?>" <?php if(!isset($current_quote_id) && $current_quote_id==""){ ?> onblur="addservicenumber(this)" <?php } ?> />
+            <p class="serviceerrmsg"></p>
+        </div>
+
+        <?php
+        $created_date = "";
+        if(isset($current_quote_id) && $current_quote_id!=""){
+            $created_date = $current_quote['created_date'];
+            ?>
+            <div class="quotefield">
+                <label>Created Date: <?php echo date('Y-m-d',strtotime($created_date)); ?></label>
+            </div>
+
+            <div class="quotefield">
+                <?php
+                $date = strtotime($current_quote['updated_date']);
+                $date = strtotime("+40 days", $date);
+                ?>
+                <label>Expiry Date: <?php echo date('Y-m-d', $date); ?></label>
+            </div>
+        <?php } ?>
+
+        <div class="right quote quoteadd">
+            <a title="Add Products" href="<?php echo Mage::getUrl('quote/index/addproduct'); ?>">ADD PRODUCTS</a>
+        </div>
+
+        <table class="data-table my-quote-table" id="my-quote-table">
+            <col />
+            <col />
+            <col />
+            <col />
+            <thead>
+            <tr>
+                <th><?php echo $this->__('Item') ?></th>
+                <th><?php echo $this->__('Item name') ?></th>
+                <th><?php echo $this->__('Qty') ?></th>
+                <th><?php echo $this->__('Sub Total') ?></th>
+                <th><?php echo $this->__('Action') ?></th>
+            </tr>
+            </thead>
+            <?php
+
+
+            //for an existing quote the prices are fetched from the quote table
+            if(isset($current_quote_id) && $current_quote_id!="" && $current_quote['quote_product_ids']!='' ){
+            $quote_products = explode(',',$current_quote['quote_product_ids']);
+            $quote_qtys = explode(',',$current_quote['quote_product_qtys']);
+            $quote_product_qty = array_combine($quote_products,$quote_qtys);
+            $audPrices = array_combine($quote_products,explode(',',$current_quote['quote_product_prices_aud']));
+            $nzdPrices = array_combine($quote_products,explode(',',$current_quote['quote_product_prices_nzd']));
+           ?>
+            <tbody>
+            <?php $_odd = ''; ?>
+            <?php
+            $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+            for($i=0;$i<count($quote_products);$i++){
+                $product = Mage::getModel('catalog/product')->load($quote_products[$i]);
+                $prodId=$product->getId();
+                $options ='';
+                $qty=$quote_qtys[$i];
+                $audPrice=$audPrices[$prodId];
+                $nzdPrice=$nzdPrices[$prodId];
+                if(isset($productOptions[$prodId][0]['qty'])) {
+                    if($current_currency_code == 'NZD'){
+                        $nzdPrice  = number_format($productOptions[$prodId][$i]['price'], '2', '.', ',');
+                    }else{
+                        $audPrice =  number_format($productOptions[$prodId][$i]['price'], '2', '.', ',');
+                    }
+                    $options = $productOptions[$prodId];
+                    $qty=$options[0]['qty'];
+                    $audPrice=$audPrice;
+                    $nzdPrice=$nzdPrice;
+                }
+                echo renderProduct($product,$qty,$audPrice,$nzdPrice,$options);
+            }
+            ?>
+            </tbody>
+        </table>
+
+
+    <!-- For Buttons -->
+        <div style="float:left">
+            <ul style="margin:10px;">
+                <li class="quote">
+                    <a style="float:left;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/quotes'); ?>">BACK</a>
+                    <a style="float:right;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/delete/id/'.$current_quote_id); ?>" onclick="return confirm('Are you sure you want to delete the quote?')" >Discard Quote</a>
+                    <a style="float:right;margin:10px 10px" href="javascript:void(0)" onclick="submitQuote()">Save Quote</a>
+
+                    <?php
+                    $updated_date = date_create($current_quote['updated_date']);
+                    $todays_date = date_create(date('Y-m-d'));
+                    $diff = date_diff($todays_date,$updated_date);
+                    if($diff->days > 40){ ?>
+                        <a style="float:right;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/refresh/id/'.$current_quote_id); ?>">Quote Expired  Refresh Quote</a>
+                    <?php }else{ ?>
+                        <a style="float:right;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/addCart/id/'.$current_quote_id); ?>">PLACE ORDER</a>
+                    <?php } ?>
+
+                </li>
+            </ul>
+        </div>
+    <?php
+    }
+    // For new quote without quote id
+    else if(!isset($current_quote['quote_id']) || $current_quote['quote_id']==''){
+
+        // for newly created quote the prices are fetched from system.
+        $quote_products = Mage::getSingleton('customer/session')->getNewQuote();
+        $quote_prod_qtys = Mage::getSingleton('customer/session')->getProdQtys();
+
+        $already_added_product_prices = Mage::getSingleton('customer/session')->getProdPrices();
+        $arr = Mage::getSingleton('customer/session')->getProdOptions();
+        $productOptions = unserialize($arr);
+        $quote_product_qty = array_count_values($quote_products);
+        $quote_product_options = array_count_values($quote_products);
+        $audPrices = array_combine($quote_products,explode(',',$current_quote['quote_product_prices_aud']));
+        $nzdPrices = array_combine($quote_products,explode(',',$current_quote['quote_product_prices_nzd']));
+        ?>
+      <tbody>
+        <?php $_odd = ''; ?>
+        <tr>
+        <?php
+            foreach ($quote_product_qty as $k => $v):
+                    $check_product_type = explode('-',$k);
+                    if (count($check_product_type) > 1) {
+                        $product = Mage::getModel('catalog/product')->load($check_product_type[0]);
+                    } else {
+                        $product = Mage::getModel('catalog/product')->load($k);
+                    }
+
+                    $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+                    $prodId = $product->getId();
+                    $options = '';
+                    $qty = $quote_prod_qtys[$k];
+                if($current_currency_code == 'NZD'){
+                    $nzdPrice  = number_format($already_added_product_prices[$k], '2', '.', ',');
+                }else{
+                    $audPrice =  number_format($already_added_product_prices[$k], '2', '.', ',');
+                }
+                    $audPrice = $audPrice;
+                    $nzdPrice = $nzdPrice;
+
+                if(isset($productOptions[$prodId][0]['qty'])) {
+                for($i=0;$i<count($productOptions[$prodId]);$i++){
+                    if($current_currency_code == 'NZD'){
+                    $nzdPrice  = number_format($productOptions[$prodId][$i]['price'], '2', '.', ',');
+                    }else{
+                    $audPrice =  number_format($productOptions[$prodId][$i]['price'], '2', '.', ',');
+                    }
+                    $options = $productOptions[$prodId];
+                    $qty=$options[0]['qty'];
+                    $audPrice=$audPrice;
+                    $nzdPrice=$nzdPrice;
+                    }
+                }
+                echo renderProduct($product,$qty,$audPrice,$nzdPrice,$options);
+
+                ?>
+
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+    </table>
+     <div style="float:left">
+	<ul style="margin:10px;float:left">
+	<li class="quote">
+		<a style="float:left;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/quotes'); ?>">BACK</a>
+		<a style="float:right;margin:10px 10px" href="javascript:void(0)" onclick="submitQuote()">Save Quote</a>
+	</li>
+	</ul>
+     </div>
+     <?php }
+    else{?>
+	   </tbody>
+    </table>
+	<?php
+    }
+    ?>
+    </form>
+</div>
+<script type="text/javascript">decorateTable('my-quote-table');</script>
+<script type="text/javascript">
+    function addservicenumber(obj){
+        if(jQuery(obj).val()!=""){
+            jQuery(".serviceerrmsg").hide();
+            jQuery.ajax({
+                url:"<?php echo Mage::getUrl('quote/index/addservicenumber'); ?>number/"+jQuery(obj).val(),
+                success:function(result){
+                }
+            });
+        }else{
+            jQuery(".serviceerrmsg").text("Please enter End User Organization");
+            jQuery(".serviceerrmsg").show();
+        }
+    }
+</script>
+<?php
+
+// To render each product to table in Quote view page
+function renderProduct($product,$qty,$audPrice,$nzdPrice,$options=''){
+    $options=array_filter($options);
+    $row='<tr>';
+    $prodType = strtolower($product->getAttributeText('product_type'));
+    $prodId=$product->getId();
+
+    if($options){
+        $product_options=$options[0];
+    }
+    $final=array();
+    $optStr='';
+   //print_r($product_options);
+    if($product_options){
+        $qty=$product_options['qty'];
+        $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+        if($current_currency_code == 'NZD'){
+            $nzdPrice  = number_format($product_options['price'], '2', '.', ',');
+        }else{
+            $audPrice =  number_format($product_options['price'], '2', '.', ',');
+        }
+        $audPrice=$audPrice;
+        $nzdPrice=$nzdPrice;
+        unset($product_options['qty']);
+        unset($product_options['price']);
+
+        foreach($product_options as $attrCode=>$attrOptCode){
+            if($prodType=='other product'){
+                $fetchAttributeLabels = Mage::getSingleton("eav/config")->getAttribute('catalog_product',$attrCode);
+                $attribute = $fetchAttributeLabels->getData();
+                $attributeLabel = $attribute['attribute_code'];
+                $attributeOption = $product->getResource()->getAttribute($attribute['attribute_code']);
+                $label = $attributeOption->getSource()->getOptionText($attrOptCode);
+                $final[]=$attributeLabel.':'.$label;
+                $attrOptCodes[]=$attrOptCode;
+                $optStr=implode(',',$final);
+            }if($prodType=='software product'){
+
+                $selections = $product->getTypeInstance(true)
+                    ->getSelectionsCollection($product->getTypeInstance(true)
+                        ->getOptionsIds($product), $product);
+                foreach($selections as $selection){
+                    if($attrOptCode == $selection['selection_id'])
+                        $final[] =  $selection['name'];
+                    $optStr=implode(',',$final);
+
+                }
+
+
+            }
+
+        }
+
+
+    }
+
+        $row .= '<td><img src="' . Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(75, 75) . '"/></td>';
+        $row .= '<td><span class="nobr">' . $product->getName() . '</span><br/><span style="color:red">' . $optStr . '</span></td>';
+        if ($prodType == 'maintenance product'):
+            $row .= '<td>' . $qty . '<input type="hidden" name="qty[' . $prodId . ']" value=' . $qty . '></td>';
+        else:
+            $row .= '<td><input type="text" name="qty[' . $prodId . ']" value="' . $qty . '" style="width:25px; text-align:right;"></td>';
+        endif;
+        $row .= '<td>';
+
+        $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+        if ($current_currency_code == 'NZD') {
+            $itemPrice = Mage::helper('tax')->getPrice($product, $nzdPrice);
+            $subPrice = $itemPrice * $qty;
+            $row .= "NZ$ " . number_format($subPrice, '2', '.', ',');
+        } else {
+            $itemPrice = Mage::helper('tax')->getPrice($product, $audPrice);
+            $subPrice = $itemPrice * $qty;
+            $row .= "AU$ " . number_format($subPrice, '2', '.', ',');
+        }
+        $row .= '</td>';
+
+        if(sizeof($attrOptCodes)>=1){
+            $url = Mage::getUrl('quote/index/removeitem/id/' . $prodId.'/params/'.serialize($attrOptCodes));
+        }else{
+            $url = Mage::getUrl('quote/index/removeitem/id/' . $prodId);
+        }
+
+
+        $row .= '<td><a onclick="return confirm(/"Are you sure you want to delete the item/");" href="' . $url . '" title="Remove Item">Delete</td>';
+        $row .= '</tr>';
+
+    if(count($options)>1){
+        $totalOptionsCount = count($options);
+        for($k=1;$k<$totalOptionsCount;$k++){
+
+            $product_options1[]=$options[$k];
+            return $row.=renderProduct($product,$qty,$audPrice,$nzdPrice,$product_options1);
+
+        }
+    }
+    else
+        return $row;
+
+
+}
+?>
+
+

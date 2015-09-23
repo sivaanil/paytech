@@ -1,0 +1,101 @@
+<?php 
+$current_customer_id = Mage::getSingleton('customer/session')->getCustomer()->getId();
+$customer = Mage::getModel('customer/customer')->load($current_customer_id);
+$customer_quotes = Mage::getModel('quote/quote')
+                    ->getCollection()
+                    ->addFieldToFilter('quote_customer_id', $current_customer_id)
+					->setOrder('quote_id', 'desc');
+
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('My Quotes'); ?></h1>
+    <div class="right"><a href="<?php echo Mage::getUrl('quote/index/create'); ?>" title="Create A Quote">Create a Quote</a></div>	
+</div>
+<?php if($customer_quotes->getSize()): ?>
+<table class="data-table" id="my-quote-table">
+    <col />
+    <col />
+    <col />
+    <col />	
+    <col />
+    <col />   
+    <thead>
+        <tr>
+            <th><?php echo $this->__('Quote #') ?></th>
+            <th><?php echo $this->__('Created Date') ?></th>
+            <th><?php echo $this->__('No.of Items') ?></th>
+	    <th><span class="nobr"><?php echo $this->__('Quote Total') ?></span></th>
+	    <th><span class="nobr"><?php echo $this->__('End User Organization') ?></span></th>
+	    <th><?php echo $this->__('Quote Created By') ?></th>	            
+	    <th><span class="nobr"><?php echo $this->__('Quote Status') ?></span></th> 	           
+            <th colspan="2" style="text-align:center"><span class="nobr"><?php echo $this->__('Actions') ?></span></th>
+	    
+        </tr>
+    </thead>
+    <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($customer_quotes as $_quote): 
+	?>
+        <tr>
+            <td><?php echo $_quote['quote_id'] ?></td>
+            <td><span class="nobr"><?php echo $_quote['created_date'] ?></span></td>
+            <td><?php echo count(array_filter(explode(',', $_quote['quote_product_ids']))); ?></td>
+	    <td>
+	    <?php 
+		 $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+		 $qtys=explode(',',$_quote['quote_product_qtys']);
+
+		 $amount=0;
+		 if($current_currency_code == 'NZD'){
+			$amounts=array_filter(explode(',',$_quote['quote_product_prices_nzd']));
+			$currency="NZ$ ";
+		 }else {
+			$amounts=array_filter(explode(',',$_quote['quote_product_prices_aud']));
+			$currency="AU$ ";
+		 }
+
+		 for($i=0;$i<count($qtys);$i++){
+		      $amount+=$qtys[$i]*$amounts[$i];
+		 }
+
+		 echo $currency.$amount;
+	    ?>
+	    </td>
+	    <td><?php echo $_quote['quote_service_num']; ?></td>
+	    <td>
+		<?php $current_quote_customer = Mage::getModel('customer/customer')->load($_quote['quote_customer_id']);
+			echo $current_quote_customer->getFirstname().' '.$current_quote_customer->getLastname();
+		?>
+	    </td>           
+	    <td>
+	    <?php 
+		$updated_date = date_create($_quote['updated_date']);
+		$todays_date = date_create(date('Y-m-d'));
+		$diff = date_diff($todays_date,$updated_date);		
+		if($diff->days > 40){
+			 echo "EXPIRED";
+		}else{
+			echo "ACTIVE";
+		}		
+	    ?>
+	    </td> 
+            <td class="a-center">
+                <span class="nobr">
+			<a href="<?php echo Mage::getUrl('quote/index/view/id/'.$_quote['quote_id']); ?>" title="View Quote"><?php echo $this->__('View Quote') ?></a>                   
+                </span>
+            </td>
+	    <td class="a-center">
+                <span class="nobr">
+		<a href="<?php echo Mage::getUrl('quote/index/delete/id/'.$_quote['quote_id']); ?>" title="Remove Quote" onclick="return confirm('Are you sure you want to delete the quote?')"><?php echo $this->__('Delete') ?></a>                   
+                </span>
+            </td>	
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">decorateTable('my-quote-table');</script>
+<?php else: ?>
+    <p><?php echo $this->__('You have placed no quotes.'); ?></p>
+<?php endif ?>
+
+

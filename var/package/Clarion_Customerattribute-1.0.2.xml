@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+    <name>Clarion_Customerattribute</name>
+    <version>1.0.2</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Customer Attribute Management</summary>
+    <description>By using Customer attributes extension we can create additional fields on the customer&#xD;
+ account create page, customer account edit page and admin manage customers. So the we &#xD;
+can collect business-related and personal information needed from the customers.</description>
+    <notes>Fixed Options.php not found issue.</notes>
+    <authors><author><name>Clarion Tech</name><user>Clariontech</user><email>magento@clariontechnologies.co.in</email></author></authors>
+    <date>2014-11-20</date>
+    <time>13:05:07</time>
+    <contents><target name="magecommunity"><dir name="Clarion"><dir name="Customerattribute"><dir name="Block"><dir name="Adminhtml"><dir name="Customerattribute"><dir name="Edit"><file name="Form.php" hash="c6bd2ea2aa06a01edd37728aeb529bda"/><dir name="Main"><file name="Main.php" hash="dad7a24bf1cb9515d367d8555dd86cb8"/></dir><dir name="Tab"><file name="Main.php" hash="f180b77bfc2ed6ff46f368e35f3c80ff"/><file name="Options.php" hash="1328328f8b010a6ddd07c7a7993397e2"/></dir><file name="Tabs.php" hash="dcc8f3ff46ed6ae664354c60eb0d2d88"/></dir><file name="Edit.php" hash="836646be9ab4f4bfa03677cbb8dd4508"/><file name="Grid.php" hash="d1a1a997c3e4d934c9414d2c00c32946"/></dir><file name="Customerattribute.php" hash="0ded2a954d9a1b4e8f2aba494fc25b21"/></dir></dir><dir name="Helper"><file name="Customerattribute.php" hash="2869c8d8ae5a8c646bcef6c7eac11648"/><file name="Data.php" hash="80b69f61049d6d3239145dbe097c886f"/></dir><dir name="Model"><file name="Customerattribute.php" hash="beb54d45f64cefd2f9f116d11a7b7660"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="CustomerattributeController.php" hash="c0d925f6792aa6eaf472d7d61210c65b"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="78912661cc9744715913c485f27e04d0"/><file name="config.xml" hash="8d9a595d9763d4f52535540ae227f333"/></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="clarion_customerattribute.xml" hash="4806a3e68728cecee221a2e478867db8"/></dir><dir name="template"><dir name="clarion_customerattribute"><dir name="attribute"><dir name="edit"><file name="js.phtml" hash="c2bb9abf760078323856c16d98227fe0"/></dir><file name="js.phtml" hash="57f2621a2f0bb947c2513c8502a5d34c"/><file name="options.phtml" hash="2b9079749dd8338ffadf9f71dd1c3864"/></dir></dir></dir></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="clarion_customerattribute.xml" hash="f739a94ef200cb88e70ffb99e8cced16"/></dir><dir name="template"><dir name="clarion"><dir name="customerattribute"><dir name="form"><file name="edit.phtml" hash="66572d4984083351e4a3a822d5fc60bc"/><file name="register.phtml" hash="24dec78ec3fb77c7153f9aba122d83bb"/></dir></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Clarion_Customerattribute.xml" hash="3ada0a4914bfa2d418ce81613bd9f2d8"/></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="images"><dir name="clarion"><dir name="customerattribute"><file name="grid-cal.gif" hash="b1468e5239504974c689eea5d93f86d4"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

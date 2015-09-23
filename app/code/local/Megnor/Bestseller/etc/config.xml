@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Megnor_Bestseller>
+            <version>2.0</version>
+        </Megnor_Bestseller>
+    </modules>
+    <global>
+        <helpers>
+            <bestseller>
+                <class>Megnor_Bestseller_Helper</class>
+            </bestseller>
+        </helpers>		
+		<blocks>
+			<bestseller>
+				<class>Megnor_Bestseller_Block</class>
+			</bestseller>
+		</blocks>
+        <resources>
+            <bestseller_setup>
+                <setup>
+                    <module>Megnor_Bestseller</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </bestseller_setup>
+            <bestseller_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </bestseller_write>
+            <bestseller_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </bestseller_read>
+        </resources>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <bestseller>
+                    <file>bestseller.xml</file>
+                </bestseller>
+            </updates>
+        </layout>
+        <routers>
+            <bestseller>
+                <use>standard</use>
+                <args>
+                    <module>Megnor_Bestseller</module>
+                    <frontName>bestseller</frontName>
+                </args>
+            </bestseller>
+        </routers>
+    </frontend>
+	<adminhtml>
+        <menu>
+            <megnor_menu translate="title" module="bestseller">
+                <children>
+					<bestsellersetting module="bestseller">
+						<title>Bestseller Product</title>
+						<sort_order>3</sort_order>
+						<action>adminhtml/system_config/edit/section/bestseller</action>
+					</bestsellersetting>
+                </children>                
+            </megnor_menu>
+        </menu>
+		<acl>
+            <resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <bestseller>
+                                            <title>BestSeller</title>
+                                        </bestseller>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+	
+	<default>
+		<bestseller>
+			<general>
+				<active>1</active>
+				<categorywised>1</categorywised>
+			</general>
+			<sidebar>
+				<heading>Popular Products</heading>
+				<number_of_items>3</number_of_items>
+				<enabledleft>1</enabledleft>
+				<enabledright>0</enabledright>
+			</sidebar>			
+			<standalone>
+				<heading>Popular Products</heading>
+				<layout>two_columns_left</layout>
+                <meta_title>Popular Products</meta_title>
+                <meta_description>Check out our great collection of popular products</meta_description>
+                <meta_keywords>popular, products</meta_keywords>
+			</standalone>			
+			<listing_home>
+				<heading>Popular Products</heading>				
+			</listing_home>
+		</bestseller>
+	</default> 
+</config>
+

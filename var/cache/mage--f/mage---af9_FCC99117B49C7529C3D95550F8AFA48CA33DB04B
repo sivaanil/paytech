@@ -1,0 +1,32 @@
+<nav class="nav-container">
+	<div class="nav-inner">
+	<div class="nav-responsive" style="display:none;"><span>Menu</span><div class="expandable"></div></div>
+		 
+		<ul id="nav">
+		 	<li class="home_first">
+		 	 	<a href="http://localhost/paytec/index.php/" class="home">Home</a>
+		  	</li>		  
+		  	<ul class="hidden_menu">
+				<li  class="level0 nav-1 first level-top parent"><a href="http://localhost/paytec/index.php/education.html"  class="level-top" ><span>Educational</span></a><ul class="level0"><li  class="level1 nav-1-1 first"><a href="http://localhost/paytec/index.php/education/papercut-mf.html" ><span>PaperCut MF</span></a></li><li  class="level1 nav-1-2"><a href="http://localhost/paytec/index.php/education/inepro.html" ><span>Inepro</span></a></li><li  class="level1 nav-1-3"><a href="http://localhost/paytec/index.php/education/my-student-account.html" ><span>My Student Account</span></a></li><li  class="level1 nav-1-4 last"><a href="http://localhost/paytec/index.php/education/monitor.html" ><span>Monitor</span></a></li></ul></li><li  class="level0 nav-2 level-top"><a href="http://localhost/paytec/index.php/professional.html"  class="level-top" ><span>Professional (Client Billing)</span></a></li><li  class="level0 nav-3 level-top"><a href="http://localhost/paytec/index.php/commercial.html"  class="level-top" ><span>Commercial</span></a></li><li  class="level0 nav-4 level-top"><a href="http://localhost/paytec/index.php/embedded-software.html"  class="level-top" ><span>Embedded Software</span></a></li><li  class="level0 nav-5 level-top"><a href="http://localhost/paytec/index.php/hardware.html"  class="level-top" ><span>Hardware</span></a></li><li  class="level0 nav-6 level-top"><a href="http://localhost/paytec/index.php/hardware-payment-connection-licenses.html"  class="level-top" ><span>Hardware Payment Connection Licenses</span></a></li><li  class="level0 nav-7 level-top"><a href="http://localhost/paytec/index.php/online-payment-gateway-licenses.html"  class="level-top" ><span>Online Payment Gateway Licenses</span></a></li><li  class="level0 nav-8 level-top"><a href="http://localhost/paytec/index.php/premium-upgrade-assurance.html"  class="level-top" ><span>Premium Upgrade Assurance</span></a></li><li  class="level0 nav-9 level-top"><a href="http://localhost/paytec/index.php/professional-services.html"  class="level-top" ><span>Professional Services</span></a></li><li  class="level0 nav-10 level-top"><a href="http://localhost/paytec/index.php/optional-hardware.html"  class="level-top" ><span>Optional Hardware</span></a></li><li  class="level0 nav-11 last level-top"><a href="http://localhost/paytec/index.php/clothing.html"  class="level-top" ><span>Clothing</span></a></li>			</ul>
+			<ul>
+								<li class="onlineshopdrop"><a href="http://localhost/paytec/index.php/education.html/">ONLINE SHOP</a> 	
+				    <ul class="newcustommenu">
+					<li><a href="http://localhost/paytec/index.php/paytech/index/upload/">Upload License File</a></li>
+					<li><a href="http://localhost/paytec/index.php/quote/index/quotes/">My Quotes</a></li>
+				    </ul>			
+				</li>
+				 				 
+				<li class="last_link"><a href="http://localhost/paytec/index.php/paytech/index/allorders/">MY ORDERS</a></li>
+								<li class="last_link"><a href="http://localhost/paytec/index.php/contacts/">CONTACT US</a></li>
+			</ul>		
+		</ul>
+	 
+	</div>	
+</nav>
+<script>
+ jQuery(document).ready(function($){
+	if (jQuery(window).width()<768)	
+	$('ul#nav-mobile ul').removeClass('newcustommenu');
+ })
+
+</script>

@@ -1,0 +1,24 @@
+Application Settings
+Keep the "Consumer Secret" a secret. This key should never be human-readable in your application.
+
+Consumer Key (API Key)	nnJyT2dErBJZILr2d6EfTxhG4
+Consumer Secret (API Secret)	V2YRjm0Mm5hScGzYp54cQmW3xbMxTavQmcATXSR5Vm88XcqIo0
+Access Level	Read-only (modify app permissions)
+Owner	RameshRBT
+Owner ID	2985239233
+
+
+
+Application Actions
+Regenerate Consumer Key and SecretChange App Permissions
+
+
+
+
+Your Access Token
+This access token can be used to make API requests on your own account's behalf. Do not share your access token secret with anyone.
+Access Token	2985239233-IebohhILTLn4nFlyQFPwJl7FXysJdNXU8Cl75zH
+Access Token Secret	5FMPs3TgsTI2lKDqsVNPOZ8Fo9zm9XC8hg7aeocGmUk6D
+Access Level	Read-only
+Owner	RameshRBT
+Owner ID	2985239233

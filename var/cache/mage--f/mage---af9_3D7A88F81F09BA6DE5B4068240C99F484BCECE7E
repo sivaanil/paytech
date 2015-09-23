@@ -1,0 +1,24 @@
+<nav class="nav-container">
+	<div class="nav-inner">
+	<div class="nav-responsive" style="display:none;"><span>Menu</span><div class="expandable"></div></div>
+		 
+		<ul id="nav">
+		 	<li class="home_first">
+		 	 	<a href="http://localhost/paytec/index.php/?___SID=U" class="home">Home</a>
+		  	</li>		  
+		  	<ul class="hidden_menu">
+				<li  class="level0 nav-1 first level-top parent"><a href="http://localhost/paytec/index.php/education.html?___SID=U"  class="level-top" ><span>Educational</span></a><ul class="level0"><li  class="level1 nav-1-1 first"><a href="http://localhost/paytec/index.php/education/papercut-mf.html?___SID=U" ><span>PaperCut MF</span></a></li><li  class="level1 nav-1-2"><a href="http://localhost/paytec/index.php/education/inepro.html?___SID=U" ><span>Inepro</span></a></li><li  class="level1 nav-1-3"><a href="http://localhost/paytec/index.php/education/my-student-account.html?___SID=U" ><span>My Student Account</span></a></li><li  class="level1 nav-1-4 last"><a href="http://localhost/paytec/index.php/education/monitor.html?___SID=U" ><span>Monitor</span></a></li></ul></li><li  class="level0 nav-2 level-top"><a href="http://localhost/paytec/index.php/professional.html?___SID=U"  class="level-top" ><span>Professional (Client Billing)</span></a></li><li  class="level0 nav-3 level-top"><a href="http://localhost/paytec/index.php/commercial.html?___SID=U"  class="level-top" ><span>Commercial</span></a></li><li  class="level0 nav-4 level-top"><a href="http://localhost/paytec/index.php/embedded-software.html?___SID=U"  class="level-top" ><span>Embedded Software</span></a></li><li  class="level0 nav-5 level-top"><a href="http://localhost/paytec/index.php/hardware.html?___SID=U"  class="level-top" ><span>Hardware</span></a></li><li  class="level0 nav-6 level-top"><a href="http://localhost/paytec/index.php/hardware-payment-connection-licenses.html?___SID=U"  class="level-top" ><span>Hardware Payment Connection Licenses</span></a></li><li  class="level0 nav-7 level-top"><a href="http://localhost/paytec/index.php/online-payment-gateway-licenses.html?___SID=U"  class="level-top" ><span>Online Payment Gateway Licenses</span></a></li><li  class="level0 nav-8 level-top"><a href="http://localhost/paytec/index.php/premium-upgrade-assurance.html?___SID=U"  class="level-top" ><span>Premium Upgrade Assurance</span></a></li><li  class="level0 nav-9 level-top"><a href="http://localhost/paytec/index.php/professional-services.html?___SID=U"  class="level-top" ><span>Professional Services</span></a></li><li  class="level0 nav-10 level-top"><a href="http://localhost/paytec/index.php/optional-hardware.html?___SID=U"  class="level-top" ><span>Optional Hardware</span></a></li><li  class="level0 nav-11 last level-top"><a href="http://localhost/paytec/index.php/clothing.html?___SID=U"  class="level-top" ><span>Clothing</span></a></li>			</ul>
+			<ul>
+												<li class="last_link"><a href="http://localhost/paytec/index.php/contacts/?___SID=U">CONTACT US</a></li>
+			</ul>		
+		</ul>
+	 
+	</div>	
+</nav>
+<script>
+ jQuery(document).ready(function($){
+	if (jQuery(window).width()<768)	
+	$('ul#nav-mobile ul').removeClass('newcustommenu');
+ })
+
+</script>

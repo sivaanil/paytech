@@ -1,0 +1,49 @@
+<?php
+$collection = Mage::getSingleton('customer/session')->getSubaccountorders();
+$data = $this->getRequest()->getParams();
+$id = $data['id'];
+?>
+<div class="page-title" id="subaccounts-order-table">
+    <h1><?php echo $this->__('Orders for sub account No.').$id?></h1>
+</div>
+<div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
+</div>
+<?php if(sizeof($collection)>0): ?>
+<table class="data-table">
+    <thead>
+        <tr>
+            <th><?php echo $this->__('Order #') ?></th>
+            <th><?php echo $this->__('Customer Name') ?></th>
+            <th><?php echo $this->__('Customer Email') ?></th>
+            <th><?php echo $this->__('Order Total') ?></th>
+	    <th><?php echo $this->__('Created Date') ?></th>
+<!--	    <th colspan="4" style="text-align:center"><span class="nobr">--><?php //echo $this->__('Actions') ?><!--</span></th>-->
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($collection as $orderId):
+        $order = Mage::getModel('sales/order')->load($orderId);
+
+    ?>
+        <tr>
+            <td><?php echo $order->getId() ?>&nbsp;</td>
+            <td><?php echo ucwords($order->getData('customer_firstname').' '.$order->getData('customer_lastname'))
+                ?>&nbsp;
+            </td>
+            <td><?php echo $order->getData('customer_email') ?>&nbsp;</td>
+	    <td><?php echo $order->getData('grand_total') ?>&nbsp;</td>
+	    <td><?php echo date("D, j M, Y", strtotime($order->getCreatedAt())) ?>&nbsp;</td>
+<!--	    <td class="a-center">-->
+<!--                <span class="nobr">-->
+<!--			<a href="--><?php //echo Mage::getUrl('paytech/index/subaccountedit/id/'.$customer->getId()); ?><!--" title="Edit">--><?php //echo $this->__('Edit') ?><!--</a>-->
+<!--                </span>-->
+<!--            </td>-->
+	    </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+<script type="text/javascript">decorateTable('subaccounts-order-table')</script>
+<?php else: ?>
+    <p><?php echo $this->__('No orders found for this account.') ?></p>
+<?php endif ?>

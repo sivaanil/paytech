@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Synapse_Paytech>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Synapse_Paytech>
+    </modules>
+</config>

@@ -1,0 +1,25 @@
+<?php if($custom = $this->getCustomVars()):?>
+<div class="col-set order-info-box">
+    <div class="col">
+        <div class="box">
+            <div class="box-title">
+                <h2><?php echo $this->__('Dealer Information') ?></h2>
+            </div>
+            <div class="box-content">
+                
+                	<?php
+                		$custom = $this->getCustomVars();
+                		foreach($custom as $key => $value){
+				if($key=='ssn')
+				$key='End User Organization';
+				if($key=='purchaseorder')
+				$key='Cust. PO#';
+                	?>
+                		<b><?php echo $this->__($key);?></b> : <?php echo $value;?> <br/>
+                	<?php } ?>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

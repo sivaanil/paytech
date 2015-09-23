@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <default>
+	
+	 	<reference name="left">
+			<block type="specialproducts/specialproducts"  name="catalog.specialproducts.left" after="-">
+			 <action method="setTemplate" ifconfig="specialproducts/sidebar/enabledleft">
+				   <template>specialproducts/specialproducts.phtml</template>
+			  </action>
+			</block>         	
+        	</reference>	
+		<reference name="right">
+			<block type="specialproducts/specialproducts"  name="catalog.specialproducts.right" after="-">
+			 <action method="setTemplate" ifconfig="specialproducts/sidebar/enabledright">
+				   <template>specialproducts/specialproducts.phtml</template>
+			  </action>
+			</block>         	
+			</reference>  
+   </default> 
+   
+   
+	<specialproducts_index_index>
+        <reference name="content">
+                <block type="specialproducts/specialproductslist" name="specialproducts_product_list" as="specialproducts_product_list" template="specialproducts/list.phtml">
+                    <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                            <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                    </block>
+                    <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+                </block>
+        </reference>
+    </specialproducts_index_index>   
+   
+</layout>
+

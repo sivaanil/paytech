@@ -1,0 +1,23 @@
+#NOTE: Changing any part of this file will invalidate the license.
+#Mon May 11 23:22:07 UTC 2015
+site-servers-licensed=0
+organization-type=COMMERCIAL
+issued-by=PaperCut Software International Pty. Ltd.
+edition=MF
+advanced-clients-licensed=2
+modules-licensed=PRINT
+licensed-version=15
+release-stations-licensed=1
+issued-date=2015-06-22
+order-reference=71856
+ext-devices-lexmark=1
+users-purchased=6500
+expiry-date=indefinite
+unique-id=1431386527930
+created-by=ann.nguyen@papercut.com
+updates-expiry-policy=ALLOW_UPDATES_WITHIN_SAME_VERSION
+support-expiry-date=2015-08-24
+users-licensed=6500
+organization-name=Allianz Australia
+updates-expiry-date=2012-02-28
+signature=J7LPT9/79ejpXV+H7WxP312A79F/5LI2hTaSOATyfRlAhwAeQYM0OADCNeincOkTSAgAWsgyQllk6O8Gy33HXd5sMO8t4ztMCuWvos895TounzTLmiNaObO3OUFH929jPLokTiWfGY97uybczpURR+8Fuh31ABASDiWWEwahn84=

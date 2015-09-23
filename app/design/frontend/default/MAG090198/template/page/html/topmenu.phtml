@@ -1,0 +1,78 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+?>
+<?php $_menu = $this->getHtml('level-top') ?>
+<?php if($_menu): ?>
+<nav class="nav-container">
+	<div class="nav-inner">
+	<div class="nav-responsive" style="display:none;"><span>Menu</span><div class="expandable"></div></div>
+		 
+		<ul id="nav">
+		 	<li class="<?php echo (Mage::helper('core/url')->getCurrentUrl() === Mage::helper('core/url')->getHomeUrl()) ? "active home_first" : "home_first"; ?>">
+		 	 	<a href="<?php echo $this->getUrl('') ?>" class="home">Home</a>
+		  	</li>		  
+		  	<ul class="hidden_menu">
+				<?php echo $_menu ?>
+			</ul>
+			<ul>
+				<?php if(Mage::getSingleton('customer/session')->isLoggedIn()){ ?>
+				<li class="onlineshopdrop"><a href="<?php echo $this->getUrl('education.html'); ?>">ONLINE SHOP</a> 	
+				    <ul class="newcustommenu">
+					<li><a href="<?php echo Mage::getUrl('paytech/index/upload'); ?>">Upload License File</a></li>
+					<li><a href="<?php echo Mage::getUrl('quote/index/quotes/'); ?>">My Quotes</a></li>
+				    </ul>			
+				</li>
+				 <?php } ?>
+				<?php if(Mage::getSingleton('customer/session')->isLoggedIn()){ 
+					if(Mage::getSingleton('customer/session')->getCustomer()->getData('is_dealer')){
+				?> 
+				<li class="last_link"><a href="<?php echo Mage::getUrl('paytech/index/allorders'); ?>">MY ORDERS</a></li>
+				<?php }else{ ?>	
+				<li class="last_link"><a href="<?php echo Mage::getUrl('sales/order/history'); ?>">MY ORDERS</a></li>
+				<?php } 
+				    }					
+				?>
+				<li class="last_link"><a href="<?php echo $this->getUrl('contacts'); ?>">CONTACT US</a></li>
+			</ul>		
+		</ul>
+	 
+	</div>	
+</nav>
+<?php endif ?>
+<script>
+ jQuery(document).ready(function($){
+	if (jQuery(window).width()<768)	
+	$('ul#nav-mobile ul').removeClass('newcustommenu');
+ })
+
+</script>

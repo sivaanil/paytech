@@ -1,0 +1,60 @@
+<?php $_categories = $this->getStoreCategories() ?>
+<?php if(count($_categories)): ?>
+
+<div class="block block-advancedmenu">
+<div class="block-title">
+        <strong><span><?php echo $this->__('Categories'); ?></span></strong>
+</div>
+<div class="block-content" >
+    <div id="advancedmenu">
+        <!--<?php if ($this->showHomeLink()) : ?>
+        <div class="menu">
+            <div class="parentMenu menu0 home_link">
+                <a href="<?php echo $this->getUrl('') ?>">
+                    <span><?php echo $this->__('Home'); ?></span>
+                </a>
+            </div>
+        </div>
+        <?php endif ?>-->
+		
+        <?php foreach ($_categories as $_category): ?>
+            <?php echo $this->drawAdvancedMenuItem($_category) ?>
+        <?php endforeach ?>
+		
+		<?php if ($this->isActivecustomBlock()) : 
+			$custom_block_name =  Mage::getStoreConfig('advanced_menu/customblock/menucustomblock_name'); 
+			$custom_block_identifier =  Mage::getStoreConfig('advanced_menu/customblock/customblock_identifier'); 
+			$custom_topoffset = Mage::getStoreConfig('advanced_menu/popup/top_offset') + 0;
+		?>
+			
+		<div class="menu">
+			<div class="custom_menu menu">
+				<a><span><?php echo $custom_block_name; ?></span></a>
+			<div class="customblock_inner megnor-advanced-menu-popup" style="top:<?php echo $custom_topoffset; ?>px">
+				<div class="megnor-advanced-menu-popup_inner">
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($custom_block_identifier)->toHtml() ?> 
+				</div>	
+			</div>
+			</div>
+		</div>
+		<?php  endif;?>	
+		
+</div>	<!-- advancedmenu -->	
+</div> <!-- block-content -->	
+
+
+<script type="text/javascript">
+//<![CDATA[
+var CUSTOMMENU_POPUP_WIDTH = <?php echo Mage::getStoreConfig('advanced_menu/popup/width') + 0; ?>;
+var CUSTOMMENU_POPUP_TOP_OFFSET = <?php echo Mage::getStoreConfig('advanced_menu/popup/top_offset') + 0; ?>;
+var CUSTOMMENU_POPUP_RIGHT_OFFSET_MIN = <?php echo Mage::getStoreConfig('advanced_menu/popup/right_offset_min') + 0; ?>;
+var CUSTOMMENU_POPUP_DELAY_BEFORE_DISPLAYING = <?php echo Mage::getStoreConfig('advanced_menu/popup/delay_displaying') + 0; ?>;
+var CUSTOMMENU_POPUP_DELAY_BEFORE_HIDING = <?php echo Mage::getStoreConfig('advanced_menu/popup/delay_hiding') + 0; ?>;
+var megnorCustommenuTimerShow = {};
+var megnorCustommenuTimerHide = {};
+//]]>
+</script>
+</div><!-- block-advancedmenu -->	
+<?php endif ?>
+
+ 

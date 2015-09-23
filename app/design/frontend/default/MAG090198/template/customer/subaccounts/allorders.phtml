@@ -1,0 +1,68 @@
+<?php 
+$customer_emails = array();
+$current_customer_id = Mage::getSingleton('customer/session')->getCustomer()->getId();
+$customer_emails[] = Mage::getSingleton('customer/session')->getCustomer()->getEmail();
+$sub_accounts = Mage::getModel('customer/customer')
+                    ->getCollection()
+                    ->addAttributeToFilter('master_customer', $current_customer_id);
+foreach($sub_accounts as $subaccount){
+$customer_emails[] = $subaccount->getEmail();
+}
+$_orders = Mage::getModel('sales/order')
+                    ->getCollection()
+                    ->addAttributeToFilter('customer_email',array('in' => $customer_emails))
+					->setOrder('created_at', 'desc'); 
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('My Orders') ?></h1>
+</div>
+<?php if($_orders->getSize()): ?>
+<?php echo $this->getPagerHtml(); ?>
+<table class="data-table" id="my-orders-table">
+    <col width="1" />
+    <col width="1" />
+    <col />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <thead>
+        <tr>
+            <th><?php echo $this->__('Order #') ?></th>
+            <th><?php echo $this->__('Date') ?></th>
+            <th><?php echo $this->__('Ship To') ?></th>
+            <th><span class="nobr"><?php echo $this->__('Order Total') ?></span></th>
+            <th><span class="nobr"><?php echo $this->__('Order Status') ?></span></th>
+            <th><span class="nobr">Cust. PO#</span></th>
+            <th><center>Actions</center></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $_odd = ''; 
+	$model = Mage::getModel('custom/custom_order');
+	?>
+        <?php foreach ($_orders as $_order):     
+		$data=$model->getByOrder($_order->getId());?>
+        <tr>
+            <td><?php echo $_order->getRealOrderId() ?></td>
+            <td><span class="nobr"><?php echo date('Y-m-d',strtotime($_order->getCreatedAtStoreDate())) ?></span></td>
+            <td><?php echo $_order->getShippingAddress() ? $this->escapeHtml($_order->getShippingAddress()->getName()) : '&nbsp;' ?></td>
+            <td><?php echo $_order->formatPrice($_order->getGrandTotal()) ?></td>
+            <td><em><?php echo $_order->getStatusLabel() ?></em></td>
+            <td><?php echo $data['purchaseorder'] ?></td>
+            <td class="a-center">
+                <span class="nobr"><a href="<?php echo Mage::getUrl('sales/order/view/order_id/'.$_order->getId()); ?>"><?php echo $this->__('View Order') ?></a>
+                    <?php /*<span class="separator">|</span><a href="<?php echo $this->getTrackUrl($_order) ?>"><?php echo $this->__('Track Order') ?></a>&nbsp;*/ ?>
+                    <?php if ($this->helper('sales/reorder')->canReorder($_order)) : ?>
+                    <span class="separator">|</span> <a href="<?php echo Mage::getUrl('sales/order/reorder/order_id/'.$_order->getId()); ?>" class="link-reorder"><?php echo $this->__('Reorder') ?></a>
+                <?php endif ?>
+                </span>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">decorateTable('my-orders-table');</script>
+<?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+    <p><?php echo $this->__('You have placed no orders.'); ?></p>
+<?php endif ?>

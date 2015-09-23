@@ -1,0 +1,62 @@
+<footer class="footer-container">	
+	<div class="footer">		
+		<div class="footer_top" id="footer">		
+			<div id="block_1" class="footer-area">
+				<h6>OFFICE ADDRESS</h6>
+<ul>
+<li class="address">
+<div class="inner_contact"><strong>Paytec Technology That Counts</strong><br />79 King William St<br />Kent Town SA 5076</div>
+</li>
+<li class="phoneno">
+<div class="inner_contact"><strong>ABN: 66 299 029 355</strong></div>
+</li>
+</ul> 
+			</div>
+			<div id="block_2" class="footer-area">
+				<h6>POSTAL ADDRESS</h6>
+<ul>
+<li class="address">
+<div class="inner_contact"><strong>Paytec Technology That Counts</strong><br />PO Box 655<br />Kensington SA 5068</div>
+</li>
+</ul> 
+			</div>
+			<div id="block_3" class="footer-area">
+				<h6>LINKS</h6>
+<ul>
+<li><a href="http://localhost/paytec/index.php/?___SID=U" >Home</a></li>
+<li><a href="http://localhost/paytec/index.php/educational.html/?___SID=U">Online Shop</a></li>
+<li class="orders-link"><a href="#">Orders</a></li>
+<li><a href="http://localhost/paytec/index.php/contacts/?___SID=U">Contact us</a></li>
+</ul> 
+			</div>		
+			<div id="block_4" class="footer-area">				
+				<h6>CONNECT WITH US</h6>
+<div class="social_block">
+<ul>
+<li class="facebook"><a href="http://www.facebook.com">&nbsp;</a></li>
+<li class="twitter"><a href="http://www.twiiter.com">&nbsp;</a></li>
+<li class="google"><a href="http://www.twiiter.com">&nbsp;</a></li>
+<li class="rss"><a href="http://www.rss.com">&nbsp;</a></li>
+</ul>
+</div> 			
+			 </div>		
+		</div> 
+		<div class="footer_bottom"> 
+						        		<!--<address>&copy; 2014 Magento Demo Store. All Rights Reserved.</address> 
+				<div class="footer-bottom-paypal"> 
+					<ul class="paypal_block">
+<li class="mastercard"><a href="#">&nbsp;</a></li>
+<li class="discover"><a href="#">&nbsp;</a></li>
+<li class="paypal"><a href="#">&nbsp;</a></li>
+<li class="visa"><a href="#">&nbsp;</a></li>
+</ul> 	
+				</div>	-->
+		</div>
+    </div>
+</footer>
+ 
+<script>
+	jQuery(document).ready(function($){
+		$('.orders-link').hide();	
+	});
+</script>

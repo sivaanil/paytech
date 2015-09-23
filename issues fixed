@@ -1,0 +1,27 @@
+1. Resolved on 22/7/2015
+
+	Files modified:
+		1. Quote/IndexController.php - app folder
+		2. MAGO90198/template/quote/view.phtml - Design Folder
+	New Files:
+		1. MAGO90198/template/quote/maintenanceProducts.phtml - Design Folder
+
+	Quantity change for configurable product in new quote - Resolved
+	When deleting the simple product, configurable product are merging - Resolved
+	By default quantity is adding as 2 for simple product - Resolved
+	Bundle product options - Resolved
+	price issue for configurable product - Resolved
+
+2. Started Working on 23/7/2015
+	
+	Files modified:
+		1. Paytech/IndexController.php - app folder
+		2. Quote/Model/Observer.php - app folder
+		3. MAGO90198/template/customer/licenseQuote.phtml - Design Folder
+		4. Mage/Checkout/controllers/cartController.php - app folder
+		5. Mage/Checkout/models/cart.php - app folder
+	New Files:
+		1. MAGO90198/template/quote/maintenanceProducts.phtml - Design Folder
+
+	Changed label name for quote expiry date
+	

@@ -1,0 +1,22 @@
+#NOTE: Changing any part of this file will invalidate the license.
+#Wed Jan 21 05:51:05 UTC 2015
+organization-type=EDUCATIONAL
+issued-by=PaperCut Software International Pty. Ltd.
+edition=MF
+advanced-clients-licensed=2
+modules-licensed=PRINT
+ext-devices-konica-minolta=6
+licensed-version=14
+release-stations-licensed=1
+issued-date=2015-01-21
+order-reference=66353
+users-purchased=2000
+expiry-date=indefinite
+unique-id=1421819465182
+created-by=siobhan.kamper@papercut.com
+updates-expiry-policy=ALLOW_UPDATES_WITHIN_SAME_VERSION
+support-expiry-date=2019-10-22
+users-licensed=2000
+organization-name=St Brigids College
+updates-expiry-date=2019-10-22
+signature=hwRbbKYrhFj7biznxS4zEm7/0Rlg5dtDAzImyEJp65J87fBIeEa1a3wRw9c+vC0wIUyKXzSAyq+4dQ2I7ZS0ABn0f8hC5F0+spKrt2rk0S6FrtgROoRM6utd8tpbsBfflTebuYxdH9p2KKfxdRqxGc/MaPGwth9OCkuypXhs+dQ=

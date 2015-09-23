@@ -1,0 +1,22 @@
+#NOTE: Changing any part of this file will invalidate the license.
+#Tue Dec 02 03:36:39 UTC 2014
+organization-type=EDUCATIONAL
+issued-by=PaperCut Software International Pty. Ltd.
+edition=MF
+advanced-clients-licensed=2
+modules-licensed=PRINT
+licensed-version=14
+release-stations-licensed=2
+issued-date=2014-12-02
+order-reference=64201
+users-purchased=1500
+ext-devices-kyocera-mita=6
+expiry-date=indefinite
+unique-id=1417491399337
+created-by=siobhan.kamper@papercut.com
+updates-expiry-policy=ALLOW_UPDATES_WITHIN_SAME_VERSION
+support-expiry-date=2015-12-09
+users-licensed=1500
+organization-name=CHRISTIES BEACH HIGH SCHOOL
+updates-expiry-date=2015-12-09
+signature=ZNX16UHnypHwZXNt6kD6yGPEAnkaoqa0txW/5gLMLWU6lhlWv7GRtmf5glqYff8qFZ3i/Kt84i9QtX9t5+XJryVty/8u3RT9XXYMt6a+Wln/O0vwT2jyESH1lsgSPISs5wj7IGUZLxO9oUkGyLXMFGkE/qljMWYNehK8oC4eihg=

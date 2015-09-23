@@ -1,0 +1,110 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+?>
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<div class="category-products"> 
+   <?php // Grid Mode ?> 
+    <?php $_collectionSize = $_productCollection->count() ?>
+	
+	<?php 
+		$sliderFor = 5;
+		$productCount = $_collectionSize; 
+	?>
+	<?php if ($productCount >= $sliderFor): ?>
+		<div class="customNavigation">
+			<a class="btn prev">&nbsp;</a>
+			<a class="btn next">&nbsp;</a>
+		</div>	
+	<?php endif; ?>	
+   
+       
+        <ul class="<?php if ($productCount >= $sliderFor){?>product-carousel<?php }else{?>products-grid<?php }?>" id="<?php if ($productCount >= $sliderFor){?>home-carousel<?php }else{?>home-grid<?php }?>" >
+		
+		 <?php $i=0; foreach ($_productCollection as $_product): ?>		 
+		   <li class="item <?php if ($productCount >= $sliderFor){?>slider-item<?php }else{?>product-items<?php }?>">
+				<div class="product-block">
+				<div class="product-block-inner">
+				
+				<?php if($this->helper('framework')->isNewProduct($_product)):?>
+					<div class="new-label"><?php echo $this->__('New') ?></div>
+				<?php endif; ?>
+				
+				<?php if($this->helper('framework')->isSpecialProduct($_product)):?>
+					<div class="sale-label"><?php echo $this->__('Sale') ?></div>
+				<?php endif; ?>
+							 			
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+				
+                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+				</h2>
+               
+			    <?php if($_product->getRatingSummary()): ?>
+					<div class="description grid_rating">
+					<?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+					</div>
+                <?php endif; ?>
+				
+                <?php echo $this->getPriceHtml($_product, true) ?>
+				
+                <div class="actions">
+		 <ul class="add-to-links">		
+                    <?php if($_product->isSaleable()): ?>
+                        <li><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></li>
+                    <?php else: ?>
+                      <li><p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p></li>
+                    <?php endif; ?>
+                    <li class="quote"><a class="fancybox" href="#inline1" title="iframe" onclick="addProductToQuote(this,'<?php echo $_product->getId(); ?>')">ADD TO QUOTE</a></li>
+                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                        <?php endif; ?>
+                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                            <li><a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+                        <?php endif; ?>
+                    </ul>
+                	</div>
+					
+				</div><!-- End div class product-block-->
+				</div><!-- End div class product-block-inner -->
+            </li>
+        <?php endforeach ?>
+        </ul> 
+ 
+	<span style="display: none; visibility: hidden;" class="grid_default_width"></span>
+</div>
+<?php endif; ?>

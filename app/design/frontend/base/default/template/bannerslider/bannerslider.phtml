@@ -1,0 +1,6 @@
+<?php
+$slider_type=Mage::getStoreConfig('tab1/general/slider_type');
+ echo $this->getLayout()->createBlock('bannerslider/bannerslider')->setTemplate('bannerslider/'.$slider_type.'.phtml')->toHtml();
+
+ 
+

@@ -1,0 +1,64 @@
+<?php
+$current_customer = Mage::getSingleton('customer/session')->getCustomer()->getId();
+$collection = mage::getModel('customer/customer')
+			->getCollection()
+   			->addAttributeToSelect('*')
+   			->addAttributeToFilter('master_customer', $current_customer);
+?>
+<div class="page-title" id="my-subaccounts-table">
+    <h1><?php echo $this->__('My Sub Accounts') ?></h1>		
+    <a style="float:right;font-size:16px;color:#B21116" href="<?php echo Mage::getUrl('paytech/index/subaccounts'); ?>">Add New SubAccount</a>	
+</div>
+<div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
+</div>
+<?php if($collection->getSize()): ?>
+<table class="data-table">
+    <thead>
+        <tr>
+            <th><?php echo $this->__('Customer #') ?></th>           
+            <th><?php echo $this->__('Firstname') ?></th>
+            <th><?php echo $this->__('Lastname') ?></th>
+            <th><?php echo $this->__('Email') ?></th>
+	    <th><?php echo $this->__('Created Date') ?></th>
+	    <th colspan="4" style="text-align:center"><span class="nobr"><?php echo $this->__('Actions') ?></span></th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($collection as $_customer): 
+		$customer = Mage::getModel('customer/customer')->load($_customer->getId());
+    ?>
+        <tr>
+            <td><?php echo $customer->getId() ?>&nbsp;</td>
+            <td><?php echo $customer->getFirstname() ?>&nbsp;</td>
+            <td><?php echo $customer->getLastname() ?>&nbsp;</td>
+	    <td><?php echo $customer->getEmail() ?>&nbsp;</td>	
+	    <td><?php echo date("D, j M, Y", strtotime($customer->getCreatedAt())) ?>&nbsp;</td>
+	    <td class="a-center">
+                <span class="nobr">
+			<a href="<?php echo Mage::getUrl('paytech/index/subaccountedit/id/'.$customer->getId()); ?>" title="Edit"><?php echo $this->__('Edit') ?></a>
+                </span>
+            </td>
+	    <td class="a-center">
+                <span class="nobr">
+		<a href="<?php echo Mage::getUrl('paytech/index/deletesubaccount/id/'.$customer->getId()); ?>" title="Delete" onclick="return confirm('Are you sure you want to delete the Subaccount?')"><?php echo $this->__('Delete') ?></a>
+                </span>
+            </td>
+            <td class="a-center">
+                <span class="nobr">
+			<a href="<?php echo Mage::getUrl('paytech/index/viewsubaccountorders/id/'.$customer->getId()); ?>" title="View Orders"><?php echo $this->__('View Orders') ?></a>
+                </span>
+            </td>
+            <td class="a-center">
+                <span class="nobr">
+			<a href="<?php echo Mage::getUrl('paytech/index/viewsubaccountquotes/id/'.$customer->getId()); ?>" title="View Quotes"><?php echo $this->__('View Quotes') ?></a>
+                </span>
+            </td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+<script type="text/javascript">decorateTable('my-subaccounts-table')</script>
+<?php else: ?>
+    <p><?php echo $this->__('You have no sub accounts.') ?></p>
+<?php endif ?>

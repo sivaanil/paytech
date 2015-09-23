@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <remove name="left.catalog.compare.sidebar" />
+	<remove name="paypal.partner.left.logo"/>
+	<remove name="left.permanent.callout" />
+	<remove name="left.newsletter" />
+        <remove name="right.permanent.callout" />
+	<remove name="paypal.partner.right.logo"/> 
+	<remove name="right.poll"/>
+	<remove name="right.reports.product.viewed"/>
+	<remove name="right.reports.product.compared"/>
+	<remove name="left.reports.product.viewed"/>
+	<remove name="left.reports.product.compared"/>
+ 	<remove name="cart_sidebar"/>
+    	<remove name="catalog.compare.sidebar"/>
+	<remove name="catalog.specialproducts.left"/>
+	<remove name="catalog.specialproducts.right"/>
+	<remove name="catalog.newproducts.right"/>
+	<remove name="catalog.newproducts.left"/>
+	<remove name="catalog.bestseller.left"/>
+	<remove name="catalog.bestseller.right"/>
+	<remove name="catalog.leftnav.filter" />
+	<remove name="sale.reorder.sidebar"/>
+	<remove name="wishlist_sidebar"/>  
+    </default>
+</layout>

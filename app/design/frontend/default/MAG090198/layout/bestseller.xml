@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout version="0.1.0">
+    <default>	
+	 <reference name="left">
+		<block type="bestseller/bestseller"  name="catalog.bestseller.left" after="-">
+		 <action method="setTemplate" ifconfig="bestseller/sidebar/enabledleft">
+               <template>bestseller/bestseller.phtml</template>
+          </action>
+		</block>         	
+    </reference>
+	
+	<reference name="right">
+		<block type="bestseller/bestseller"  name="catalog.bestseller.right" after="-">
+		 <action method="setTemplate" ifconfig="bestseller/sidebar/enabledright">
+               <template>bestseller/bestseller.phtml</template>
+          </action>
+		</block>         	
+        </reference>  
+   </default> 
+   
+   <bestseller_index_index>
+        <reference name="content">          
+                <block type="bestseller/bestsellerlist" name="bestseller_product_list" as="bestseller_product_list" template="bestseller/list.phtml">
+                    <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                            <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                    </block>
+                    <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>										
+                </block>				
+        </reference>
+    </bestseller_index_index>
+   
+</layout>
+

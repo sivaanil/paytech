@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config>
+<modules>
+	<Adminmodules_Brandattr>
+		<version>1.0.0</version>
+	</Adminmodules_Brandattr>
+</modules>
+<global>
+    <models>
+        <brandattr>
+            <class>Adminmodules_Brandattr_Model</class>
+        </brandattr>
+    </models>
+    <resources>
+        <brandattr_setup>
+            <setup>
+                <module>Adminmodules_Brandattr</module>
+            </setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </brandattr_setup>
+
+        <brandattr_write>
+            <connection>
+                <use>core_write</use>
+            </connection>
+        </brandattr_write>
+
+        <brandattr_read>
+            <connection>
+                <use>core_read</use>
+            </connection>
+        </brandattr_read>
+    </resources>
+</global>
+</config>

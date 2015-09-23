@@ -1,0 +1,75 @@
+<?php echo "dsfdsfdsfdfsdfsdf"; ?>
+<span style="color:red"><?php echo $this->__('Please select any one from the below');?></span>
+
+<table class="data-table" id="maintenace-products-table">
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <thead>
+    <tr>
+        <th><?php echo $this->__('Item') ?></th>
+        <th><?php echo $this->__('Item Name') ?></th>
+        <th><?php echo $this->__('Item Qty') ?></th>
+        <th><?php echo $this->__('Subtotal') ?></th>
+    </tr>
+    </thead>
+    <tbody>
+<?php
+$_odd = '';
+$current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+$maintenanceProducts = Mage::getSingleton('core/session')->getMaintenanceProductsCollection();
+$softwareProd = Mage::getSingleton('customer/session')->getsoftwareProdPrice($softwareProd);
+echo '+';
+print_r($softwareProd);
+
+if(isset($maintenanceProducts)){
+    foreach($maintenanceProducts as $maintenanceProduct){
+        $_product = Mage::getModel('catalog/product')->load($maintenanceProduct);
+    ?>
+
+<tr>
+
+    <td>
+
+    <input type="radio" name="maintenanceProduct" value="<?php echo $maintenanceProduct;?>" style="width:25px;height:
+     45px"><img
+            src="<?php echo
+        Mage::helper
+        ('catalog/image')
+            ->init($_product, 'thumbnail')->resize(75,75); ?>" />
+    </td>
+    <td>
+        <span class="nobr"><?php echo $_product->getName();?></span>
+    </td>
+    <td>
+        <?php $qty = 1; echo $qty;?>
+
+    </td>
+    <td>
+        <?php
+//                $item_price = $_product->getFinalPrice();
+
+        //echo $item_price;
+        $percent=$_product->getData('tot_software_perc');
+        $calculatedPrice=$softwareProd/100*$percent;
+        $item_price=$_product->getFinalPrice($qty);
+
+        if($item_price<$calculatedPrice)
+            $item_price=$calculatedPrice;
+
+
+        if($current_currency_code == 'NZD'){
+            $price=Mage::helper('directory')->currencyConvert((float)$item_price, 'AUD', 'NZD');
+            echo "NZ$ ".number_format($price, '2', '.', ',');
+        }else{
+            echo "AU$ ".number_format($item_price, '2', '.', ',');
+        }
+        ?>
+    </td>
+</tr>
+    <?php }} ?>
+</tbody>
+</table>

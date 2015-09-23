@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Megnor_Specialproducts>
+            <version>2.0</version>
+        </Megnor_Specialproducts>
+    </modules>
+    <global>
+        <helpers>
+            <specialproducts>
+                <class>Megnor_Specialproducts_Helper</class>
+            </specialproducts>
+        </helpers>		
+		<blocks>
+			<specialproducts>
+				<class>Megnor_Specialproducts_Block</class>
+			</specialproducts>
+		</blocks>
+        <resources>
+            <specialproducts_setup>
+                <setup>
+                    <module>Megnor_Specialproducts</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </specialproducts_setup>
+            <specialproducts_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </specialproducts_write>
+            <specialproducts_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </specialproducts_read>
+        </resources>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <specialproducts>
+                    <file>specialproducts.xml</file>
+                </specialproducts>
+            </updates>
+        </layout>
+		 <routers>
+            <specialproducts>
+                <use>standard</use>
+                <args>
+                    <module>Megnor_Specialproducts</module>
+                    <frontName>specialproducts</frontName>
+                </args>
+            </specialproducts>
+        </routers>
+    </frontend>
+    <adminhtml>
+        <menu>
+            <megnor_menu translate="title" >
+                <children>
+					<specialproductssetting >
+						<title>SpecialProducts</title>
+						<sort_order>7</sort_order>
+						<action>adminhtml/system_config/edit/section/specialproducts</action>
+					</specialproductssetting>
+                </children>                
+            </megnor_menu>
+        </menu>
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <specialproducts>
+                                            <title>SpecialProducts</title>
+                                        </specialproducts>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+	
+	<default>
+		<specialproducts>
+			<general>
+				<active>1</active>
+				<categorywised>1</categorywised>
+			</general>
+			<sidebar>	
+				<heading>Special Products</heading>
+				<number_of_items>3</number_of_items>				 				 
+				<enabledleft>1</enabledleft>
+				<enabledright>0</enabledright>
+			</sidebar>
+			<listing_home>
+				<heading>Special Products</heading>
+			</listing_home>
+			<standalone>
+                <heading>Special Products</heading>
+                <layout>two_columns_left</layout>
+                <meta_title>Special Products</meta_title>
+                <meta_description>Check out our great collection of Special products</meta_description>
+                <meta_keywords>special, products</meta_keywords>
+            </standalone>
+		</specialproducts>
+	</default>
+</config>
