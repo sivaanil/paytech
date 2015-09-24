@@ -50,6 +50,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 				$model->setData('is_approved',0);
 				try{
 					$model->save();
+                    Mage::getModel('quote/quote')->sendEmail();
 					$session->addSuccess("Quote saved successfully");
 					Mage::getSingleton('customer/session')->setNewQuote(array());
 					$this->_redirect('*/*/quotes');
@@ -93,6 +94,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 				$existing_quote_record->setData('quote_product_prices_nzd', implode(',',$nzd_prices));
 				try{
 					$existing_quote_record->save();
+                    Mage::getModel('quote/quote')->sendEmail();
 					$session->addSuccess("The Quote has been saved");
 				} catch(Exception $e){
 					$session->addError("Unable to save the Quote");
@@ -366,21 +368,19 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
                             foreach($productOptions[$item_id] as $key => $value){
                                 $itemToBeRemoved = array_intersect($value,$decodedParams);
 
-                                print_r($value);
+//                                print_r($value);
                                 if(!empty($itemToBeRemoved) && (sizeof($itemToBeRemoved)>1)){
                                     unset($productOptions[$item_id][$key]);
                                     break;
                                 }
                             }
 
-
                             $rearrangingIndex = array_values($productOptions[$item_id]);
                             $productOptions[$item_id]= $rearrangingIndex;
                             $updatedQuoteParamsData = serialize($productOptions);
-                            if(sizeof($productOptions[$item_id])==0)
+                            if(sizeof($productOptions[$item_id])==0){
                                 unset($quoteProds[$k]);
-
-
+                            }
                         }else{
                             $updatedQuoteParamsData = serialize($productOptions);
                             unset($quoteProds[$k]);
@@ -474,9 +474,9 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 		}
 		public function createAction()
 		{
-			$session=Mage::getSingleton('customer/session');
+            $session=Mage::getSingleton('customer/session');
 			$quote = $this->getRequest()->getParam('quote');
-			if(empty($quote)){
+            if(empty($quote)){
 				$session->unsetData('currentquote');
 				$session->unsetData('current_quote');
 				$session->unsetData('new_quote');
@@ -667,14 +667,12 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 					$options = Mage::getSingleton('customer/session')->getProdOptions();
                     $productOptions = unserialize($options);
 
-
 // To update quantity for already added configurable product
 
                     foreach($productOptions as $productOption=>$val){
                     if(array_key_exists($productId,$productOptions)){
 
                         $latestAttributes = $this->compareAttributes($selectedOptions,$val);
-
                         $newAttributes = $latestAttributes['newAttributeProduct'];
 
                         $index =  $latestAttributes['index'];

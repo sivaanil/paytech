@@ -63,6 +63,15 @@
 				</observers>
 			</sales_quote_remove_item>
 		</events>
+        <template>
+            <email>
+                <custom_template>
+                    <label>Save Quote</label>
+                    <file>custom_template.html</file>  // this specifies the path where the custom template is located
+                    <type>html</type>
+                </custom_template>
+            </email>
+        </template>
 	</global>
 	<frontend>
 		<routers>
