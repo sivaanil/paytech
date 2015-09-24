@@ -203,17 +203,13 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 			$model = Mage::getModel("quote/quote");
             $existing_quote_record = $model->load($quote_id);
 			$quote_details = $existing_quote_record->getData();
-            echo '<pre>';
             $quote_products = explode(',',$quote_details['quote_product_ids']);
 			$quote_qtys = explode(',',$quote_details['quote_product_qtys']);
 			$quote_product_qty = array_combine($quote_products,$quote_qtys);
 			$quote_product_price_aud =explode(',',$quote_details['quote_product_prices_aud']);
 			$quote_product_price_nzd =explode(',',$quote_details['quote_product_prices_nzd']);
             $quote_product_params = unserialize($quote_details['quote_product_params']);
-            print_r($quote_product_qty);
-            print_r($quote_product_params);
-            exit;
-			$storeId = Mage::app()->getStore()->getStoreId();
+            $storeId = Mage::app()->getStore()->getStoreId();
 			foreach ($quote_product_qty as $k => $v){
 
 					$_product = Mage::getModel('catalog/product')->load($k);
