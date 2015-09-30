@@ -164,6 +164,7 @@ $customer = Mage::getModel('customer/customer')->load($subaccountid);
                     </div>
                 </li>
             </ul>
+
             <div class="field">
                 <div class="field name-firstname">
                     <label for="order_confirmation_email">Order Confirmation Email(s)
@@ -183,6 +184,7 @@ $customer = Mage::getModel('customer/customer')->load($subaccountid);
                     <label for="can_place_order"><?php echo $this->__('Can Place Order') ?></label>
                 </li>
             </ul>
+
             <input type="hidden" value="1" name="default_billing">
             <input type="hidden" value="1" name="default_shipping">
         </div>

@@ -50,7 +50,14 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 				$model->setData('is_approved',0);
 				try{
 					$model->save();
-                    Mage::getModel('quote/quote')->sendEmail();
+                    if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+                        // Load the customer's data
+                        $customer = Mage::getSingleton('customer/session')->getCustomer();
+                        Mage::getModel('quote/quote')->sendQuoteCreatedEmail($customer);
+
+                    }
+
+
 					$session->addSuccess("Quote saved successfully");
 					Mage::getSingleton('customer/session')->setNewQuote(array());
 					$this->_redirect('*/*/quotes');
@@ -65,7 +72,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 				$existing_quote_record = $model->load($data['quoteid']);
 				$quote_details = $existing_quote_record->getData();
 			    $quote_product_ids=$existing_quote_record->getData('quote_product_ids');
-				$quote_product_ids=explode(',',$quote_product_ids);
+                $quote_product_ids=explode(',',$quote_product_ids);
 				$aud_prices=$existing_quote_record->getData('quote_product_prices_aud');
 				$aud_prices=explode(',',$aud_prices);
 				$nzd_prices=$existing_quote_record->getData('quote_product_prices_nzd');
@@ -94,8 +101,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 				$existing_quote_record->setData('quote_product_prices_nzd', implode(',',$nzd_prices));
 				try{
 					$existing_quote_record->save();
-                    Mage::getModel('quote/quote')->sendEmail();
-					$session->addSuccess("The Quote has been saved");
+                    $session->addSuccess("The Quote has been saved");
 				} catch(Exception $e){
 					$session->addError("Unable to save the Quote");
 				}

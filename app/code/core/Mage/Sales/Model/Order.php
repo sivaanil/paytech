@@ -1310,6 +1310,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
         $mailer = Mage::getModel('core/email_template_mailer');
         $emailInfo = Mage::getModel('core/email_info');
         $emailInfo->addTo($this->getCustomerEmail(), $customerName);
+
         if ($copyTo && $copyMethod == 'bcc') {
             // Add bcc to customer email
             foreach ($copyTo as $email) {
