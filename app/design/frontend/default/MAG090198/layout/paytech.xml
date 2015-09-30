@@ -46,7 +46,8 @@
 		<action method="setTemplate"><template>page/1column.phtml</template></action>		
     	</reference>       
         <reference name="content">		   
-	<block type="core/template" name="upload_license" template="customer/subaccounts/upload.phtml" />	
+	<!--<block type="core/template" name="upload_license" template="customer/subaccounts/upload.phtml" />	-->
+	<block type="core/template" name="upload_license" template="customer/licensequote.phtml" />
         </reference>
     </paytech_index_upload>
     <paytech_index_uploadlicense>

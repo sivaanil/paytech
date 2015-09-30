@@ -1,58 +1,17 @@
 <div class="page-title">
-    <h1><?php echo $this->__('Quote for the license file') ?></h1>    	
+    <h1><?php
+        echo $this->__('Quote for the license file') ?></h1>
 </div>
 <?php
-
-$license_data = Mage::getSingleton('core/session')->getLicensefileValues();
-$license_file_mapdata = Mage::getSingleton('core/session')->getLicensefileMappingdata();
-$license_file_createdby = Mage::getSingleton('core/session')->getLicensefileCreatedBy();
-$maintenanceProducts = Mage::getSingleton('core/session')->getMaintenanceProductsCollection();
+$products = Mage::getSingleton('customer/session')->getproducts();
+$license_file_createdby =  Mage::getSingleton('core/session')->getLicensefileCreatedBy();
 $notificationAboutExpiry = Mage::getSingleton('core/session')->getNotificationAboutExpiry();
 $finalized=$discontinued_prod=$product_with_issues=array();
-
 /**Loop to get the finalized list of products. For this we have to check for product sku in
 *license mapping file. if key exists in mapping file then it will be added to the finalized
 *list.
 **/
-foreach ($license_data as $key =>$value){
-   if(isset($license_file_mapdata[$key]) && $license_file_mapdata[$key]!=''){
-		$finalized[$key]=$value;
-   } else if(preg_match('/^payment-gateways-/', $key)&& !isset($license_file_mapdata[$key])){
-		$finalized['payment-gateways-????']=$value;
-   }
-}
-
-/**
-* From the finalized list check for existence of the product in online Database. 
-*
-**/
-
-
-foreach ($finalized as $key =>$value){
-
-	if(isset($license_file_mapdata[$key]) && $license_file_mapdata[$key]!=''){
-		$sku=$license_file_mapdata[$key];
-		$_product = Mage::getModel('catalog/product')->loadByAttribute('sku',$sku);
-		if(is_object($_product))
-			$final_mapped_data[$sku] = $value;
-		else
-			$discontinued_prod[]=$key;
-	}else{
-		$product_with_issues[]=$key;
-		$discontinued_prod[]=$key;
-	}
-}
-if(isset($_POST['maintenanceProduct'])){
-    $selectedMaintenanceProduct = $_POST['maintenanceProduct'];
-    $selectedMaintenanceProductPrice = $_POST['maintenanceProductPrice'];
-    $final_mapped_data[$selectedMaintenanceProduct] = 1;
-    $data['selectedMaintenanceProduct'] = $selectedMaintenanceProduct;
-    $data['selectedMaintenanceProductPrice'] = $selectedMaintenanceProductPrice;
-    Mage::getSingleton('customer/session')->setUpgradeRenewal($data);
-}
-
-if(!empty($final_mapped_data))
-{
+if(!empty($products)){
 	?>
      <ul class="messages">
 		<li class="success-msg">
@@ -60,13 +19,8 @@ if(!empty($final_mapped_data))
 				<li>
                    <span>
 						<?php
-                        	if(count($discontinued_prod)>0)
-							{
-								echo $this->__('Licensing file is successfully imported but some products are failed to import as they no longer exist'); ?>(<?php echo implode(', ',$discontinued_prod);?>)
-							<?php
-							}else{
-								echo $this->__('Licensing file is successfully imported');
-							}
+                        		echo $this->__('Items you choosed');
+
 						?>
 					</span>
 				</li>
@@ -83,7 +37,7 @@ if(!empty($final_mapped_data))
                    <span>
                        <?php
 
-                           echo $this->__('Your support license is expiring with in 30 days, please renew it.');
+                          // echo $this->__('Your support license is expiring with in 30 days, please renew it.');
 
                        ?>
 					</span>
@@ -119,28 +73,11 @@ if(!empty($final_mapped_data))
 				</thead>
 				<tbody>
 				<?php 
-				$softwareProd=0;
-				$_odd = '';
+				foreach ($products as $product){
 
-//echo $selectedMaintenanceProduct;
-//echo $selectedMaintenanceProductPrice;
-				foreach ($final_mapped_data as $sku => $qty){
-                    if($selectedMaintenanceProduct == $sku)
-                if(!strtolower($attribTxt)=='maintenance product') {
-
-                    if(trim($license_data['edition'])=='MF' && (trim($license_data['organization-type'])=='COMMERCIAL') ||(trim
-                            ($license_data['organization-type'])=='PROFESSIONAL')){
-                            $qty = ceil($license_data['users-licensed']/25) ;
-
-                    }
-
-                    if(trim($license_data['edition'])=='MF' && (trim($license_data['organization-type'])=='EDUCATIONAL')){
-                        $qty = ceil($license_data['users-licensed']/500) ;
-                    }
-                }
-                    $_product = Mage::getModel('catalog/product')->loadByAttribute('sku',$sku);
-					$attribTxt = $_product->getAttributeText('product_type');
-					$item_price=$this->helper('tax')->getPrice($_product, $_product->getFinalPrice($qty));
+                   $item_price=$this->helper('tax')->getPrice($product, $product->getFinalPrice($qty));
+                    echo '+';
+                    echo $item_price;
 					//$item_price=number_format($item_price*$qty, '2', '.', ',');
                     $item_price=$item_price*$qty;
 					$support=false;
