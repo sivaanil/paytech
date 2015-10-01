@@ -1278,7 +1278,6 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
         // Get the destination email addresses to send copies to
         $copyTo = $this->_getEmails(self::XML_PATH_EMAIL_COPY_TO);
         $copyMethod = Mage::getStoreConfig(self::XML_PATH_EMAIL_COPY_METHOD, $storeId);
-
         // Start store emulation process
         $appEmulation = Mage::getSingleton('core/app_emulation');
         $initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation($storeId);

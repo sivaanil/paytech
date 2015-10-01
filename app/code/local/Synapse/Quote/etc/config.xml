@@ -62,6 +62,15 @@
 					</quote_customprice_price_observer>
 				</observers>
 			</sales_quote_remove_item>
+            <send_quote_created_email>
+                <observers>
+                    <quote_price_observer>
+                        <type>singleton</type>
+                        <class>Synapse_Quote_Model_Price_Observer</class>
+                        <method>sendQuoteCreatedEmail</method>
+                    </quote_price_observer>
+                </observers>
+            </send_quote_created_email>
 		</events>
         <template>
             <email>

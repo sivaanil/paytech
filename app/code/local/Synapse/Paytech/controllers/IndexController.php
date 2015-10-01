@@ -208,7 +208,7 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
             if($count != count($items))
                 $session->addError("Some products were not added since it doesn't match with our records.");
         }else{
-            echo '+';
+            $session->addError("Oops! Something went wrong...");
         }
 
 
