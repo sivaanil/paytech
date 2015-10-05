@@ -44,16 +44,6 @@ $collection = mage::getModel('customer/customer')
 		<a href="<?php echo Mage::getUrl('paytech/index/deletesubaccount/id/'.$customer->getId()); ?>" title="Delete" onclick="return confirm('Are you sure you want to delete the Subaccount?')"><?php echo $this->__('Delete') ?></a>
                 </span>
             </td>
-            <td class="a-center">
-                <span class="nobr">
-			<a href="<?php echo Mage::getUrl('paytech/index/viewsubaccountorders/id/'.$customer->getId()); ?>" title="View Orders"><?php echo $this->__('View Orders') ?></a>
-                </span>
-            </td>
-            <td class="a-center">
-                <span class="nobr">
-			<a href="<?php echo Mage::getUrl('paytech/index/viewsubaccountquotes/id/'.$customer->getId()); ?>" title="View Quotes"><?php echo $this->__('View Quotes') ?></a>
-                </span>
-            </td>
         </tr>
     <?php endforeach ?>
     </tbody>

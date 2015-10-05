@@ -134,7 +134,7 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
 		 }
 		 $this->_redirect('*/*/subaccountedit/id/'.$customer->getId());		  				  		   
 	}
-	public function deletesubaccountAction(){			
+	public function deletesubaccountAction(){
 		$this->_initLayoutMessages('customer/session');
 		$id = $this->getRequest()->getParam('id');		
 		Mage::register('isSecureArea', true);
@@ -150,10 +150,12 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
 	}
 	public function uploadAction(){
         $this->loadLayout();
+        $this->_initLayoutMessages('customer/session');
         $session = Mage::getSingleton("core/session");
         $products = array();
         $this->getLayout()->getBlock('head')->setTitle($this->__('Upload License File'));
         $count = 0;
+        $products = $product = array();
         // Perfectly working for papercut
 //        require_once(Mage::getBaseDir('lib') . '/Papercut/PaperCutResellerUrlBuilder.php');
 //        $key = Mage::getStoreConfig('paytech/papercut/secretkey');
@@ -187,33 +189,34 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
             } else {
                 return false;
             }
-
+//        $data = $this->getRequest()->getPost();
         if($rawdata->isQuote){
+            $customer=Mage::getModel('customer/customer')->getCollection()->addFieldToFilter('username_papercut', $rawdata->customerEmail)->load();
+            $quote_customer_id = $customer->getData()[0]['entity_id'];
             $items = $rawdata->orderLines;
             $license_file_created_by = $rawdata->resellerCode;
             foreach($items as $item){
-//                print_r($item);
-//                exit;
+
                 if($item->sku){
-                    $item = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',$item->sku);
-                    $products['name'][] = $item->name;
-                    $products['image'][] = $item->image;
-                    $products['quantity'][] = $item->quantity;
-                    $products['subtotal'][] = $item->subtotal;
+                    $prodDetails = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',$item->sku);
+                    $ids[]=$product['id'] = $prodDetails->entity_id;
+                    $product['name'] = $prodDetails->name;
+                    $product['image'] = $prodDetails->image;
+                    $product['quantity'] = $item->quantity;
+                    $product['subtotal'] = $item->subtotal;
+                    $products[$prodDetails->entity_id] = $product;
                 }
                 $count++;
             }
             Mage::getSingleton('customer/session')->setproducts($products);
+            Mage::getSingleton('customer/session')->setNewQuote($ids);
             Mage::getSingleton('core/session')->setLicensefileCreatedBy($license_file_created_by);
             if($count != count($items))
                 $session->addError("Some products were not added since it doesn't match with our records.");
         }else{
             $session->addError("Oops! Something went wrong...");
         }
-
-
-
-        $this->renderLayout();
+   $this->renderLayout();
 
 	}
 	public function uploadLicenseAction(){
@@ -400,61 +403,5 @@ exit;*/
 		}
 		$this->renderLayout();
 	}
-
-    public function upgradeSupportAction(){
-
-        $this->loadLayout();
-        $this->renderLayout();
-    }
-
-    public function viewsubaccountordersAction(){
-        $this->loadLayout();
-        $orderIds = array();
-        $data = $this->getRequest()->getParams();
-        $id = $data['id'];
-        $collection  = Mage::getResourceModel('sales/order_collection')
-            ->addFieldToSelect('*')
-            ->addFieldToFilter('customer_id',$id);
-        foreach($collection as $order) {
-            $orderIds[] = $order->getid();
-
-
-        }
-//        Zend_Debug::dump($this->getLayout()->getUpdate()->getHandles());
-//        $this->getLayout()->getBlock('subaccountOrders')->setData('data', $orderIds);
-        Mage::getSingleton('customer/session')->setSubaccountorders($orderIds);
-
-        $this->renderLayout();
-    }
-
-    public function viewsubaccountquotesAction(){
-        $includePath = Mage::getBaseDir(). "/lib/Papercut/Classes";
-        set_include_path(get_include_path() . PS . $includePath);
-        $this->loadLayout();
-        $quoteIds = array();
-        $data = $this->getRequest()->getParams();
-        $id = $data['id'];
-        $attributes = array('quote_customer_id'=> $id);
-        $collection  = Mage::getModel('quote/quote')->loadByAttributes($attributes);
-        $quotes = $collection->getData();
-        foreach($quotes as $quote) {
-            $quoteIds[] = $quote['quote_id'];
-        }
-        Mage::getSingleton('customer/session')->setSubaccountquotes($quoteIds);
-        $authId=1;
-        $resellerLogin=1;
-        $returnUrl=1;
-        $key=1;
-        //PaperCutResellerUrlBuilder::create($authId, $resellerLogin, $returnUrl, $key);
-        $this->renderLayout();
-    }
-    public function getcontents() {
-        exit('dfdf');
-   // public function getcontents() {
-
-
-    }
-
-
 }
 ?>

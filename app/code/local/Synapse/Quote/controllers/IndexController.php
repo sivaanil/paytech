@@ -4,26 +4,31 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 		public function saveAction(){
 
 			$data = $this->getRequest()->getPost();
-			$session = Mage::getSingleton("core/session");
+           $session = Mage::getSingleton("core/session");
 			$this->_initLayoutMessages('customer/session');
 			$products=array();
 			$maintenance_required=false;
 
-			if($data['quoteid']==""){ #if it's a new quote
-				$quote_customer_id = Mage::getSingleton('customer/session')->getCustomer()->getId();
+			if(!$data['quoteid']){ #if it's a new quote
+                $quote_customer_id = Mage::getSingleton('customer/session')->getCustomer()->getId();
 				$quote_product_ids = Mage::getSingleton('customer/session')->getNewQuote();
-				$quote_product_options = Mage::getSingleton('customer/session')->getProdOptions();
+
+//				$quote_product_options = Mage::getSingleton('customer/session')->getProdOptions();
                 $qtys='';
 				$model = Mage::getModel('quote/quote');
 				foreach($quote_product_ids as $quote_prod){
 					$prod_id=$quote_prod;
 
-					if(in_array($prod_id,$products))
-						continue;
+//					if(in_array($prod_id,$products))
+//						continue;
 
 					$product = Mage::getModel('catalog/product')->load($prod_id);
 					$prodType = $product->getAttributeText('product_type');
-					$qty=$data['qty'][$prod_id];
+					$qty=$data['products'][$quote_prod]['quantity'];
+//                    echo '6';
+//
+//                    echo $qty;
+//                    exit;
 
 					if(strtolower($prodType)=='maintenance product')
 						$maintenance_required=true;
@@ -44,7 +49,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 				$model->setData('quote_service_num', $data['service_number']);
 				$model->setData('quote_product_prices_aud', implode(',',$aud_prices));
 				$model->setData('quote_product_prices_nzd', implode(',',$nzd_prices));
-				$model->setData('quote_product_params',$quote_product_options);
+//				$model->setData('quote_product_params',$quote_product_options);
 				$model->setData('created_date', date('Y-m-d'));
 				$model->setData('updated_date', date('Y-m-d'));
 				$model->setData('is_approved',0);

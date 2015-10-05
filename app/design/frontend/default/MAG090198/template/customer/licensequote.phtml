@@ -3,9 +3,15 @@
         echo $this->__('Quote for the license file') ?></h1>
 </div>
 <?php
+if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+    // Load the customer's data
+        $customer = Mage::getSingleton('customer/session')->getCustomer();
+}
 $products = Mage::getSingleton('customer/session')->getproducts();
+//echo "<pre>";
+//print_r($customer);
+//exit;
 $license_file_createdby =  Mage::getSingleton('core/session')->getLicensefileCreatedBy();
-$notificationAboutExpiry = Mage::getSingleton('core/session')->getNotificationAboutExpiry();
 $finalized=$discontinued_prod=$product_with_issues=array();
 /**Loop to get the finalized list of products. For this we have to check for product sku in
 *license mapping file. if key exists in mapping file then it will be added to the finalized
@@ -27,26 +33,7 @@ if(!empty($products)){
 			</ul>
 		</li>
 	</ul>
-    <?php
-    if($notificationAboutExpiry){?>
-
-    <ul class="messages">
-        <li class="notice-msg">
-            <ul>
-                <li>
-                   <span>
-                       <?php
-
-                          // echo $this->__('Your support license is expiring with in 30 days, please renew it.');
-
-                       ?>
-					</span>
-                </li>
-            </ul>
-        </li>
-    </ul>
-<?php } ?>
-	<div>
+    <div>
 		<form id="my-quote" name="createquote" action="<?php echo Mage::getUrl('quote/index/save'); ?>" method="post">
 			<div class="quotefield">
 				<label>Quote Number #: NA</label>
@@ -55,6 +42,8 @@ if(!empty($products)){
 				<label>End User Organization:</label>
 				<input type="text" class="input-text" id="service_number" value="<?php echo $license_file_createdby; ?>" disabled="disabled" />
 				<input type="hidden" class="input-text" name="service_number" id="service_number_hidden" value="<?php echo $license_file_createdby; ?>" />
+                <input type="hidden" class="input-text" name="products" id="products" value="<?php print_r($products);
+                ?>" />
 			</div>
 			<table class="data-table" id="my-quote-table">
 				<col />
@@ -65,7 +54,6 @@ if(!empty($products)){
 				<col />   
 				<thead>
 					<tr>
-						<th><?php echo $this->__('Item') ?></th>
 						<th><?php echo $this->__('Item Name') ?></th>
 						<th><?php echo $this->__('Item Qty') ?></th>
 						<th><?php echo $this->__('Subtotal') ?></th>	                             
@@ -74,142 +62,47 @@ if(!empty($products)){
 				<tbody>
 				<?php 
 				foreach ($products as $product){
-
-                   $item_price=$this->helper('tax')->getPrice($product, $product->getFinalPrice($qty));
-                    echo '+';
-                    echo $item_price;
-					//$item_price=number_format($item_price*$qty, '2', '.', ',');
+                   $item_price=$product['subtotal'];
+                    $qty = $product['quantity'];
                     $item_price=$item_price*$qty;
-					$support=false;
-					# Calculate Software products total to calculate price of Support product
-					if(strtolower($attribTxt)=='software product')
-						$softwareProd=$softwareProd+$item_price;
-
-					# Calculating for support product price
-
-                    if($selectedMaintenanceProduct==''){
-					    if(strtolower($attribTxt)=='maintenance product'){
-                        $support=true;
-
-						/*$serviceYrs=$qty;
-						$qty=1;
-
-						$serviceYrsString=$serviceYrs.' year';
-						if($serviceYrs>1)
-							$serviceYrsString.='s';
-						
-						$product = Mage::getModel("catalog/product")->load($_product->getId());
-						$optionId=$optionTypeId='';
-						$percent=$defaultData='';
-						foreach ($product->getOptions() as $o) {
-							$values = $o->getValues();
-							if ($o->getTitle() == 'Years of Maintenance') { 
-								foreach ($values as $v) {
-									if(strtolower($v->getTitle())==$serviceYrsString){
-										$percent=$v->getprice(); 
-										$data=$v->getData();
-										$optionId=$data['option_id'];
-										$optionTypeId=$data['option_type_id'];
-									}
-
-									if(strtolower($v->getTitle())=='1 year')
-										$defaultData=$v->getData();
-								}
-								# nothing is matching we have to take default options
-								if($percent==''){
-									$percent=$data['price']; 
-									$serviceYrs='1';
-								}
-							}
-						}*/
-						$percent=$_product->getData('tot_software_perc');
-
-						$calculatedPrice=$softwareProd/100*$percent;
-
-						$item_price=$_product->getFinalPrice($qty);
-						
-						if($item_price<$calculatedPrice)
-							$item_price=$calculatedPrice;
-
-						/*if($_product->getFinalPrice($qty)<$calculatedPrice)
-							$item_price=$calculatedPrice;
-						else{
-							$item_price=$_product->getFinalPrice();
-							//$item_price=$item_price+$item_price/100*$defaultPercent;
-						}*/
-						
-					}
-                    }
-
-					for($i=0;$i<$qty;$i++){
-							$newquote[] = $_product->getId();
-					}	
-
-					
-				?>
+                    ?>
 					<tr>
 						<td>
-							<img src="<?php echo Mage::helper('catalog/image')->init($_product, 'thumbnail')->resize(75,75); ?>" />
+							<span class="nobr"><?php echo $product['name']?></span>
 						</td>
-						<td>
-							<span class="nobr"><?php echo $_product->getName();?></span>
-						</td>
-						<td>
-							<?php echo $qty; $quoteQty[]=$qty;?>
-							<input type='hidden' name='qty[<?php echo $_product->getId(); ?>]' value='<?php echo $qty; ?>'>
-						</td>	
-						<td>
-							<?php	
-							$filtered = array();
-							foreach($license_file_mapdata as $check){
-								if($check['sku'] == $sku){				
-									$filtered[] = $check;
-								}
-							}		
-							foreach($filtered as $_filter){
-								$temp="";			
-								$temp = explode('-', $_filter['qty']);		
-								if($temp[1]!='above' && $temp[1]!=''){				
-									if($qty>=(int)$temp[0] && $qty<=(int)$temp[1]){			
-										$item_price = $_filter['price'];
-										break;
-									}
-								}else{			
-									$item_price = $_filter['price'];
-								}			
-							}
-                            if($selectedMaintenanceProduct == $sku){
-                                $item_price = $selectedMaintenanceProductPrice;
+                        <td>
+                            <?php echo $product['quantity']?>
+<!--                            <input type='hidden' name='qty[--><?php //$product['quantity']; ?><!--]' value='--><?php //echo $qty; ?><!--'>-->
+                        </td>
+                        <td>
+                            <?php
+                            $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+                            if($current_currency_code == 'NZD'){
+                                $price=Mage::helper('directory')->currencyConvert((float)$item_price, 'AUD', 'NZD');
+                                echo "NZ$ ".number_format($price, '2', '.', ',');
+                            }else{
+                                echo "AU$ ".number_format($item_price, '2', '.', ',');
                             }
-							//echo $item_price; 		
-							$current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
-							if($current_currency_code == 'NZD'){
-									 $price=Mage::helper('directory')->currencyConvert((float)$item_price, 'AUD', 'NZD');				
-								echo "NZ$ ".number_format($price, '2', '.', ',');					
-							}else{
-								echo "AU$ ".number_format($item_price, '2', '.', ',');
-							}
-							?>		
-						</td>           
-					</tr>
+                            ?>
+                        </td>
+                    </tr>
 				<?php } ?>
 				 </tbody>
 			</table>
             <?php
-            Mage::getSingleton('customer/session')->setNewQuote($newquote);
-			Mage::getSingleton('customer/session')->setQuoteQty($quoteQty);	
+//            Mage::getSingleton('customer/session')->setNewQuote($products);
+
 
 			?>
-			<div class="quote" style="float:left;margin:10px 0px">
-				<a href="javascript:void(0)" id="licensetoquote" onclick="submitQuote()">SAVE AS QUOTE</a>
-			</div>
+			<?php if($customer['is_dealer'] || $customer['can_place_order']){?>
 			<div class="quote" style="float:right;margin:10px 0px">
 				<a id="licensequotetocart" href="<?php echo Mage::getUrl('quote/index/licenseQuoteToCart/'); ?>">PLACE ORDER</a>
 			</div>
+            <?php } ?>
 		</form>
 	</div>
-	<?php 
-}else{ 
+	<?php
+}else{
 ?>
 	<ul class="messages">
 		<li class="error-msg">

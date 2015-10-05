@@ -13,6 +13,7 @@
 /** @var $this Mage_Customer_Block_Form_Register */
 $formData = Mage::getSingleton('customer/session')->getData('postedData');
 Mage::getSingleton('customer/session')->unsetData('postedData');
+$loggedInCustomer =  $customer = Mage::getSingleton('customer/session')->getCustomer();
 ?>
 <div class="account-create">
     <div class="page-title">
@@ -149,20 +150,22 @@ Mage::getSingleton('customer/session')->unsetData('postedData');
                         </div>
                     </div>
                 </li>
+                <?php if($loggedInCustomer['is_dealer']){?>
                 <li class="fields">
                     <div class="field">
-                        <label for="username_papercut"><?php echo $this->__('Username (For Papercut)') ?></label>
+                        <label for="username_papercut"  class="required"><?php echo $this->__('Username (For Papercut)') ?><em>*</em></label>
                         <div class="input-box">
-                            <input type="text" name="username_papercut" id="username_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" class="input-text "  autocomplete="off" />
+                            <input type="text" name="username_papercut" id="username_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" class="input-text required-entry validate-cpassword"  autocomplete="off" />
                         </div>
                     </div>
                     <div class="field">
-                        <label for="password_papercut"><?php echo $this->__('Password (For Papercut)') ?></label>
+                        <label for="password_papercut"  class="required"><?php echo $this->__('Password (For Papercut)') ?><em>*</em></label>
                         <div class="input-box">
-                            <input type="password_papercut" name="password_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" id="password_papercut" class="input-text" autocomplete="off" />
+                            <input type="password" name="password_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" id="password_papercut" class="input-text required-entry validate-cpassword" autocomplete="off" />
                         </div>
                     </div>
                 </li>
+                <?php } ?>
                 <?php echo $this->getChildHtml('form.additional.info'); ?>
                 <?php echo $this->getChildHtml('persistent.remember.me'); ?>
             </ul>
@@ -171,7 +174,7 @@ Mage::getSingleton('customer/session')->unsetData('postedData');
         <div class="field">
             <div class="field name-firstname">
                 <label for="order_confirmation_email">Order Confirmation Email(s)
-                    (sepreate multiple emails by comma)
+                    (separate emails by comma)
                 </label>
                 <div class="input-box">
                     <input type="text" class="input-text" maxlength="255" title="Order Confirmation Emails" value="<?php echo $customer['order_confirmation_email']; ?>" name="order_confirmation_email" id="order_confirmation_email">
