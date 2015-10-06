@@ -64,23 +64,5 @@
 	    	<block type="core/template" name="upgradesupport" template="quote/maintenaceProducts.phtml" />	
 	    </reference>
     </paytech_index_upgradesupport>
-
-    <paytech_index_viewsubaccountorders translate="label">
-        <label>Customer Sub Accounts</label>
-        <update handle="customer_account"/>
-        <reference name="my.account.wrapper">
-            <block type="core/template" name="subaccountOrders"
-                   template="customer/subaccounts/subaccountorders.phtml" />
-        </reference>
-    </paytech_index_viewsubaccountorders>
-
-    <paytech_index_viewsubaccountquotes translate="label">
-        <label>Customer Sub Accounts</label>
-        <update handle="customer_account"/>
-        <reference name="my.account.wrapper">
-            <block type="core/template" name="subaccountOrders"
-                   template="customer/subaccounts/subaccountquotes.phtml" />
-        </reference>
-    </paytech_index_viewsubaccountquotes>
 </layout>
 
