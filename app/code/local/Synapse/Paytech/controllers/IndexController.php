@@ -6,8 +6,11 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
 		$this->_initLayoutMessages('customer/session');
 		$this->getLayout()->getBlock('head')->setTitle($this->__('My Sub Accounts'));		
 		$this->renderLayout();
-	}	
-	
+	}
+    private function priceInNZD($price){
+        return Mage::helper('directory')->currencyConvert($price, AUD, NZD);
+    }
+
 	public function subaccountsAction(){				
 		$this->loadLayout();
 		$this->_initLayoutMessages('customer/session');
@@ -191,23 +194,64 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
             }
 //        $data = $this->getRequest()->getPost();
         if($rawdata->isQuote){
-            $customer=Mage::getModel('customer/customer')->getCollection()->addFieldToFilter('username_papercut', $rawdata->customerEmail)->load();
-            $quote_customer_id = $customer->getData()[0]['entity_id'];
+            if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+
+                // Load the customer's data
+                $current_customer = Mage::getSingleton('customer/session')->getCustomer();
+                $quote_customer_id = $current_customer->getId();
+
+            }
             $items = $rawdata->orderLines;
             $license_file_created_by = $rawdata->resellerCode;
             foreach($items as $item){
 
                 if($item->sku){
                     $prodDetails = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',$item->sku);
-                    $ids[]=$product['id'] = $prodDetails->entity_id;
+                    $ids[] = $product['id'] = $prodDetails->entity_id;
                     $product['name'] = $prodDetails->name;
                     $product['image'] = $prodDetails->image;
-                    $product['quantity'] = $item->quantity;
+                    $qtys[] = $product['quantity'] = $item->quantity;
                     $product['subtotal'] = $item->subtotal;
                     $products[$prodDetails->entity_id] = $product;
+
+                    $prod_price = $item->price;
+                    $aud_prices[] = $prod_price;
+                    $nzd_prices[] = $this->priceInNZD($prod_price);
                 }
                 $count++;
             }
+            $model = Mage::getModel('quote/quote');
+            $model->setData('quote_customer_id', $quote_customer_id);
+            $model->setData('quote_product_ids', implode(',',$ids));
+            $model->setData('quote_product_qtys', implode(',',$qtys));
+            $model->setData('quote_service_num', $license_file_created_by);
+            $model->setData('quote_product_prices_aud', implode(',',$aud_prices));
+            $model->setData('quote_product_prices_nzd', implode(',',$nzd_prices));
+            $model->setData('created_date', date('Y-m-d'));
+            $model->setData('updated_date', date('Y-m-d'));
+            $model->setData('is_approved',0);
+
+            try{
+                $model->save();
+                if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+                    // Load the customer's data
+                    $customer = Mage::getSingleton('customer/session')->getCustomer();
+                    // Mage::getModel('quote/quote')->sendQuoteCreatedEmail($customer);
+
+                }
+
+//                $event_data_array  =  array('customer' => $customer);
+//                Mage::dispatchEvent('send_quote_created_email', $event_data_array);
+
+                $session->addSuccess("Quote saved successfully");
+                Mage::getSingleton('customer/session')->setNewQuote(array());
+//                $this->_redirect('*/*/quotes');
+            } catch(Exception $e){
+                $session->addError("Unable to save to Quote");
+//                $this->_redirectUrl('/*/*/quotes');
+            }
+
+
             Mage::getSingleton('customer/session')->setproducts($products);
             Mage::getSingleton('customer/session')->setNewQuote($ids);
             Mage::getSingleton('core/session')->setLicensefileCreatedBy($license_file_created_by);

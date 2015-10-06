@@ -82,6 +82,5 @@
                    template="customer/subaccounts/subaccountquotes.phtml" />
         </reference>
     </paytech_index_viewsubaccountquotes>
-    			   
 </layout>
 

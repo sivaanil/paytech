@@ -79,8 +79,8 @@
 			<paytech>
 				<class>Synapse_Paytech_Helper</class>
 			</paytech>
-	      </helpers>		      
-	</global>
+	      </helpers>
+   </global>
 	<admin>
 		<routers>
 		    <paytech>

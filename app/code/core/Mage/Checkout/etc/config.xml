@@ -156,6 +156,11 @@
                     <file>payment_failed.html</file>
                     <type>html</type>
                 </checkout_payment_failed_template>
+                <send_order_created_mail_to_admin>
+                    <label>Order Created by sub account</label>
+                    <file>send_order_created_mail_to_admin.html</file>
+                    <type>html</type>
+                </send_order_created_mail_to_admin>
             </email>
         </template>
         <sales>
@@ -198,6 +203,16 @@
                     </set_checkout_quote_id>
                 </observers>
             </sales_quote_save_after>
+            <send_order_created_email>
+                <observers>
+                    <checkout_model_observer>
+                        <type>singleton</type>
+                        <class>checkout/observer</class>
+                        <method>sendOrderCreatedEmail</method>
+                    </checkout_model_observer>
+                </observers>
+            </send_order_created_email>
+
         </events>
         <routers>
             <checkout>

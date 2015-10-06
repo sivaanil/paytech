@@ -31,4 +31,4 @@ class Synapse_Paytech_Model_Observer_Autoloader extends Varien_Event_Observer{
 //
 //    }
 
-}	
+}

@@ -179,7 +179,7 @@ $customer = Mage::getModel('customer/customer')->load($subaccountid);
                 </div>
             <ul>
                 <li class="control">
-                    <div class="input-box">
+                    <div class="input-box" style="float: left;margin-right: 10px;">
                         <input type="checkbox" name="can_place_order" title="<?php echo $this->__('Can Place Order')
                         ?>" value="1" id="can_place_order"<?php if($customer['can_place_order']): ?> checked="checked"<?php endif; ?> class="checkbox" />
                     </div>

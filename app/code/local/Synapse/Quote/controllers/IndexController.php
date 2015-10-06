@@ -65,8 +65,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
                     $event_data_array  =  array('customer' => $customer);
                     Mage::dispatchEvent('send_quote_created_email', $event_data_array);
 
-					$session->addSuccess("Quote saved successfully");
-					Mage::getSingleton('customer/session')->setNewQuote(array());
+//					$session->addSuccess("Quote saved successfully");
 					$this->_redirect('*/*/quotes');
 				} catch(Exception $e){
 					$session->addError("Unable to add the product to Quote");

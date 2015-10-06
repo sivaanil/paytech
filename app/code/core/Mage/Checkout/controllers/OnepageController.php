@@ -542,6 +542,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      */
     public function saveOrderAction()
     {
+
         if (!$this->_validateFormKey()) {
             $this->_redirect('*/*');
             return;
@@ -575,9 +576,8 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
                     | Mage_Payment_Model_Method_Abstract::CHECK_ZERO_TOTAL;
                 $this->getOnepage()->getQuote()->getPayment()->importData($data);
             }
-
-            $this->getOnepage()->saveOrder();
-
+            $order = $this->getOnepage()->saveOrder();
+            Mage::dispatchEvent('send_order_created_email');
             $redirectUrl = $this->getOnepage()->getCheckout()->getRedirectUrl();
             $result['success'] = true;
             $result['error']   = false;

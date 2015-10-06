@@ -6,8 +6,8 @@ $collection = mage::getModel('customer/customer')
    			->addAttributeToFilter('master_customer', $current_customer);
 ?>
 <div class="page-title" id="my-subaccounts-table">
-    <h1><?php echo $this->__('My Sub Accounts') ?></h1>		
-    <a style="float:right;font-size:16px;color:#B21116" href="<?php echo Mage::getUrl('paytech/index/subaccounts'); ?>">Add New SubAccount</a>	
+    <h1><?php echo $this->__('My Sub Accounts') ?></h1>
+    <a style="float:right;font-size:16px;color:#B21116" href="<?php echo Mage::getUrl('paytech/index/subaccounts'); ?>">Add New SubAccount</a>
 </div>
 <div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
@@ -16,7 +16,7 @@ $collection = mage::getModel('customer/customer')
 <table class="data-table">
     <thead>
         <tr>
-            <th><?php echo $this->__('Customer #') ?></th>           
+            <th><?php echo $this->__('Customer #') ?></th>
             <th><?php echo $this->__('Firstname') ?></th>
             <th><?php echo $this->__('Lastname') ?></th>
             <th><?php echo $this->__('Email') ?></th>
@@ -25,14 +25,14 @@ $collection = mage::getModel('customer/customer')
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($collection as $_customer): 
+    <?php foreach ($collection as $_customer):
 		$customer = Mage::getModel('customer/customer')->load($_customer->getId());
     ?>
         <tr>
             <td><?php echo $customer->getId() ?>&nbsp;</td>
             <td><?php echo $customer->getFirstname() ?>&nbsp;</td>
             <td><?php echo $customer->getLastname() ?>&nbsp;</td>
-	    <td><?php echo $customer->getEmail() ?>&nbsp;</td>	
+	    <td><?php echo $customer->getEmail() ?>&nbsp;</td>
 	    <td><?php echo date("D, j M, Y", strtotime($customer->getCreatedAt())) ?>&nbsp;</td>
 	    <td class="a-center">
                 <span class="nobr">
