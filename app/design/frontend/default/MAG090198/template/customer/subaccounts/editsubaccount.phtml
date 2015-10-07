@@ -25,63 +25,63 @@ $customer = Mage::getModel('customer/customer')->load($subaccountid);
     </div>
     <?php echo $this->getChildHtml('form_fields_before')?>
     <div>
-    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     </div>
-	<form id="form-validate" method="post" action="<?php echo Mage::getUrl('paytech/index/subaccounteditpost'); ?>" onsubmit="return subaccount_editform()">
-		<div class="fieldset">
-		    <input type="hidden" name="customerid" value="<?php echo $subaccountid; ?>" />
-		    <h2 class="legend">Personal Information</h2>
-		    <ul class="form-list">
-		        <li class="fields">
-		            <div class="customer-name">
-				    <div class="field name-firstname">
-					<label class="required" for="firstname"><em>*</em>First Name</label>
-					<div class="input-box">
-					    <input type="text" class="input-text required-entry" maxlength="255" title="First Name" value="<?php echo $customer->getFirstname(); ?>" name="firstname" id="firstname">
-					</div>
-				    </div>
-				    <div class="field name-lastname">
-					<label class="required" for="lastname"><em>*</em>Last Name</label>
-					<div class="input-box">
-					    <input type="text" class="input-text required-entry" maxlength="255" title="Last Name" value="<?php echo $customer->getLastname(); ?>" name="lastname" id="lastname">
-					</div>
-				    </div>
-			    </div>
-                	</li>
-		        <li>
-		            <label class="required" for="email_address"><em>*</em>Email Address</label>
-		            <div class="input-box">
-		                <input type="text" class="input-text validate-email required-entry" title="Email Address" value="<?php echo $customer->getEmail(); ?>" id="email_address" name="email">
-		            </div>
-		        </li>
-            	</ul>
-       	     </div>
-	     <div class="fieldset">
-		    <h2 class="legend">Password Information</h2>
-		    <ul class="form-list">
-		        <li class="fields">
-		            <div class="customer-name">
-				    <div class="field">
-					<label class="required" for="new-password">New Passowrd</label>
-					<div class="input-box">
-		<input type="password" class="input-text" maxlength="255" title="Password" value="" name="password" id="new_password">
-					</div>
-				    </div>
-				    <div class="field">
-					<label class="required" for="confirm-new-password">Confirm New Password</label>
-					<div class="input-box">
-		<input type="password" class="input-text" maxlength="255" title="Confirm Password" value="" name="confirm_new_password" id="confirm_new_passowrd">
-					</div>
-				    </div>
-			    </div>
-                	</li>
-            	    </ul>
-       	     </div>
-	    <?php
-		$defaultBilling = $customer->getDefaultBillingAddress();
-		$defaultBillingAddress = $defaultBilling->getData();
-	    ?>
-            <div class="fieldset">
+    <form id="form-validate" method="post" action="<?php echo Mage::getUrl('paytech/index/subaccounteditpost'); ?>" onsubmit="return subaccount_editform()">
+        <div class="fieldset">
+            <input type="hidden" name="customerid" value="<?php echo $subaccountid; ?>" />
+            <h2 class="legend">Personal Information</h2>
+            <ul class="form-list">
+                <li class="fields">
+                    <div class="customer-name">
+                        <div class="field name-firstname">
+                            <label class="required" for="firstname"><em>*</em>First Name</label>
+                            <div class="input-box">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="First Name" value="<?php echo $customer->getFirstname(); ?>" name="firstname" id="firstname">
+                            </div>
+                        </div>
+                        <div class="field name-lastname">
+                            <label class="required" for="lastname"><em>*</em>Last Name</label>
+                            <div class="input-box">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="Last Name" value="<?php echo $customer->getLastname(); ?>" name="lastname" id="lastname">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <label class="required" for="email_address"><em>*</em>Email Address</label>
+                    <div class="input-box">
+                        <input type="text" class="input-text validate-email required-entry" title="Email Address" value="<?php echo $customer->getEmail(); ?>" id="email_address" name="email">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="fieldset">
+            <h2 class="legend">Password Information</h2>
+            <ul class="form-list">
+                <li class="fields">
+                    <div class="customer-name">
+                        <div class="field">
+                            <label class="required" for="new-password">New Passowrd</label>
+                            <div class="input-box">
+                                <input type="password" class="input-text" maxlength="255" title="Password" value="" name="password" id="new_password">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="required" for="confirm-new-password">Confirm New Password</label>
+                            <div class="input-box">
+                                <input type="password" class="input-text" maxlength="255" title="Confirm Password" value="" name="confirm_new_password" id="confirm_new_passowrd">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <?php
+        $defaultBilling = $customer->getDefaultBillingAddress();
+        $defaultBillingAddress = $defaultBilling->getData();
+        ?>
+        <div class="fieldset">
             <input type="hidden" value="1" name="create_address">
             <h2 class="legend">Address Information</h2>
             <ul class="form-list">
@@ -99,18 +99,18 @@ $customer = Mage::getModel('customer/customer')->load($subaccountid);
                         </div>
                     </div>
                 </li>
-                            <li class="wide">
+                <li class="wide">
                     <label for="street_1">Street Address</label>
                     <div class="input-box">
                         <input type="text" class="input-text  required-entry" id="street_1" title="Street Address" value="<?php echo $defaultBillingAddress['street']; ?>" name="street[]">
                     </div>
                 </li>
-                                        <li class="wide">
+                <li class="wide">
                     <div class="input-box">
                         <input type="text" class="input-text " id="street_2" title="Street Address 2" value="" name="street[]">
                     </div>
                 </li>
-                            <li class="fields">
+                <li class="fields">
                     <div class="field">
                         <label for="city">City</label>
                         <div class="input-box">
@@ -133,40 +133,40 @@ $customer = Mage::getModel('customer/customer')->load($subaccountid);
                     </div>
                     <div class="field">
                         <label for="country" class="required"><em>*</em>Country</label>
-			<div class="input-box">
-			<?php
-			$countries = Mage::getResourceModel('directory/country_collection')->loadData()->toOptionArray(false);
-			if(count($countries) > 0):
-			?>
-				<select name="country_id" id="country" class="required-entry">
-				<option value="">Please Select</option>
-				<?php foreach($countries as $country): ?>
-				<option value="<?php echo $country['value'] ?>" <?php if($country['value'] == $defaultBillingAddress['country_id']){ ?>selected<?php } ?>> <?php echo $country['label'] ?> </option>
-				<?php endforeach; ?>
-				</select>
-			<?php endif; ?>
+                        <div class="input-box">
+                            <?php
+                            $countries = Mage::getResourceModel('directory/country_collection')->loadData()->toOptionArray(false);
+                            if(count($countries) > 0):
+                                ?>
+                                <select name="country_id" id="country" class="required-entry">
+                                    <option value="">Please Select</option>
+                                    <?php foreach($countries as $country): ?>
+                                        <option value="<?php echo $country['value'] ?>" <?php if($country['value'] == $defaultBillingAddress['country_id']){ ?>selected<?php } ?>> <?php echo $country['label'] ?> </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </li>
             </ul>
-                <?php if($loggedInCustomer['is_dealer']){?>
-            <ul>
-                <li class="fields">
-                    <div class="field">
-                        <label for="username_papercut"  class="required"><?php echo $this->__('Username (For Papercut)') ?><em>*</em></label>
-                        <div class="input-box">
-                            <input type="text" name="username_papercut" id="username_papercut" title="<?php echo $this->__('This is applicable for papercut website')?>" class="input-text required-entry"  autocomplete="off" value="<?php echo $customer['username_papercut']?>" />
+            <?php if($loggedInCustomer['is_dealer']){?>
+                <ul>
+                    <li class="fields">
+                        <div class="field">
+                            <label for="username_papercut"><?php echo $this->__('Username (For Papercut)') ?></label>
+                            <div class="input-box">
+                                <input type="text" name="username_papercut" id="username_papercut" title="<?php echo $this->__('This is applicable for papercut website')?>" class="input-text"  autocomplete="off" value="<?php echo $customer['username_papercut']?>" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <label for="password_papercut"  class="required"><?php echo $this->__('Password (For Papercut)')?><em>*</em></label>
-                        <div class="input-box">
-                            <input type="password" name="password_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" id="password_papercut" class="input-text required-entry" autocomplete="off" value="<?php echo $customer['password_papercut']?>"/>
+                        <div class="field">
+                            <label for="password_papercut"><?php echo $this->__('Password (For Papercut)')?></label>
+                            <div class="input-box">
+                                <input type="password" name="password_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" id="password_papercut" class="input-text" autocomplete="off" value="<?php echo $customer['password_papercut']?>"/>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
-<?php } ?>
+                    </li>
+                </ul>
+            <?php } ?>
             <div class="field">
                 <div class="field name-firstname">
                     <label for="order_confirmation_email">Order Confirmation Email(s)
@@ -176,7 +176,7 @@ $customer = Mage::getModel('customer/customer')->load($subaccountid);
                         <input type="text" class="input-text" maxlength="255" title="Order Confirmation Emails" value="<?php echo $customer['order_confirmation_email']; ?>" name="order_confirmation_email" id="order_confirmation_email">
                     </div>
                 </div>
-                </div>
+            </div>
             <ul>
                 <li class="control">
                     <div class="input-box" style="float: left;margin-right: 10px;">
@@ -196,23 +196,23 @@ $customer = Mage::getModel('customer/customer')->load($subaccountid);
         </div>
     </form>
     <script type="text/javascript">
-    //<![CDATA[
+        //<![CDATA[
         var dataForm = new VarienForm('form-validate', true);
         <?php if($this->getShowAddressFields()): ?>
         new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
         <?php endif; ?>
-    //]]>
+        //]]>
     </script>
     <script type="text/javascript">
-	function subaccount_editform(){
-		var new_pwd = jQuery("#new_password").val();
-		var conf_new_pwd = jQuery("#confirm_new_passowrd").val();
-		if(new_pwd == conf_new_pwd){
-			return true;
-		}else{
-			alert("Password and confirm password should be same");
-			return false;
-		}
-	}
+        function subaccount_editform(){
+            var new_pwd = jQuery("#new_password").val();
+            var conf_new_pwd = jQuery("#confirm_new_passowrd").val();
+            if(new_pwd == conf_new_pwd){
+                return true;
+            }else{
+                alert("Password and confirm password should be same");
+                return false;
+            }
+        }
     </script>
 </div>

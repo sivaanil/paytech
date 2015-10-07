@@ -236,12 +236,10 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                 if (Mage::getSingleton('customer/session')->isLoggedIn()) {
                     // Load the customer's data
                     $customer = Mage::getSingleton('customer/session')->getCustomer();
-                    // Mage::getModel('quote/quote')->sendQuoteCreatedEmail($customer);
-
                 }
 
-//                $event_data_array  =  array('customer' => $customer);
-//                Mage::dispatchEvent('send_quote_created_email', $event_data_array);
+                $event_data_array  =  array('customer' => $customer,'quote'=>$model);
+                Mage::dispatchEvent('send_quote_created_email', $event_data_array);
 
                 $session->addSuccess("Quote saved successfully");
                 Mage::getSingleton('customer/session')->setNewQuote(array());

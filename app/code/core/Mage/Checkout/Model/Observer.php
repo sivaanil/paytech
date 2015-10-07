@@ -86,7 +86,7 @@ class Mage_Checkout_Model_Observer
         // Load our template by template_id
         //For templates which are used in database
 
-        $email_template  = Mage::getModel('core/email_template')->loadByCode('Test'); //where 'custom_template' is the name of template
+        $email_template  = Mage::getModel('core/email_template')->loadByCode('New_Order_Notification_To_Admin'); //where 'custom_template' is the name of template
 
         //If you define in config.xml then please use below code.
 //        $email_template  = Mage::getModel('core/email_template')->loadDefault($template_id);

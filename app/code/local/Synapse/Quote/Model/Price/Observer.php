@@ -217,14 +217,18 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
 		$item->getProduct()->setIsSuperMode(true);
 	}
 
-public function sendQuoteCreatedEmail($customer){
-            $rawData = $customer->getData();
+public function sendQuoteCreatedEmail($data){
+    echo '<pre>';
+            $rawData = $data->getData();
             if($rawData['customer']['order_confirmation_email']){
              $allemails = $rawData['customer']['order_confirmation_email'];
             $email_to=explode(",",$allemails);
         }
         $email_to[] = $rawData['customer']['email'];
-        // This is the template name from your etc/config.xml
+    print_r($rawData);
+    exit;
+
+    // This is the template name from your etc/config.xml
         $template_id = 'custom_template';
         // Who were sending to...
         $customer_name   = $rawData['customer']['firstname'].$rawData['customer']['lastname'];
@@ -254,11 +258,11 @@ public function sendQuoteCreatedEmail($customer){
         //Send the email to the sub account
         $email_template->send($email_to, $customer_name, $email_template_variables);
         //Send the email to the sub account master customer
-        if($customer->master_customer){
-            $masterCustomer = Mage::getModel('customer/customer')->load($rawData['customer']['master_customer']);
-            $email_to = $masterCustomer->getData('email');
-            $email_template->send($email_to, $customer_name, $email_template_variables);
-        }
+//        if($rawData['customer']['master_customer']){
+//            $masterCustomer = Mage::getModel('customer/customer')->load($rawData['customer']['master_customer']);
+//            $email_to = $masterCustomer->getData('email');
+//            $email_template->send($email_to, $customer_name, $email_template_variables);
+//        }
 
     }
 }

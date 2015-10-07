@@ -151,20 +151,20 @@ $loggedInCustomer =  $customer = Mage::getSingleton('customer/session')->getCust
                     </div>
                 </li>
                 <?php if($loggedInCustomer['is_dealer']){?>
-                <li class="fields">
-                    <div class="field">
-                        <label for="username_papercut"  class="required"><?php echo $this->__('Username (For Papercut)') ?><em>*</em></label>
-                        <div class="input-box">
-                            <input type="text" name="username_papercut" id="username_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" class="input-text required-entry validate-cpassword"  autocomplete="off" />
+                    <li class="fields">
+                        <div class="field">
+                            <label for="username_papercut"><?php echo $this->__('Username (For Papercut)') ?></label>
+                            <div class="input-box">
+                                <input type="text" name="username_papercut" id="username_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" class="input-text"  autocomplete="off" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <label for="password_papercut"  class="required"><?php echo $this->__('Password (For Papercut)') ?><em>*</em></label>
-                        <div class="input-box">
-                            <input type="password" name="password_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" id="password_papercut" class="input-text required-entry validate-cpassword" autocomplete="off" />
+                        <div class="field">
+                            <label for="password_papercut"><?php echo $this->__('Password (For Papercut)') ?></label>
+                            <div class="input-box">
+                                <input type="password" name="password_papercut" title="<?php echo $this->__('This is applicable for papercut website') ?>" id="password_papercut" class="input-text" autocomplete="off" />
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
                 <?php } ?>
                 <?php echo $this->getChildHtml('form.additional.info'); ?>
                 <?php echo $this->getChildHtml('persistent.remember.me'); ?>

@@ -62,8 +62,8 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 //                        Mage::dispatchEvent()
                     }
 
-                    $event_data_array  =  array('customer' => $customer);
-                    Mage::dispatchEvent('send_quote_created_email', $event_data_array);
+//                    $event_data_array  =  array('customer' => $customer);
+//                    Mage::dispatchEvent('send_quote_created_email', $event_data_array);
 
 //					$session->addSuccess("Quote saved successfully");
 					$this->_redirect('*/*/quotes');
