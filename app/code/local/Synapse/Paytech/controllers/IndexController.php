@@ -152,29 +152,36 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
 		$this->_redirect('*/*/subaccountslist/');
 	}
 	public function uploadAction(){
+        // Perfectly working for papercut
+        require_once(Mage::getBaseDir('lib') . '/Papercut/PaperCutResellerUrlBuilder.php');
+        $key = Mage::getStoreConfig('paytech/papercut/secretkey');
+        $authId = Mage::getStoreConfig('paytech/papercut/authId');
+        if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+           $customer = Mage::getSingleton('customer/session')->getCustomer();
+        }
+        $resellerLogin = $customer->username_papercut;
+        $returnUrl = 'http://localhost/paytec/index.php/paytech/index/responsefrompapercut/';
+        $url = PaperCutResellerUrlBuilder::create($authId,$resellerLogin,$returnUrl,$key);
+        $this->_redirectUrl($url);
+
+
+	}
+
+    public function responsefrompapercutAction(){
         $this->loadLayout();
+        $this->getLayout()->getBlock('head')->setTitle($this->__('Upload License File'));
         $this->_initLayoutMessages('customer/session');
         $session = Mage::getSingleton("core/session");
         $products = array();
-        $this->getLayout()->getBlock('head')->setTitle($this->__('Upload License File'));
         $count = 0;
         $products = $product = array();
-        // Perfectly working for papercut
-//        require_once(Mage::getBaseDir('lib') . '/Papercut/PaperCutResellerUrlBuilder.php');
-//        $key = Mage::getStoreConfig('paytech/papercut/secretkey');
-//        $authId = Mage::getStoreConfig('paytech/papercut/authId');
-//        if (Mage::getSingleton('customer/session')->isLoggedIn()) {
-//           $customer = Mage::getSingleton('customer/session')->getCustomer();
-//        }
-//        $resellerLogin = $customer->getName();
-       // $returnUrl = 'http://localhost/paytec/index.php/paytech/index/getcontents/';
-        //$url = PaperCutResellerUrlBuilder::create($authId,$resellerLogin,$returnUrl,$key);
-        //echo $url; exit;
-        //$this->_redirectUrl($url);
+//        if(sizeof($_REQUEST)){
+//            $rawdata = json_decode($_REQUEST['orderJson']);
 
-//        created for local purpose testing
 
-            $url = 'http://localhost/order.json';
+            //        created for local purpose testing
+
+            $url = 'http://localhost/response.json';
             $ch = curl_init();
 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -192,8 +199,8 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
             } else {
                 return false;
             }
-//        $data = $this->getRequest()->getPost();
-        if($rawdata->isQuote){
+
+          if($rawdata->isQuote){
             if (Mage::getSingleton('customer/session')->isLoggedIn()) {
 
                 // Load the customer's data
@@ -204,18 +211,17 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
             $items = $rawdata->orderLines;
             $license_file_created_by = $rawdata->resellerCode;
             foreach($items as $item){
-
-                if($item->sku){
-                    $prodDetails = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',$item->sku);
+                if($item->description){
+                    $prodDetails = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',$item->description);
                     $ids[] = $product['id'] = $prodDetails->entity_id;
                     $product['name'] = $prodDetails->name;
                     $product['image'] = $prodDetails->image;
-                    $qtys[] = $product['quantity'] = $item->quantity;
+                    $quoteQty[$prodDetails->entity_id]=$qtys[] = $product['quantity'] = $item->quantity;
                     $product['subtotal'] = $item->subtotal;
                     $products[$prodDetails->entity_id] = $product;
 
-                    $prod_price = $item->price;
-                    $aud_prices[] = $prod_price;
+                    $prod_price = $item->price*$item->quantity;
+                    $price[$prodDetails->entity_id] = $aud_prices[] = $prod_price;
                     $nzd_prices[] = $this->priceInNZD($prod_price);
                 }
                 $count++;
@@ -238,212 +244,36 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                     $customer = Mage::getSingleton('customer/session')->getCustomer();
                 }
 
-                $event_data_array  =  array('customer' => $customer,'quote'=>$model);
-                Mage::dispatchEvent('send_quote_created_email', $event_data_array);
+               $event_data_array  =  array('customer' => $customer,'quote'=>$model);
 
+
+//                $this->_redirect('quote/index/quotes/');
                 $session->addSuccess("Quote saved successfully");
-                Mage::getSingleton('customer/session')->setNewQuote(array());
-//                $this->_redirect('*/*/quotes');
+//                Mage::getSingleton('core/session')->setNewQuote($model);
+
+
             } catch(Exception $e){
                 $session->addError("Unable to save to Quote");
-//                $this->_redirectUrl('/*/*/quotes');
+                $this->_redirect('*/*/');
             }
 
-
+//            $uploadedLicense = true;
+//              $cartConversion = array('ids'=>$ids,'licenseUploadAction')
             Mage::getSingleton('customer/session')->setproducts($products);
             Mage::getSingleton('customer/session')->setNewQuote($ids);
+            Mage::getSingleton('customer/session')->setQuoteQty($quoteQty);
+            Mage::getSingleton('core/session')->setProductsPrice($price);
             Mage::getSingleton('core/session')->setLicensefileCreatedBy($license_file_created_by);
             if($count != count($items))
                 $session->addError("Some products were not added since it doesn't match with our records.");
         }else{
             $session->addError("Oops! Something went wrong...");
         }
-   $this->renderLayout();
-
-	}
-	public function uploadLicenseAction(){
-        $notificationAboutExpiry='';
-        $session = Mage::getSingleton("core/session");
-		$this->_initLayoutMessages('customer/session');
-		$this->loadLayout();
-		$file_errors=array(1=>'uploaded file exceeds the Max file size',
-			2=>'uploaded file exceeds the Max file size',
-			3=>'uploaded file was only partially uploaded',
-			4=>'No file was uploaded',
-			6=>'Missing a temporary folder, please contact administrator',
-			7=>'Failed to write file to disk, please contact administrator',
-			8=>'Unknown error,please contact administrator');
-		if(is_array($_FILES['uploadlicense'])){
-			#Check for file upload errors
-			if($_FILES['uploadlicense']['error']==0){
-				$fileName_array=explode('.',$_FILES['uploadlicense']['name']);
-				$file_extension=$fileName_array[count($fileName_array)-1];
-				#Check for Valid file
-				if(strtolower($file_extension)=='license'){
-					$fileTmpLoc = $_FILES["uploadlicense"]["tmp_name"];
-					$timestamp=date('Ymdhis');
-					$targetdir = Mage::getBaseDir('media')."/customerlicense/".$timestamp;
-					mkdir($targetdir,0777);
-					$fileName=$fileName_array[0].'.zip';
-					$targetzip = $targetdir.'/'.$fileName;
-					#Check whether file moved successfully or not
-					if(move_uploaded_file($fileTmpLoc, $targetzip)){
-						$zip = new ZipArchive();
-						$x = $zip->open($targetzip);  // open the zip file to extract
-						if ($x === true)
-						{
-							$zip->extractTo($targetdir);
-							$zip->close();
-							unlink($targetzip);
-							$handle = fopen($targetdir.'/license.txt', "r");
-							$linestoskip=array('signature','updates-expiry-date','organization-name','updates-expiry-policy','created-by','unique-id','expiry-date','order-reference','issued-by');
-							if ($handle) {
-								//echo "<pre>";
-								while (($line = fgets($handle)) !== false) {
-									if(strpos($line, "=")){
-										$line_keys = explode("=", $line);
-										if($line_keys[0]=='organization-name')
-											$license_file_created_by = $line_keys[1];
-										if($line_keys[1]=='0')
-										 continue;
-										//if(preg_match('/^ext-devices-/', $line_keys[0]))
-										if(!in_array($line_keys[0],$linestoskip))
-											$license_file_values[$line_keys[0]] = $line_keys[1];
-
-
-									}
-								}
-
-
-//                              For validating about Quote expiry
-                                if(isset($license_file_values['support-expiry-date'])){
-                                    $currentDate = new DateTime();
-                                    $date2 = new DateTime($license_file_values['support-expiry-date']);
-                                    $interval = $currentDate->diff($date2);
-
-                                     if($interval->days > 30){
-                                         $notificationAboutExpiry = false;
-                                         $this->_redirect('*/*/upgradeSupport');
-
-                                     }
-                                    if($interval->days <= 30){
-                                        $notificationAboutExpiry = true;
-                                        Mage::getSingleton('core/session')->setNotificationAboutExpiry($notificationAboutExpiry);
-                                    }
-                                }
-
-
-								if(count($license_file_values)>0){
-									if(isset($license_file_values['users-licensed'])){
-                                        if(isset($license_file_values['organization-type'])&&isset($license_file_values['edition'])){
-
-										$edition=trim($license_file_values['edition']);
-										$ot=trim($license_file_values['organization-type']);
-											$key='organization-type-'.$ot.'-'.$edition;
-											$license_file_values[$key]=$license_file_values['users-licensed'];
-										}
-
-									}
-                                    if($notificationAboutExpiry == true){
-
-                                        if(isset($license_file_values['issued-date']) && isset($license_file_values['support-expiry-date'])){
-
-                                            $date1 = new DateTime($license_file_values['issued-date']);
-                                            $date2 = new DateTime($license_file_values['support-expiry-date']);
-                                            $interval = $date1->diff($date2);
-                                            $license_file_values['support-assurance'.'-'.$interval->y]=1;
-                                        }
-                                    }
-
-								}
-
-							}else{
-								$session->addError("There has been an error in reading your license file");
-								$this->_redirect('*/*/upload');
-							}
-							unlink($targetdir.'/license.txt');
-							rmdir($targetdir);
-							//parsing master file for mapping the data
-							$filename = Mage::getBaseDir('media')."/licensemasterfile/masterlicensefile.csv";
-							$tempcsvdata = array();
-							$organisation=array();
-							$issued_date='';
-							if (($handle = fopen($filename, "r")) !== FALSE) {
-								while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-									/*$num = count($data);
-									$temp = array();
-									for ($c=0; $c < $num; $c++) {
-										$temp[] = $data[$c];
-									}
-									$tempcsvdata[]= $temp;*/
-
-									if($data[0]!='' && $data[0]!='organization-type'&& $data[0]!='edition' && $data[0]!='users-licensed'){
-										/*if($data[1]!='')
-											$data[0]=$data[0].'-'.$data[1];*/
-									    $csvdata[trim($data[0])]=$data[2];
-									}
-									else if($data[0]=='organization-type'){
-										$organisation[$data[0].'-'.$data[1]]=$data[2];
-									}
-									else if($data[0]=='edition'){
-										/*print_r($organisation);
-										exit;*/
-										if($organisation){
-											foreach($organisation as $key=>$val){
-												$csvdata[trim($key.'-'.$data[1])]=$val;
-											}
-										}
-									}
-								}
-								fclose($handle);
-							}
-							/*$tempcsvdata_count = count($tempcsvdata);
-							for($d=1; $d < $tempcsvdata_count; $d++){
-								$csvdata[] = array_combine($tempcsvdata[0],$tempcsvdata[$d]);
-							}*/
-
-							//Mage::register('licensefile_values', $license_file_values);
-							//Mage::register('licensefile_mappingdata',$csvdata);
-/*print_r($license_file_values);
-print_r($csvdata);
-exit;*/
-
-//                         To collect all maintenance Products
-
-                            $_collection = Mage::getModel('catalog/product')->getCollection();
-                            $_collection->addAttributeToFilter('product_type',array('eq'=>'4'));
-                            foreach ($_collection as $maintenanceProducts) {
-                                $mProducts[] = $maintenanceProducts['sku'];
-                        }
-
-							Mage::getSingleton('core/session')->setLicensefileValues($license_file_values);		
-							Mage::getSingleton('core/session')->setLicensefileCreatedBy($license_file_created_by);
-							Mage::getSingleton('core/session')->setMaintenanceProductsCollection($mProducts);
-
-
-
-						}else{
-							$session->addError('Error in extracting the file.');
-							$this->_redirect('*/*/upload');
-						}
-					}
-					else{
-						$session->addError('Failed to move uploaded file.');
-						$this->_redirect('*/*/upload');
-					}
-				}
-				else{
-					$session->addError("Licensing file uploaded is invalid. Please upload new file");
-					$this->_redirect('*/*/upload');
-				}
-
-			}else{
-				$error=$file_errors[$_FILES['uploadlicense']['error']];
-				$session->addError("Error in uploading the file -- ".$error);
-				$this->_redirect('*/*/upload');
-			}
-		}
-		$this->renderLayout();
-	}
+//        }else{
+//            $session->addError("You cancelled the order");
+//        }
+        $this->renderLayout();
+//        Mage::dispatchEvent('send_quote_created_email', $event_data_array);
+    }
 }
 ?>

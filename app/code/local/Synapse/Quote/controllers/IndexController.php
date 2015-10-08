@@ -1,7 +1,7 @@
 <?php
 class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 
-		public function saveAction(){
+    	public function saveAction(){
 
 			$data = $this->getRequest()->getPost();
            $session = Mage::getSingleton("core/session");
@@ -223,11 +223,10 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
             $quote_product_params = unserialize($quote_details['quote_product_params']);
             $storeId = Mage::app()->getStore()->getStoreId();
 			foreach ($quote_product_qty as $k => $v){
-
 					$_product = Mage::getModel('catalog/product')->load($k);
 					$attribTxt = $_product->getAttributeText('product_type');
 					$addProd2Cart=true;
-					if(strtolower($attribTxt)=='maintenance product'){
+                	if(strtolower($attribTxt)=='maintenance product'){
 						$items=Mage::getModel('checkout/cart')->getQuote()->getAllItems();
 						foreach ($items as $item) {
 							$prod=$item->getProduct();
@@ -442,16 +441,21 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 			$this->_initLayoutMessages('customer/session');
 			$new_quote = Mage::getSingleton('customer/session')->getNewQuote();
 			$quoteQty = Mage::getSingleton('customer/session')->getQuoteQty();
-			$quote_items = array_count_values($new_quote);
+            $price = Mage::getSingleton('core/session')->getProductsPrice();
+            $quote_items = array_count_values($new_quote);
             $result = array();
-			foreach ($quote_items as $k => $v){
+            $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+            foreach ($quote_items as $k => $v){
 				$model = Mage::getModel('catalog/product');
 				$_product = $model->load($k);
                 $prodType = $_product->getAttributeText('product_type');
                 if(strtolower($prodType)=='software product'){
 
                     $softwareProd = 0;
-                    $item_price=Mage::helper('tax')->getPrice($_product, $_product->getFinalPrice($v));
+                    $item_price=$price[$k];
+                    if($currency_code!= 'AUD'){
+                        $item_price=$this->priceInNZD($item_price);
+                    }
                     $softwareProd=$softwareProd+$item_price;
                     Mage::getSingleton('core/session')->setsoftwareProdPrice($softwareProd);
                     continue  ;
@@ -460,10 +464,10 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
                 try{
 					$cart = Mage::getModel('checkout/cart');
 					$cart->init();
-					$cart->addProduct($_product, array('qty' => $v));
+					$cart->addProduct($_product, array('qty' => $quoteQty[$k]));
 					$cart->save();
 					Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
-					$result[] = "success";
+                    $result[] = "success";
 				}catch(Exception $e){
 					$result[] = "failed";
 				}

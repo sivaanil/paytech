@@ -245,6 +245,11 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      */
     public function addProduct($productInfo, $requestInfo=null)
     {
+
+//        echo '<pre>';
+////        print_r($productInfo);
+//        print_r($requestInfo);
+//        exit;
         $product = $this->_getProduct($productInfo);
         $request = $this->_getProductRequest($requestInfo);
         $productId = $product->getId();

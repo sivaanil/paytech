@@ -17,24 +17,8 @@ $finalized=$discontinued_prod=$product_with_issues=array();
 *license mapping file. if key exists in mapping file then it will be added to the finalized
 *list.
 **/
-if(!empty($products)){
-	?>
-     <ul class="messages">
-		<li class="success-msg">
-			<ul>
-				<li>
-                   <span>
-						<?php
-                        		echo $this->__('Items you choosed');
-
-						?>
-					</span>
-				</li>
-			</ul>
-		</li>
-	</ul>
-    <div>
-		<form id="my-quote" name="createquote" action="<?php echo Mage::getUrl('quote/index/save'); ?>" method="post">
+if(!empty($products)){?>
+     	<form id="my-quote" name="createquote" action="<?php echo Mage::getUrl('quote/index/save'); ?>" method="post">
 			<div class="quotefield">
 				<label>Quote Number #: NA</label>
 			</div>

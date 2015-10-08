@@ -1,0 +1,9 @@
+<?php
+$quote = Mage::getSingleton('core/session')->getNewQuote();
+print_r($quote);
+foreach ($this->getItems() as $_item):
+    $model = Mage::getModel('catalog/product');
+    $_product = $model->load($_item);
+    ?>
+    <p><?php echo $_product->getName().'+' ?></p>
+<?php endforeach; ?>

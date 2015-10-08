@@ -32,6 +32,5 @@
         <reference name="my.account.wrapper">		   
 			<block type="core/template" name="quote_creation" template="quote/view.phtml" />	
         </reference>
-    </quote_index_create>	  
-      		
+    </quote_index_create>
 </layout>

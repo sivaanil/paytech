@@ -2,10 +2,9 @@
 class Synapse_Quote_Model_Price_Observer extends Varien_Object
 {
     public function applyQuotePrice(Varien_Event_Observer $observer){
-     	$item = $observer->getQuoteItem();
+        $item = $observer->getQuoteItem();
        if(Mage::getSingleton('core/session')->getIsQuoteAddedToCart()){
-
-			$quote_id = Mage::getSingleton('core/session')->getCurrentQuote();
+           $quote_id = Mage::getSingleton('core/session')->getCurrentQuote();
 			$model = Mage::getModel("quote/quote");
             $existing_quote_record = $model->load($quote_id); 			
 			$quote_details = $existing_quote_record->getData();						
@@ -45,9 +44,9 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
 
 
 
-		/*else{
-			$prodId = $item->getProduct()->getId();	
-			$storeId = Mage::app()->getStore()->getStoreId();
+		else{
+            $prodId = $item->getProduct()->getId();
+          	$storeId = Mage::app()->getStore()->getStoreId();
 			$product1 = Mage::getModel('catalog/product')->setStoreId($storeId)->load($prodId);
 			$attribTxt = $product1->getAttributeText('product_type');
 			if(strtolower($attribTxt)=='maintenance product'){
@@ -56,20 +55,19 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
 					$prod=$item->getProduct();
 					$productId=$prod->getId();
 					$product = Mage::getModel('catalog/product')->setStoreId($storeId)->load($productId);
-					$attribTxt1 = $product->getAttributeText('product_type');
-					if(strtolower($attribTxt1)=='maintenance product'){			
-						Mage::getSingleton('checkout/session')->addError(Mage::helper('checkout')->__('Upgrade Assurance Product already added to the cart'));
-						header("Location: " . $product1->getProductUrl());
-						die();
-					}
+          $attribTxt1 = $product->getAttributeText('product_type');
+//					if(strtolower($attribTxt1)=='maintenance product'){
+//						Mage::getSingleton('checkout/session')->addError(Mage::helper('checkout')->__('Upgrade Assurance Product already added to the cart'));
+//						header("Location: " . $product1->getProductUrl());
+//						die();
+//					}
 				}
 			}
 			else{
 			    $this->getCustomPrice();
 			}
-		}*/
+		}
 
-//        print_r($this->getCustomPrice()); exit;
 		$this->getCustomPrice();
 
 
@@ -218,33 +216,67 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
 	}
 
 public function sendQuoteCreatedEmail($data){
-    echo '<pre>';
-            $rawData = $data->getData();
-            if($rawData['customer']['order_confirmation_email']){
+    $rawData = $data->getData();
+    $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+    $ItemData ='';
+    if($rawData['customer']['order_confirmation_email']){
              $allemails = $rawData['customer']['order_confirmation_email'];
             $email_to=explode(",",$allemails);
         }
         $email_to[] = $rawData['customer']['email'];
-    print_r($rawData);
-    exit;
+
+//    $email_to = 'venkatalapati20097@gmail.com';
 
     // This is the template name from your etc/config.xml
         $template_id = 'custom_template';
         // Who were sending to...
         $customer_name   = $rawData['customer']['firstname'].$rawData['customer']['lastname'];
+    $address = Mage::getModel('customer/customer')->load($rawData['customer']['entity_id']);
+//    TO load customer address
+    foreach ($address->getAddresses() as $address){
+        $data = $address->toArray();
+    }
+        $customer_address   = ucfirst($data['street']).',<br/>'.ucwords($data['city'].',<br/>'.$data['country_id']
+                    .',<br/>'.$data['postcode'].'.');
 
+//    Load the items for template
+    $productids = explode(",",$rawData['quote']['quote_product_ids']);
+    $productqtys = explode(",",$rawData['quote']['quote_product_qtys']);
+
+
+    if($currency_code == 'AUD'){
+        $productprices = explode(",",$rawData['quote']['quote_product_prices_aud']);
+    }else{
+        $productprices = explode(",",$rawData['quote']['quote_product_prices_nzd']);
+    }
+    $total = 0;
+    for($i=0;$i<count($productids);$i++){
+        $total += $productprices[$i];
+        $_product = Mage::getModel('catalog/product')->load($productids[$i]);
+        $ItemData .= "<tr><td valign='top' style='font-size:12px; text-align: center;padding:7px 9px 9px 9px; border-left:1px solid
+#EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA;'>".$_product->getData('name')."</td><td valign='top'
+style='font-size:12px; text-align: center;padding:7px 9px 9px 9px; text-align: center;
+border-left:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA;'>".$productqtys[$i]."
+</td><td valign='top' style='font-size:12px; text-align: center; padding:7px 9px 9px 9px; border-left:1px solid
+#EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA;'>".$productprices[$i]."</td></tr>";
+    }
         // Load our template by template_id
         //For templates which are useed in database
 
-        //$email_template  = Mage::getModel('core/email_template')->loadByCode('custom_template'); //where 'custom_template' is the name of template
+        $email_template  = Mage::getModel('core/email_template')->loadByCode('quote_created_template'); //where 'custom_template' is the name of template
 
         //If you define in config.xml then please use below code.
-        $email_template  = Mage::getModel('core/email_template')->loadDefault($template_id);
+//        $email_template  = Mage::getModel('core/email_template')->loadDefault($template_id);
+    $searches = array('{{quote.customerName}}', '{{quote.id}}','{{quote.createdAt}}','{{quote.customerAddress}}',
+        '{{itemData}}','{{currency_code}}','{{total}}');
+    $replacements = array($customer_name, $rawData['quote']['quote_id'],$rawData['quote']['created_date'],
+        $customer_address,$ItemData,$currency_code,$total);
+    $finalData = str_replace($searches, $replacements, $email_template->getData()['template_text']);
+    $email_template->setData()['template_text'] = $finalData;
+    // Here is where we can define custom variables to go in our email template!
 
-        // Here is where we can define custom variables to go in our email template!
         $email_template_variables = array(
-            'customer_name' => $customer_name
-            // Other variables for our email template.
+          // Other variables for our email template.
         );
 
         // I'm using the Store Name as sender name here.
@@ -257,12 +289,12 @@ public function sendQuoteCreatedEmail($data){
 
         //Send the email to the sub account
         $email_template->send($email_to, $customer_name, $email_template_variables);
-        //Send the email to the sub account master customer
-//        if($rawData['customer']['master_customer']){
-//            $masterCustomer = Mage::getModel('customer/customer')->load($rawData['customer']['master_customer']);
-//            $email_to = $masterCustomer->getData('email');
-//            $email_template->send($email_to, $customer_name, $email_template_variables);
-//        }
+//        Send the email to the sub account master customer
+        if($rawData['customer']['master_customer']){
+            $masterCustomer = Mage::getModel('customer/customer')->load($rawData['customer']['master_customer']);
+            $email_to = $masterCustomer->getData('email');
+            $email_template->send($email_to, $customer_name, $email_template_variables);
+        }
 
     }
 }
