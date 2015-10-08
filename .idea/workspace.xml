@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b5b5d5e-584e-41bb-8b87-be7152b1bc5f" name="Default" comment="Minor Changes">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_LAYOUT_1F5505CE6479AAB60A8EA70D7B3FF7417" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_LAYOUT_1F5505CE6479AAB60A8EA70D7B3FF7417" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_1.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_2.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_3.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_4.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_5.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_6.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_7.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_8.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_9.lock" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/session/sess_11054r25vec005tddjaoneugg4" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/session/sess_1rfa7irhcb5sqpl5a7qmph79a6" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/session/sess_98mt06pghikr1qmmqonrl2im27" afterPath="" />
@@ -47,7 +58,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_customer_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_customer_1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_DB_PDO_MYSQL_DDL_log_url_1" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_DB_PDO_MYSQL_DDL_log_url_1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_url_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_url_info_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_EF888D9386868F7DB9D4F73345E4D68A" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_EF888D9386868F7DB9D4F73345E4D68A" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--e/mage---af9_F4298E6145BB3105A48403C78B654ED279257E5E" afterPath="$PROJECT_DIR$/var/cache/mage--e/mage---af9_F4298E6145BB3105A48403C78B654ED279257E5E" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" />
@@ -108,7 +118,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_customer_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_customer_1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_1" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_info_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_EF888D9386868F7DB9D4F73345E4D68A" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_EF888D9386868F7DB9D4F73345E4D68A" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--e/mage---internal-metadatas---af9_F4298E6145BB3105A48403C78B654ED279257E5E" afterPath="$PROJECT_DIR$/var/cache/mage--e/mage---internal-metadatas---af9_F4298E6145BB3105A48403C78B654ED279257E5E" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" />
@@ -143,18 +152,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--b/mage---internal-metadatas---af9_Zend_LocaleL_en_US_symbols_" afterPath="$PROJECT_DIR$/var/cache/mage--b/mage---internal-metadatas---af9_Zend_LocaleL_en_US_symbols_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--3/mage---internal-metadatas---af9_config_theme" afterPath="$PROJECT_DIR$/var/cache/mage--3/mage---internal-metadatas---af9_config_theme" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php" afterPath="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php" afterPath="$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php" afterPath="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_1.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_1.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_2.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_2.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_3.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_3.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_4.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_4.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_5.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_5.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_6.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_6.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_7.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_7.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_8.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_8.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_9.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_9.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/review/button.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/review/button.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="paytec.iws" />
@@ -189,7 +189,7 @@
       <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.125" vertical-offset="3630" max-vertical-offset="4320">
+            <state vertical-scroll-proportion="-13.125" vertical-offset="3630" max-vertical-offset="4305">
               <caret line="263" column="101" selection-start-line="263" selection-start-column="12" selection-end-line="263" selection-end-column="101" />
               <folding />
             </state>
@@ -199,18 +199,18 @@
       <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.75" vertical-offset="6720" max-vertical-offset="12300">
-              <caret line="442" column="40" selection-start-line="442" selection-start-column="40" selection-end-line="442" selection-end-column="40" />
+            <state vertical-scroll-proportion="-15.0" vertical-offset="6900" max-vertical-offset="12270">
+              <caret line="484" column="95" selection-start-line="484" selection-start-column="78" selection-end-line="484" selection-end-column="95" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cart.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Cart.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6538463" vertical-offset="2960" max-vertical-offset="9330">
-              <caret line="210" column="12" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="98" />
+            <state vertical-scroll-proportion="0.4920635" vertical-offset="3666" max-vertical-offset="9345">
+              <caret line="263" column="0" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
               <folding>
                 <element signature="e#6#963#0#PHP" expanded="true" />
               </folding>
@@ -218,19 +218,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Observer.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.423077" vertical-offset="2450" max-vertical-offset="10410">
+              <caret line="219" column="29" selection-start-line="219" selection-start-column="19" selection-end-line="219" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Observer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69666666" vertical-offset="677" max-vertical-offset="4680">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state vertical-scroll-proportion="-20.0" vertical-offset="585" max-vertical-offset="4725">
+              <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
               <folding>
-                <marker date="1444303001719" expanded="true" signature="3258:3434" placeholder="..." />
-                <marker date="1444303001719" expanded="true" signature="9909:10566" placeholder="..." />
-                <marker date="1444303001719" expanded="true" signature="9934:10089" placeholder="..." />
-                <marker date="1444303001719" expanded="true" signature="10142:10352" placeholder="..." />
-                <marker date="1444303001719" expanded="true" signature="10150:10325" placeholder="..." />
-                <marker date="1444303001719" expanded="true" signature="10377:10533" placeholder="..." />
+                <marker date="1444308486288" expanded="true" signature="3258:3434" placeholder="..." />
+                <marker date="1444308486288" expanded="true" signature="9992:10649" placeholder="..." />
+                <marker date="1444308486288" expanded="true" signature="10017:10172" placeholder="..." />
+                <marker date="1444308486288" expanded="true" signature="10225:10435" placeholder="..." />
+                <marker date="1444308486288" expanded="true" signature="10233:10408" placeholder="..." />
+                <marker date="1444308486288" expanded="true" signature="10460:10616" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="button.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/review/button.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="270">
+              <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="link.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/link.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="225">
+              <caret line="26" column="42" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -243,8 +273,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/code/local/Synapse/Test/Model/CustomEvent/Observer.php" />
-        <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/review/helper/summary.phtml" />
         <option value="$PROJECT_DIR$/app/design/frontend/base/default/template/wishlist/render/item/price.phtml" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/bestseller/bestseller.phtml" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/newproducts/newproducts.phtml" />
@@ -256,7 +284,6 @@
         <option value="$PROJECT_DIR$/app/design/adminhtml/default/default/layout/paytech.xml" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/checkout/cart.phtml" />
         <option value="$PROJECT_DIR$/app/code/core/Mage/Wishlist/Model/Observer.php" />
-        <option value="$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/maintenaceProducts.phtml" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/catalog/product/list/related_list.phtml" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/catalog/product/view.phtml" />
@@ -291,9 +318,12 @@
         <option value="$PROJECT_DIR$/app/locale/en_US/template/email/custom_template.html" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml" />
         <option value="$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php" />
-        <option value="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php" />
         <option value="$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php" />
+        <option value="$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/link.phtml" />
+        <option value="$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/review/button.phtml" />
         <option value="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php" />
+        <option value="$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php" />
+        <option value="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php" />
       </list>
     </option>
   </component>
@@ -1309,7 +1339,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444294754799</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cart pricing for quote is perfect">
+      <created>1444303258275</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1444303258275</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1371,6 +1407,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
@@ -1381,7 +1418,8 @@
     </ignored-roots>
     <MESSAGE value="Minor Changes" />
     <MESSAGE value="Perfect till EMail Deliveries,&#10;&#10;Pending:&#10;1. Quote Price&#10;2. Place Order Button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Perfect till EMail Deliveries,&#10;&#10;Pending:&#10;1. Quote Price&#10;2. Place Order Button" />
+    <MESSAGE value="Cart pricing for quote is perfect" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cart pricing for quote is perfect" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1390,33 +1428,17 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2486" max-vertical-offset="4215">
-          <caret line="173" column="54" selection-start-line="173" selection-start-column="54" selection-end-line="173" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6770" max-vertical-offset="11985">
-          <caret line="469" column="20" selection-start-line="469" selection-start-column="20" selection-end-line="469" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3585" max-vertical-offset="4155">
           <caret line="239" column="26" selection-start-line="239" selection-start-column="26" selection-end-line="239" selection-end-column="26" />
           <folding>
-            <marker date="1444303001719" expanded="true" signature="3258:3434" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="9909:10566" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="9934:10089" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="10142:10352" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="10150:10325" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="10377:10533" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="3258:3434" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="9992:10649" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10017:10172" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10225:10435" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10233:10408" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10460:10616" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1466,12 +1488,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4125">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1444303001719" expanded="true" signature="3258:3434" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="9909:10566" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="9934:10089" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="10142:10352" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="10150:10325" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="10377:10533" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="3258:3434" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="9992:10649" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10017:10172" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10225:10435" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10233:10408" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10460:10616" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1767,14 +1789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7" vertical-offset="3030" max-vertical-offset="10410">
-          <caret line="197" column="36" selection-start-line="197" selection-start-column="36" selection-end-line="197" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/Model/observer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
@@ -1783,43 +1797,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Type/Multishipping/State.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.3577237" vertical-offset="2571" max-vertical-offset="2940">
+          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RELEASE_NOTES.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="34564" max-vertical-offset="130695">
+          <caret line="2278" column="71" selection-start-line="2278" selection-start-column="71" selection-end-line="2278" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/link.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="225">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125" vertical-offset="3630" max-vertical-offset="4320">
+        <state vertical-scroll-proportion="-13.125" vertical-offset="3630" max-vertical-offset="4305">
           <caret line="263" column="101" selection-start-line="263" selection-start-column="12" selection-end-line="263" selection-end-column="101" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php">
+    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6538463" vertical-offset="2960" max-vertical-offset="9330">
-          <caret line="210" column="12" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="98" />
-          <folding>
-            <element signature="e#6#963#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-15.0" vertical-offset="6900" max-vertical-offset="12270">
+          <caret line="484" column="95" selection-start-line="484" selection-start-column="78" selection-end-line="484" selection-end-column="95" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php">
+    <entry file="file://$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/review/button.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.75" vertical-offset="6720" max-vertical-offset="12300">
-          <caret line="442" column="40" selection-start-line="442" selection-start-column="40" selection-end-line="442" selection-end-column="40" />
+        <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="270">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69666666" vertical-offset="677" max-vertical-offset="4680">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state vertical-scroll-proportion="-20.0" vertical-offset="585" max-vertical-offset="4725">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
           <folding>
-            <marker date="1444303001719" expanded="true" signature="3258:3434" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="9909:10566" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="9934:10089" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="10142:10352" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="10150:10325" placeholder="..." />
-            <marker date="1444303001719" expanded="true" signature="10377:10533" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="3258:3434" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="9992:10649" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10017:10172" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10225:10435" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10233:10408" placeholder="..." />
+            <marker date="1444308486288" expanded="true" signature="10460:10616" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.423077" vertical-offset="2450" max-vertical-offset="10410">
+          <caret line="219" column="29" selection-start-line="219" selection-start-column="19" selection-end-line="219" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4920635" vertical-offset="3666" max-vertical-offset="9345">
+          <caret line="263" column="0" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#963#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

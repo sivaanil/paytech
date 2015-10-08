@@ -69,7 +69,10 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
                 $this->getCustomPrice();
             }
         }
-//        echo $this->getCustomPrice(); exit;
+    if(!Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload()){
+            $this->getCustomPrice();
+        }
+
 
 
 	    

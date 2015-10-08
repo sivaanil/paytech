@@ -260,14 +260,15 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
         }
 
         $attribTxt = $product->getAttributeText('product_type');
-        $maintenanceProductCheck =  Mage::getSingleton('core/session')->getCheckMaintenanceProduct();
+//        $maintenanceProductCheck =  Mage::getSingleton('core/session')->getCheckMaintenanceProduct();
 
-//if(strtolower($attribTxt) == 'maintenance product' && $maintenanceProductCheck == 1)
+//        if(strtolower($attribTxt) == 'maintenance product' && $maintenanceProductCheck == 1)
 //        Mage::throwException(Mage::helper('checkout')->__('Upgrade Assurance Product already added to cart'));
 
         if(strtolower($attribTxt) == 'maintenance product'){
             $maintenanceProductAdded  = 1;
             Mage::getSingleton('core/session')->setCheckMaintenanceProduct($maintenanceProductAdded);
+                  Mage::throwException(Mage::helper('checkout')->__('Upgrade Assurance Product already added to cart'));
         }
 
             if ($productId) {

@@ -190,7 +190,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
      */
     public function addAction()
     {
-
+        Mage::getSingleton('customer/session')->unsQuoteCreatedThroughUpload();
         if (!$this->_validateFormKey()) {
             $this->_goBack();
             return;
