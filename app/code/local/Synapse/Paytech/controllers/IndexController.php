@@ -245,8 +245,6 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                 }
 
                $event_data_array  =  array('customer' => $customer,'quote'=>$model);
-
-
 //                $this->_redirect('quote/index/quotes/');
                 $session->addSuccess("Quote saved successfully");
 //                Mage::getSingleton('core/session')->setNewQuote($model);
@@ -257,10 +255,14 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                 $this->_redirect('*/*/');
             }
 
-//            $uploadedLicense = true;
-//              $cartConversion = array('ids'=>$ids,'licenseUploadAction')
+            $uploadedLicense = true;
+//              echo '<pre>';
+//              print_r($products);
+//              exit;
+              Mage::getSingleton('customer/session')->setproducts($products);
             Mage::getSingleton('customer/session')->setproducts($products);
-            Mage::getSingleton('customer/session')->setNewQuote($ids);
+            Mage::getSingleton('customer/session')->setQuoteCreatedThroughUpload($model['quote_id']);
+            Mage::getSingleton('customer/session')->setUploadedLicense($uploadedLicense);
             Mage::getSingleton('customer/session')->setQuoteQty($quoteQty);
             Mage::getSingleton('core/session')->setProductsPrice($price);
             Mage::getSingleton('core/session')->setLicensefileCreatedBy($license_file_created_by);

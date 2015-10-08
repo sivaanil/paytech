@@ -245,11 +245,6 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      */
     public function addProduct($productInfo, $requestInfo=null)
     {
-
-//        echo '<pre>';
-////        print_r($productInfo);
-//        print_r($requestInfo);
-//        exit;
         $product = $this->_getProduct($productInfo);
         $request = $this->_getProductRequest($requestInfo);
         $productId = $product->getId();
@@ -266,8 +261,9 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
 
         $attribTxt = $product->getAttributeText('product_type');
         $maintenanceProductCheck =  Mage::getSingleton('core/session')->getCheckMaintenanceProduct();
-if(strtolower($attribTxt) == 'maintenance product' && $maintenanceProductCheck == 1)
-        Mage::throwException(Mage::helper('checkout')->__('Upgrade Assurance Product already added to cart'));
+
+//if(strtolower($attribTxt) == 'maintenance product' && $maintenanceProductCheck == 1)
+//        Mage::throwException(Mage::helper('checkout')->__('Upgrade Assurance Product already added to cart'));
 
         if(strtolower($attribTxt) == 'maintenance product'){
             $maintenanceProductAdded  = 1;
@@ -300,8 +296,6 @@ if(strtolower($attribTxt) == 'maintenance product' && $maintenanceProductCheck =
             } else {
                 Mage::throwException(Mage::helper('checkout')->__('The product does not exist.'));
             }
-
-
         Mage::dispatchEvent('checkout_cart_product_add_after', array('quote_item' => $result, 'product' => $product));
         $this->getCheckoutSession()->setLastAddedProductId($productId);
         return $this;

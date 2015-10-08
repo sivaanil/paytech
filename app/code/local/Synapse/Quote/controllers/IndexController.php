@@ -4,6 +4,8 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
     	public function saveAction(){
 
 			$data = $this->getRequest()->getPost();
+            echo '<pre>';
+
            $session = Mage::getSingleton("core/session");
 			$this->_initLayoutMessages('customer/session');
 			$products=array();
@@ -12,6 +14,8 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 			if(!$data['quoteid']){ #if it's a new quote
                 $quote_customer_id = Mage::getSingleton('customer/session')->getCustomer()->getId();
 				$quote_product_ids = Mage::getSingleton('customer/session')->getNewQuote();
+                print_r($data);
+                print_r($quote_product_ids);
 
 //				$quote_product_options = Mage::getSingleton('customer/session')->getProdOptions();
                 $qtys='';
@@ -24,13 +28,10 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 
 					$product = Mage::getModel('catalog/product')->load($prod_id);
 					$prodType = $product->getAttributeText('product_type');
-					$qty=$data['products'][$quote_prod]['quantity'];
+					$qty=$data['qty'][$quote_prod];
 //                    echo '6';
 //
-//                    echo $qty;
-//                    exit;
-
-					if(strtolower($prodType)=='maintenance product')
+                    if(strtolower($prodType)=='maintenance product')
 						$maintenance_required=true;
 
 					$prod_price = $product->getFinalPrice($qty);
@@ -207,6 +208,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 			$this->_redirectUrl($url);
 		}
 		public function addCartAction(){
+            Mage::getSingleton('customer/session')->unsQuoteCreatedThroughUpload();
 			$session = Mage::getSingleton("core/session");
 			$this->_initLayoutMessages('customer/session');
 			$quote_id = $this->getRequest()->getParam('id');
@@ -438,11 +440,20 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 		public function licenseQuoteToCartAction(){
             Mage::getSingleton('core/session')->unsCheckMaintenanceProduct();
             $session = Mage::getSingleton("core/session");
-			$this->_initLayoutMessages('customer/session');
-			$new_quote = Mage::getSingleton('customer/session')->getNewQuote();
-			$quoteQty = Mage::getSingleton('customer/session')->getQuoteQty();
-            $price = Mage::getSingleton('core/session')->getProductsPrice();
-            $quote_items = array_count_values($new_quote);
+            $maintenanceProductAdded='';
+            $this->_initLayoutMessages('customer/session');
+            $isLicenseUploaded = Mage::getSingleton('customer/session')->getUploadedLicense();
+            if($isLicenseUploaded){
+                $new_quote = Mage::getSingleton('customer/session')->getproducts();
+                $productIds = array_keys($new_quote);
+                $quote_items = array_count_values($productIds);
+                $quoteQty = Mage::getSingleton('customer/session')->getQuoteQty();
+                $price = Mage::getSingleton('core/session')->getProductsPrice();
+
+            }else{
+                $new_quote = Mage::getSingleton('customer/session')->getNewQuote();
+                $quote_items = array_count_values($new_quote);
+            }
             $result = array();
             $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
             foreach ($quote_items as $k => $v){
@@ -460,21 +471,25 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
                     Mage::getSingleton('core/session')->setsoftwareProdPrice($softwareProd);
                     continue  ;
                 }
-
+                if(strtolower($prodType)=='maintenance product'){
+                    if($maintenanceProductAdded)
+                        continue;
+                    $maintenanceProductAdded =1;
+                }
                 try{
 					$cart = Mage::getModel('checkout/cart');
 					$cart->init();
-					$cart->addProduct($_product, array('qty' => $quoteQty[$k]));
+                    $cart->addProduct($_product, array('qty' => $quoteQty[$k]));
 					$cart->save();
+                    $quoteAddedToCart = true;
+                    Mage::getSingleton('core/session')->setIsQuoteAddedToCart($quoteAddedToCart);
 					Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
                     $result[] = "success";
 				}catch(Exception $e){
 					$result[] = "failed";
 				}
+
 			}
-
-
-
 			if(in_array("failed", $result)){
 				$session->addError("Quote cannot be added to cart");
 				$url = Mage::getSingleton('core/session')->getLastUrl();
@@ -602,8 +617,12 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 				#Check for maintenance product existance
 				$product = Mage::getModel('catalog/product')->load($productId);
 				$prodType = $product->getAttributeText('product_type');
+//                echo '<pre>';
+//                print_r(strtolower($prodType));
+//                print_r($added_products);
+//                exit;
 				if(strtolower($prodType)=='maintenance product'){
-					foreach($added_products as $prod){
+                    foreach($added_products as $prod){
 						$product1 = Mage::getModel('catalog/product')->load($prod);
 						$prodType1 = $product1->getAttributeText('product_type');
 						if(strtolower($prodType1)=='maintenance product'){

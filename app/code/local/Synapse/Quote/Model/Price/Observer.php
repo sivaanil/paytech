@@ -3,72 +3,73 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
 {
     public function applyQuotePrice(Varien_Event_Observer $observer){
         $item = $observer->getQuoteItem();
-       if(Mage::getSingleton('core/session')->getIsQuoteAddedToCart()){
-           $quote_id = Mage::getSingleton('core/session')->getCurrentQuote();
-			$model = Mage::getModel("quote/quote");
-            $existing_quote_record = $model->load($quote_id); 			
-			$quote_details = $existing_quote_record->getData();						
-			$quote_products = explode(',',$quote_details['quote_product_ids']);
-			$quote_product_qty = array_count_values($quote_products);
-			$aud_prices=explode(',',$quote_details['quote_product_prices_aud']);
-			$nzd_prices=explode(',',$quote_details['quote_product_prices_nzd']);
-			$quote_product_price_aud = array_combine($quote_products,$aud_prices);
-			$quote_product_price_nzd = array_combine($quote_products,$nzd_prices);
-           /* @var $item Mage_Sales_Model_Quote_Item */
-			$item = $observer->getQuoteItem();				
-			$productid = $item->getProduct()->getId();	
-			$product1 = Mage::getModel('catalog/product')->setStoreId($storeId)->load($productid);
-			$attribTxt = strtolower($product1->getAttributeText('product_type'));
 
-			if ($item->getParentItem()) {
-				$item = $item->getParentItem();
-			}	
-			
-			$current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+        if(Mage::getSingleton('core/session')->getIsQuoteAddedToCart()){
+            if(Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload()){
+                $quote_id = Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload();
+            }else{
+                $quote_id = Mage::getSingleton('core/session')->getCurrentQuote();
+            }
+            $model = Mage::getModel("quote/quote");
+            $existing_quote_record = $model->load($quote_id);
+            $quote_details = $existing_quote_record->getData();
+            $quote_products = explode(',',$quote_details['quote_product_ids']);
+            $quote_product_qty = array_count_values($quote_products);
+            $aud_prices=explode(',',$quote_details['quote_product_prices_aud']);
+            $nzd_prices=explode(',',$quote_details['quote_product_prices_nzd']);
+            $quote_product_price_aud = array_combine($quote_products,$aud_prices);
+            $quote_product_price_nzd = array_combine($quote_products,$nzd_prices);
+            /* @var $item Mage_Sales_Model_Quote_Item */
+            $item = $observer->getQuoteItem();
+            $productid = $item->getProduct()->getId();
+            $product1 = Mage::getModel('catalog/product')->setStoreId($storeId)->load($productid);
+            $attribTxt = strtolower($product1->getAttributeText('product_type'));
+            if ($item->getParentItem()) {
+                $item = $item->getParentItem();
+            }
+            $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
 
-			$itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];	
-			$itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];
-			
-			
-			if($current_currency_code == 'NZD'){						    
-				$item->setCustomPrice($itemprice_nzd);
-				$item->setOriginalCustomPrice($itemprice_nzd);
-			}else{
-				$item->setCustomPrice($itemprice_aud);
-				$item->setOriginalCustomPrice($itemprice_aud);					     	
-			}	  			
-			$item->getProduct()->setIsSuperMode(true);
-			if($attribTxt=='software product' or $attribTxt=='maintenance product')
-			    $this->getCustomPrice();
-		}
+            $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
+            $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];
+            if($current_currency_code == 'NZD'){
+                $item->setCustomPrice($itemprice_nzd);
+                $item->setOriginalCustomPrice($itemprice_nzd);
 
+            }else{
+                $item->setCustomPrice($itemprice_aud);
+                $item->setOriginalCustomPrice($itemprice_aud);
 
+            }
+            $item->getProduct()->setIsSuperMode(true);
+            if($attribTxt=='software product' or $attribTxt=='maintenance product'){
+                $item->getCustomPrice();
+            }
 
-		else{
+        }else{
             $prodId = $item->getProduct()->getId();
-          	$storeId = Mage::app()->getStore()->getStoreId();
-			$product1 = Mage::getModel('catalog/product')->setStoreId($storeId)->load($prodId);
-			$attribTxt = $product1->getAttributeText('product_type');
-			if(strtolower($attribTxt)=='maintenance product'){
-				$items=Mage::getModel('checkout/cart')->getQuote()->getAllVisibleItems();
-				foreach ($items as $item) {
-					$prod=$item->getProduct();
-					$productId=$prod->getId();
-					$product = Mage::getModel('catalog/product')->setStoreId($storeId)->load($productId);
-          $attribTxt1 = $product->getAttributeText('product_type');
+            $storeId = Mage::app()->getStore()->getStoreId();
+            $product1 = Mage::getModel('catalog/product')->setStoreId($storeId)->load($prodId);
+            $attribTxt = $product1->getAttributeText('product_type');
+            if(strtolower($attribTxt)=='maintenance product'){
+                $items=Mage::getModel('checkout/cart')->getQuote()->getAllVisibleItems();
+                foreach ($items as $item) {
+                    $prod=$item->getProduct();
+                    $productId=$prod->getId();
+                    $product = Mage::getModel('catalog/product')->setStoreId($storeId)->load($productId);
+                    $attribTxt1 = $product->getAttributeText('product_type');
 //					if(strtolower($attribTxt1)=='maintenance product'){
 //						Mage::getSingleton('checkout/session')->addError(Mage::helper('checkout')->__('Upgrade Assurance Product already added to the cart'));
 //						header("Location: " . $product1->getProductUrl());
 //						die();
 //					}
-				}
-			}
-			else{
-			    $this->getCustomPrice();
-			}
-		}
+                }
+            }
+            else{
 
-		$this->getCustomPrice();
+                $this->getCustomPrice();
+            }
+        }
+//        echo $this->getCustomPrice(); exit;
 
 
 	    
