@@ -1,9 +1,13 @@
 <?php
 class Synapse_Quote_Model_Price_Observer extends Varien_Object
 {
+    private function priceInNZD($price){
+        return Mage::helper('directory')->currencyConvert($price, AUD, NZD);
+    }
+
+
     public function applyQuotePrice(Varien_Event_Observer $observer){
         $item = $observer->getQuoteItem();
-
         if(Mage::getSingleton('core/session')->getIsQuoteAddedToCart()){
             if(Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload()){
                 $quote_id = Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload();
@@ -28,9 +32,14 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
                 $item = $item->getParentItem();
             }
             $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+            if(sizeof(array_filter($aud_prices))!=0){
+                $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
+                $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];
+            }else{
+                $itemprice_aud = $product1->getFinalPrice()*1;
+                $itemprice_nzd = $this->priceinNzd($itemprice_aud);
+            }
 
-            $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
-            $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];
             if($current_currency_code == 'NZD'){
                 $item->setCustomPrice($itemprice_nzd);
                 $item->setOriginalCustomPrice($itemprice_nzd);
@@ -44,7 +53,6 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
             if($attribTxt=='software product' or $attribTxt=='maintenance product'){
                 $item->getCustomPrice();
             }
-
         }else{
             $prodId = $item->getProduct()->getId();
             $storeId = Mage::app()->getStore()->getStoreId();
@@ -57,15 +65,14 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
                     $productId=$prod->getId();
                     $product = Mage::getModel('catalog/product')->setStoreId($storeId)->load($productId);
                     $attribTxt1 = $product->getAttributeText('product_type');
-//					if(strtolower($attribTxt1)=='maintenance product'){
-//						Mage::getSingleton('checkout/session')->addError(Mage::helper('checkout')->__('Upgrade Assurance Product already added to the cart'));
-//						header("Location: " . $product1->getProductUrl());
-//						die();
-//					}
+					if(strtolower($attribTxt1)=='maintenance product'){
+						Mage::getSingleton('checkout/session')->addError(Mage::helper('checkout')->__('Upgrade Assurance Product already added to the cart'));
+						header("Location: " . $product1->getProductUrl());
+						die();
+					}
                 }
             }
             else{
-
                 $this->getCustomPrice();
             }
         }

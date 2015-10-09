@@ -208,7 +208,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 			$this->_redirectUrl($url);
 		}
 		public function addCartAction(){
-            Mage::getSingleton('customer/session')->unsQuoteCreatedThroughUpload();
+//            Mage::getSingleton('customer/session')->unsQuoteCreatedThroughUpload();
 			$session = Mage::getSingleton("core/session");
 			$this->_initLayoutMessages('customer/session');
 			$quote_id = $this->getRequest()->getParam('id');

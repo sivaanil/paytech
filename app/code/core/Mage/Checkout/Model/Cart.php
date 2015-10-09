@@ -260,18 +260,19 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
         }
 
         $attribTxt = $product->getAttributeText('product_type');
-//        $maintenanceProductCheck =  Mage::getSingleton('core/session')->getCheckMaintenanceProduct();
-
-//        if(strtolower($attribTxt) == 'maintenance product' && $maintenanceProductCheck == 1)
-//        Mage::throwException(Mage::helper('checkout')->__('Upgrade Assurance Product already added to cart'));
-
-        if(strtolower($attribTxt) == 'maintenance product'){
-            $maintenanceProductAdded  = 1;
-            Mage::getSingleton('core/session')->setCheckMaintenanceProduct($maintenanceProductAdded);
-                  Mage::throwException(Mage::helper('checkout')->__('Upgrade Assurance Product already added to cart'));
+        $cart = Mage::getModel('checkout/cart')->getQuote();
+        if(!$cart->getAllItems()){
+            Mage::getSingleton('core/session')->unsCheckMaintenanceProduct();
         }
+//        To prevent adding the PUA item once if it is already added to cart
+        if($cart->getAllItems()){
+            if(strtolower($attribTxt) == 'maintenance product' && Mage::getSingleton('core/session')
+                    ->getCheckMaintenanceProduct()){
+                Mage::throwException(Mage::helper('checkout')->__('Upgrade Assurance Product already added to cart'));
+            }
 
-            if ($productId) {
+        }
+        if ($productId) {
                 try {
                     $result = $this->getQuote()->addProduct($product, $request);
                 } catch (Mage_Core_Exception $e) {
@@ -297,9 +298,16 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
             } else {
                 Mage::throwException(Mage::helper('checkout')->__('The product does not exist.'));
             }
-        Mage::dispatchEvent('checkout_cart_product_add_after', array('quote_item' => $result, 'product' => $product));
-        $this->getCheckoutSession()->setLastAddedProductId($productId);
-        return $this;
+
+            Mage::dispatchEvent('checkout_cart_product_add_after', array('quote_item' => $result, 'product' => $product));
+
+        if(strtolower($attribTxt) == 'maintenance product'){
+            $maintenanceProductAdded  = 1;
+            Mage::getSingleton('core/session')->setCheckMaintenanceProduct($maintenanceProductAdded);
+        }
+
+            $this->getCheckoutSession()->setLastAddedProductId($productId);
+            return $this;
     }
 
     /**
