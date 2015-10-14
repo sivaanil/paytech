@@ -236,12 +236,9 @@ public function sendQuoteCreatedEmail($data){
         }
         $email_to[] = $rawData['customer']['email'];
 
-//    $email_to = 'venkatalapati20097@gmail.com';
 
-    // This is the template name from your etc/config.xml
-        $template_id = 'custom_template';
-        // Who were sending to...
-        $customer_name   = $rawData['customer']['firstname'].$rawData['customer']['lastname'];
+    // Who were sending to...
+    $customer_name   = $rawData['customer']['firstname'].$rawData['customer']['lastname'];
     $address = Mage::getModel('customer/customer')->load($rawData['customer']['entity_id']);
 //    TO load customer address
     foreach ($address->getAddresses() as $address){
@@ -274,7 +271,7 @@ border-left:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px
         // Load our template by template_id
         //For templates which are useed in database
 
-        $email_template  = Mage::getModel('core/email_template')->loadByCode('quote_created_template'); //where 'custom_template' is the name of template
+        $email_template  = Mage::getModel('core/email_template')->loadByCode('quote_created_template'); //where 'quote_created_template' is the name of template
 
         //If you define in config.xml then please use below code.
 //        $email_template  = Mage::getModel('core/email_template')->loadDefault($template_id);

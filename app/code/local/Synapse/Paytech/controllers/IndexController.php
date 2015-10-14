@@ -160,7 +160,8 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
            $customer = Mage::getSingleton('customer/session')->getCustomer();
         }
         $resellerLogin = $customer->username_papercut;
-        $returnUrl = 'http://localhost/paytec/index.php/paytech/index/responsefrompapercut/';
+        $baseUrl = Mage::getBaseUrl();
+        $returnUrl = $baseUrl.'paytech/index/responsefrompapercut/';
         $url = PaperCutResellerUrlBuilder::create($authId,$resellerLogin,$returnUrl,$key);
         $this->_redirectUrl($url);
 
@@ -168,6 +169,7 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
 	}
 
     public function responsefrompapercutAction(){
+        Mage::getSingleton('customer/session')->unsproducts();
         $this->loadLayout();
         $this->getLayout()->getBlock('head')->setTitle($this->__('Upload License File'));
         $this->_initLayoutMessages('customer/session');
@@ -175,107 +177,112 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
         $products = array();
         $count = 0;
         $products = $product = array();
-//        if(sizeof($_REQUEST)){
-//            $rawdata = json_decode($_REQUEST['orderJson']);
-
+        if(sizeof($_REQUEST['orderJson'])){
+            $rawdata = json_decode($_REQUEST['orderJson']);
+//echo '<pre>';
 
             //        created for local purpose testing
 
-            $url = 'http://localhost/response.json';
-            $ch = curl_init();
+//            $url = 'http://localhost/response.json';
+//            $ch = curl_init();
+//
+//            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//            curl_setopt($ch, CURLOPT_URL, $url);
+//
+//            $data = curl_exec($ch);
+//            $resultCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+//            curl_close($ch);
+//
+//            if ($resultCode == 200) {
+//                $rawdata  = json_decode($data);
+//
+////                print_r($rawdata);
+////                exit;
+//            } else {
+//                return false;
+//            }
 
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_URL, $url);
-
-            $data = curl_exec($ch);
-            $resultCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
-
-            if ($resultCode == 200) {
-                $rawdata  = json_decode($data);
-
-//                print_r($rawdata);
-//                exit;
-            } else {
-                return false;
-            }
-
-          if($rawdata->isQuote){
-            if (Mage::getSingleton('customer/session')->isLoggedIn()) {
-
-                // Load the customer's data
-                $current_customer = Mage::getSingleton('customer/session')->getCustomer();
-                $quote_customer_id = $current_customer->getId();
-
-            }
-            $items = $rawdata->orderLines;
-            $license_file_created_by = $rawdata->resellerCode;
-            foreach($items as $item){
-                if($item->description){
-                    $prodDetails = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',$item->description);
-                    $ids[] = $product['id'] = $prodDetails->entity_id;
-                    $product['name'] = $prodDetails->name;
-                    $product['image'] = $prodDetails->image;
-                    $quoteQty[$prodDetails->entity_id]=$qtys[] = $product['quantity'] = $item->quantity;
-                    $product['subtotal'] = $item->subtotal;
-                    $products[$prodDetails->entity_id] = $product;
-
-                    $prod_price = $item->price*$item->quantity;
-                    $price[$prodDetails->entity_id] = $aud_prices[] = $prod_price;
-                    $nzd_prices[] = $this->priceInNZD($prod_price);
-                }
-                $count++;
-            }
-            $model = Mage::getModel('quote/quote');
-            $model->setData('quote_customer_id', $quote_customer_id);
-            $model->setData('quote_product_ids', implode(',',$ids));
-            $model->setData('quote_product_qtys', implode(',',$qtys));
-            $model->setData('quote_service_num', $license_file_created_by);
-            $model->setData('quote_product_prices_aud', implode(',',$aud_prices));
-            $model->setData('quote_product_prices_nzd', implode(',',$nzd_prices));
-            $model->setData('created_date', date('Y-m-d'));
-            $model->setData('updated_date', date('Y-m-d'));
-            $model->setData('is_approved',0);
-
-            try{
-                $model->save();
+            if($rawdata->isQuote){
                 if (Mage::getSingleton('customer/session')->isLoggedIn()) {
-                    // Load the customer's data
-                    $customer = Mage::getSingleton('customer/session')->getCustomer();
-                }
 
-               $event_data_array  =  array('customer' => $customer,'quote'=>$model);
+                    // Load the customer's data
+                    $current_customer = Mage::getSingleton('customer/session')->getCustomer();
+                    $quote_customer_id = $current_customer->getId();
+
+                }
+                $items = $rawdata->orderLines;
+                $license_file_created_by = $rawdata->resellerCode;
+                foreach($items as $item){
+                    if($item->description){
+                        $prodDetails = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',$item->description);
+                        if($prodDetails['sku_mapping']==$item->description){
+                            $ids[] = $product['id'] = $prodDetails->entity_id;
+                            $product['name'] = $prodDetails->name;
+                            $product['image'] = $prodDetails->image;
+                            $quoteQty[$prodDetails->entity_id]=$qtys[] = $product['quantity'] = $item->quantity;
+                            $product['subtotal'] = $item->subtotal;
+                            $products[$prodDetails->entity_id] = $product;
+
+                            $prod_price = $item->price*$item->quantity;
+                            $price[$prodDetails->entity_id] = $aud_prices[] = $prod_price;
+                            $nzd_prices[] = $this->priceInNZD($prod_price);
+
+                            $count++;
+                            $model = Mage::getModel('quote/quote');
+                            $model->setData('quote_customer_id', $quote_customer_id);
+                            $model->setData('quote_product_ids', implode(',',$ids));
+                            $model->setData('quote_product_qtys', implode(',',$qtys));
+                            $model->setData('quote_service_num', $license_file_created_by);
+                            $model->setData('quote_product_prices_aud', implode(',',$aud_prices));
+                            $model->setData('quote_product_prices_nzd', implode(',',$nzd_prices));
+                            $model->setData('created_date', date('Y-m-d'));
+                            $model->setData('updated_date', date('Y-m-d'));
+                            $model->setData('is_approved',0);
+
+                            try{
+                                $model->save();
+                                if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+                                    // Load the customer's data
+                                    $customer = Mage::getSingleton('customer/session')->getCustomer();
+                                }
+
+                                $event_data_array  =  array('customer' => $customer,'quote'=>$model);
 //                $this->_redirect('quote/index/quotes/');
-                $session->addSuccess("Quote saved successfully");
+
 //                Mage::getSingleton('core/session')->setNewQuote($model);
 
 
-            } catch(Exception $e){
-                $session->addError("Unable to save to Quote");
-                $this->_redirect('*/*/');
-            }
+                            } catch(Exception $e){
+                                $session->addError("Unable to save to Quote");
+                                $this->_redirect('*/*/');
+                            }
+                            $uploadedLicense = true;
+                            Mage::getSingleton('customer/session')->setproducts($products);
+                            Mage::getSingleton('customer/session')->setproducts($products);
+                            Mage::getSingleton('customer/session')->setQuoteCreatedThroughUpload($model['quote_id']);
+                            Mage::getSingleton('customer/session')->setUploadedLicense($uploadedLicense);
+                            Mage::getSingleton('customer/session')->setQuoteQty($quoteQty);
+                            Mage::getSingleton('core/session')->setProductsPrice($price);
+                            Mage::getSingleton('core/session')->setLicensefileCreatedBy($license_file_created_by);
+                            if($count == 0){
+                                $session->addError("No products were added since it doesn't match with our records.");
+                            }
+                            else{
+                                $session->addError("Some products were not added since it doesn't match with our records.");
+                            }
+                        }
+                    }
+                }
 
-            $uploadedLicense = true;
-//              echo '<pre>';
-//              print_r($products);
-//              exit;
-              Mage::getSingleton('customer/session')->setproducts($products);
-            Mage::getSingleton('customer/session')->setproducts($products);
-            Mage::getSingleton('customer/session')->setQuoteCreatedThroughUpload($model['quote_id']);
-            Mage::getSingleton('customer/session')->setUploadedLicense($uploadedLicense);
-            Mage::getSingleton('customer/session')->setQuoteQty($quoteQty);
-            Mage::getSingleton('core/session')->setProductsPrice($price);
-            Mage::getSingleton('core/session')->setLicensefileCreatedBy($license_file_created_by);
-            if($count != count($items))
-                $session->addError("Some products were not added since it doesn't match with our records.");
+
+            }
         }else{
-            $session->addError("Oops! Something went wrong...");
+            $session->addError("No items in the license file are matching with product catalogue to generate a quote.");
         }
-//        }else{
-//            $session->addError("You cancelled the order");
-//        }
         $this->renderLayout();
-//        Mage::dispatchEvent('send_quote_created_email', $event_data_array);
+        //if(sizeof($_REQUEST['orderJson'])){
+        //  Mage::dispatchEvent('send_quote_created_email', $event_data_array);
+        // }
     }
 }
 ?>

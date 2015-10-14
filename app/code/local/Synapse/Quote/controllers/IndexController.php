@@ -4,9 +4,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
     	public function saveAction(){
 
 			$data = $this->getRequest()->getPost();
-            echo '<pre>';
-
-           $session = Mage::getSingleton("core/session");
+            $session = Mage::getSingleton("core/session");
 			$this->_initLayoutMessages('customer/session');
 			$products=array();
 			$maintenance_required=false;
@@ -63,8 +61,8 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 //                        Mage::dispatchEvent()
                     }
 
-//                    $event_data_array  =  array('customer' => $customer);
-//                    Mage::dispatchEvent('send_quote_created_email', $event_data_array);
+                    $event_data_array  =  array('customer' => $customer);
+                    Mage::dispatchEvent('send_quote_created_email', $event_data_array);
 
 //					$session->addSuccess("Quote saved successfully");
 					$this->_redirect('*/*/quotes');
@@ -108,6 +106,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 				$existing_quote_record->setData('quote_product_prices_nzd', implode(',',$nzd_prices));
 				try{
 					$existing_quote_record->save();
+
                     $session->addSuccess("The Quote has been saved");
 				} catch(Exception $e){
 					$session->addError("Unable to save the Quote");
