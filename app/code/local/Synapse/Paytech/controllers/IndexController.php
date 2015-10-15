@@ -277,7 +277,9 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
 
             }
         }else{
-            $session->addError("No items in the license file are matching with product catalogue to generate a quote.");
+            $noItems =true;
+            Mage::getSingleton('customer/session')->setNotificationAboutNoProducts($noItems);
+
         }
         $this->renderLayout();
         //if(sizeof($_REQUEST['orderJson'])){
