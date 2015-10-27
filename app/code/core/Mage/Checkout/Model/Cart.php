@@ -245,10 +245,12 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      */
     public function addProduct($productInfo, $requestInfo=null)
     {
+//        echo  Mage::getSingleton('core/session')->getCheckMaintenanceProduct();
+//        exit;
         $product = $this->_getProduct($productInfo);
         $request = $this->_getProductRequest($requestInfo);
         $productId = $product->getId();
-
+        $maintenanceProduct =0;
         if ($product->getStockItem()) {
             $minimumQty = $product->getStockItem()->getMinSaleQty();
             //If product was not found in cart and there is set minimal qty for it
@@ -261,6 +263,18 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
 
         $attribTxt = $product->getAttributeText('product_type');
         $cart = Mage::getModel('checkout/cart')->getQuote();
+//        foreach($cart->getAllItems() as $item){
+//            $product_id = $item->getProduct()->getId();
+//
+//            $product = Mage::getModel('catalog/product')->load($product_id);
+//            $attribTxt = $product->getAttributeText('product_type');
+//            if(strtolower($attribTxt) == 'maintenance product'){
+//                $maintenanceProduct = 1;
+//            }
+//            if($maintenanceProduct == 0){
+//                Mage::getSingleton('core/session')->unsCheckMaintenanceProduct();
+//            }
+//        }
         if(!$cart->getAllItems()){
             Mage::getSingleton('core/session')->unsCheckMaintenanceProduct();
         }

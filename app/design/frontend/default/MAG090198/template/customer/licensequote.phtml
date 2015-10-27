@@ -8,6 +8,8 @@ if (Mage::getSingleton('customer/session')->isLoggedIn()) {
         $customer = Mage::getSingleton('customer/session')->getCustomer();
 }
 $products = Mage::getSingleton('customer/session')->getproducts();
+$quoteDiscount = Mage::getSingleton('core/session')->getQuoteDiscount();
+$quotegst = Mage::getSingleton('core/session')->getQuotegst();
 //echo "<pre>";
 //print_r($customer);
 //exit;
@@ -90,9 +92,15 @@ $finalized=$discontinued_prod=$product_with_issues=array();
 			</table>
             <?php
 //            Mage::getSingleton('customer/session')->setNewQuote($products);
-
+if($quoteDiscount){
 
 			?>
+
+<!--    <span style="padding-left: 830px;">Discount:&nbsp</span><span></span>--><?php //echo $quoteDiscount?><!--</span>-->
+<!--    <span style="padding-left: 830px;">GST:&nbsp</span><span></span>--><?php //echo $quotegst?><!--</span>-->
+        <table style="padding-left: 830px;"><tr><td>Discount:&nbsp</td><td style="text-align: right"><?php echo $quoteDiscount?></td></tr>
+        <tr><td>GST:&nbsp</td><td style="text-align: right"><?php echo $quotegst?></td></tr></table>
+            <?php }?>
 			<?php if($customer['is_dealer'] || $customer['can_place_order']){?>
 			<div class="quote" style="float:right;margin:10px 0px">
 				<a id="licensequotetocart" href="<?php echo Mage::getUrl('quote/index/licenseQuoteToCart/'); ?>">PLACE ORDER</a>

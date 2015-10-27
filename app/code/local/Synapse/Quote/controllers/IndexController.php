@@ -2,7 +2,6 @@
 class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 
     	public function saveAction(){
-
 			$data = $this->getRequest()->getPost();
             $session = Mage::getSingleton("core/session");
 			$this->_initLayoutMessages('customer/session');
@@ -57,15 +56,13 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
                     if (Mage::getSingleton('customer/session')->isLoggedIn()) {
                         // Load the customer's data
                         $customer = Mage::getSingleton('customer/session')->getCustomer();
-                       // Mage::getModel('quote/quote')->sendQuoteCreatedEmail($customer);
-//                        Mage::dispatchEvent()
                     }
 
                     $event_data_array  =  array('customer' => $customer);
                     Mage::dispatchEvent('send_quote_created_email', $event_data_array);
 
-//					$session->addSuccess("Quote saved successfully");
-					$this->_redirect('*/*/quotes');
+					$session->addSuccess("Quote saved successfully");
+//					$this->_redirect('*/*/quotes');
 				} catch(Exception $e){
 					$session->addError("Unable to add the product to Quote");
 					$url = Mage::getSingleton('core/session')->getLastUrl();
@@ -475,6 +472,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
                         continue;
                     $maintenanceProductAdded =1;
                 }
+
                 try{
 					$cart = Mage::getModel('checkout/cart');
 					$cart->init();

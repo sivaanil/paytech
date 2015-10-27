@@ -1,7 +1,7 @@
 <?php
 /**
  * Create account form template
- * 
+ *
  * @category    design
  * @package     base_default
  * @author      Clarion Magento Team
@@ -32,7 +32,29 @@
                     <input type="text" name="email" id="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text required-entry validate-email" />
                 </div>
             </li>
-        <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+            <?php
+            if($this->getCustomer()->getData('is_dealer')){ ?>
+            <li>
+                <div>
+                    <ul>
+                        <li>
+                            <label for="order_confirmation_emails"><?php echo $this->__('Order
+                            Confirmation Emails') ?></label>
+                            </li>
+                        <li>
+                            <div class="field">
+                                <div class="input-box">
+                                    <input type="text" class="input-text" maxlength="255" title="Order Confirmation Emails" value="<?php echo $this->getCustomer()->getData('order_confirmation_email');?>" name="order_confirmation_email" id="order_confirmation_email">
+                                </div>
+                            </div>
+
+
+                        </li>
+                    </ul>
+           </div>
+            </li>
+            <?php } ?>
+            <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
         <?php if ($_dob->isEnabled()): ?>
             <li><?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?></li>
         <?php endif ?>
@@ -79,15 +101,15 @@
     <!-- custom attributes -->
         <?php $attributeCollection = $this->helper('clarion_customerattribute/customerattribute')->getUserDefinedAttribures(); ?>
         <?php if($attributeCollection->count() > 0) : ?>
-        
+
          <div class="fieldset">
              <!--<h2 class="legend"><?php echo $this->__('Additional Information') ?></h2>-->
-             
+
              <!-- For all user defined attributes -->
              <?php foreach($attributeCollection as $attribute):?>
                 <!-- For all user defined attributes which are set for customer edit account -->
                 <?php if($this->helper('clarion_customerattribute/customerattribute')->isAttribureForCustomerAccountEdit($attribute->getAttributeCode())):?>
-             
+
                     <?php $frontEndLabel = $attribute->getStoreLabel($this->helper('clarion_customerattribute/customerattribute')->getStoreId()); ?>
                     <?php $getAttributeCodeFunction = "get" .  str_replace(' ', '', ucwords(str_replace('_', ' ', $attribute->getAttributeCode()))); ?>
                     <?php $fieldRequiredClass = ($attribute->getIsRequired()) ? 'required-entry' : '' ?>
@@ -98,13 +120,13 @@
                            <div class="field">
                                <label for="<?php echo $attribute->getAttributeCode(); ?>" <?php if($attribute->getIsRequired()):?>class="required"><em>*</em> <?php  else :?>><?php endif;?><?php echo $this->__($frontEndLabel) ?></label>
                                <div class="input-box">
-                                   
+
                                    <?php if($attribute->getFrontendInput()== 'text'):?>
                                        <input type="text" name="<?php echo $attribute->getAttributeCode(); ?>" id="<?php echo $attribute->getAttributeCode(); ?>" value="<?php echo $fieldValue; ?>" title="<?php echo $this->__($frontEndLabel); ?>" class="input-text <?php echo $fieldRequiredClass; ?> <?php echo $fieldFrontendClass ;?>" />
-                                       
+
                                    <?php elseif($attribute->getFrontendInput()== 'textarea'):?>
                                        <textarea class=" textarea <?php echo $fieldRequiredClass; ?> <?php echo $fieldFrontendClass ;?>" cols="15" rows="2" title="<?php echo $this->__($frontEndLabel); ?>" name="<?php echo $attribute->getAttributeCode(); ?>" id="<?php echo $attribute->getAttributeCode(); ?>"><?php echo $fieldValue; ?></textarea>
-                                     
+
                                    <?php elseif($attribute->getFrontendInput()== 'date'):?>
                                     <input type="text" style="width:110px !important;" class=" input-text <?php echo $fieldRequiredClass; ?> " title="<?php echo $this->__($frontEndLabel); ?>" value="<?php echo $this->helper('clarion_customerattribute/customerattribute')->getFormattedDate($fieldValue); ?>" id="<?php echo $attribute->getAttributeCode(); ?>" name="<?php echo $attribute->getAttributeCode(); ?>">
                                     <img style="" title="Select Date" id="<?php echo $attribute->getAttributeCode(); ?>_trig" class="v-middle" alt="" src="<?php echo $this->getSkinUrl('images/clarion/customerattribute/grid-cal.gif') ?>">
@@ -120,7 +142,7 @@
                                             });
                                         //]]&gt;
                                         </script>
-                                     
+
                                     <?php elseif($attribute->getFrontendInput()== 'boolean'):?>
                                     <select id="<?php echo $attribute->getAttributeCode(); ?>" name="<?php echo $attribute->getAttributeCode(); ?>" title="<?php echo $this->__($frontEndLabel); ?>"<?php if ($attribute->getIsRequired()):?> class="validate-select required-entry "<?php endif; ?>>
                                         <?php $options = Mage::getResourceSingleton('customer/customer')->getAttribute($attribute->getAttributeCode())->getSource()->getAllOptions();?>
@@ -128,7 +150,7 @@
                                             <option value="<?php echo $option['value'] ?>"<?php if ($option['value'] == $fieldValue) echo ' selected="selected"' ?>><?php echo $option['label'] ?></option>
                                         <?php endforeach;?>
                                     </select>
-                                        
+
                                     <?php elseif($attribute->getFrontendInput()== 'select'):?>
                                     <select id="<?php echo $attribute->getAttributeCode(); ?>" name="<?php echo $attribute->getAttributeCode(); ?>" title="<?php echo $this->__($frontEndLabel); ?>"<?php if ($attribute->getIsRequired()):?> class="validate-select required-entry "<?php endif; ?>>
                                         <?php $options = Mage::getResourceSingleton('customer/customer')->getAttribute($attribute->getAttributeCode())->getSource()->getAllOptions();?>
@@ -136,7 +158,7 @@
                                             <option value="<?php echo $option['value'] ?>"<?php if ($option['value'] == $fieldValue) echo ' selected="selected"' ?>><?php echo $option['label'] ?></option>
                                         <?php endforeach;?>
                                     </select>
-                                        
+
                                     <?php elseif($attribute->getFrontendInput()== 'multiselect'):?>
                                     <select multiple="multiple" size="5" id="<?php echo $attribute->getAttributeCode(); ?>" name="<?php echo $attribute->getAttributeCode(); ?>[]" title="<?php echo $this->__($frontEndLabel); ?>"  class=" multiselect <?php if ($attribute->getIsRequired()):?> validate-select required-entry<?php endif; ?> ">
                                         <?php $options = Mage::getResourceSingleton('customer/customer')->getAttribute($attribute->getAttributeCode())->getSource()->getAllOptions();?>
@@ -144,7 +166,7 @@
                                             <option value="<?php echo $option['value'] ?>"<?php if (in_array($option['value'], explode(',', $fieldValue))) echo ' selected="selected"' ?>><?php echo $option['label'] ?></option>
                                         <?php endforeach;?>
                                     </select>
-                                        
+
                                    <?php endif;?>
                                </div>
                            </div>
@@ -154,7 +176,7 @@
              <?php endforeach;?>
          </div>
     <?php endif; ?>
-    
+
     <div class="buttons-set">
         <p class="required"><?php echo $this->__('* Required Fields') ?></p>
         <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>

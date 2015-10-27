@@ -947,9 +947,9 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
                 $this->_redirect('*/*/edit');
                 return $this;
             }
-
             try {
                 $customer->setConfirmation(null);
+                $customer->setOrderConfirmationEmail($_POST['order_confirmation_email']);
                 $customer->save();
                 $this->_getSession()->setCustomer($customer)
                     ->addSuccess($this->__('The account information has been saved.'));

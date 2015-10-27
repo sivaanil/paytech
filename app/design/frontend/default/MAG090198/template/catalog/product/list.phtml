@@ -153,9 +153,7 @@
 				</h2>
 <?php if(Mage::getSingleton('customer/session')->isLoggedIn()){ ?>
                 <?php echo $this->getPriceHtml($_product, true) ?>
-    <?php
-    $productType = $_product->getTypeId();
-    if(($productType == "simple") ||  ($productType == "virtual") || ($productType == "downloadble")){?>
+
         <div class="hover_block">
             <ul class="add-to-links">
                 <?php if($_product->isSaleable()): ?>
@@ -164,14 +162,14 @@
                     <li>  <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p></li>
                 <?php endif; ?>
                 <?php
+
+    $productType = $_product->getTypeId();
+    if(($productType == "simple") ||  ($productType == "virtual") || ($productType == "downloadable")){
                 $customer = Mage::getModel('customer/customer')->load($current_customer_id);
                 $subs_prod = Mage::getModel("catalog/product")->load($_product->getId());
-                if(count($subs_prod->getOptions())){
-                    ?>
-                    <li class="quote"><a href="<?php echo $_product->getProductUrl(); ?>">ADD TO QUOTE</a></li>
-                <?php }else{ ?>
+                ?>
                     <li class="quote"><a href="<?php echo Mage::getUrl('quote/index/addproduct/id/'.$_product->getId()); ?>">ADD TO QUOTE</a></li>
-                <?php } ?>
+
                 <?php if ($this->helper('wishlist')->isAllow()) : ?>
                     <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('') ?></a></li>
                 <?php endif; ?>

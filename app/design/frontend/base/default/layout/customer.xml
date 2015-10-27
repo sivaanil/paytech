@@ -231,7 +231,7 @@ Customer account pages, rendered for all tabs in dashboard
                 <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
 		 <action method="addLink" translate="label" module="customer"><name>sub_accounts</name><path>paytech/index/subaccountslist/</path><label>Sub Accounts</label></action>
 		<action method="addLink" translate="label" module="customer"><name>Upload_license</name><path>paytech/index/upload/</path><label>Upload License File</label></action>
-		<action method="addLink" translate="label" module="customer"><name>my_quotes</name><path>quote/index/quotes/</path><label>My Quotes</label></action>
+        <action method="addLink" translate="label" module="customer"><name>my_quotes</name><path>quote/index/quotes/</path><label>My Quotes</label></action>
             </block>
             <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml">
                 <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>

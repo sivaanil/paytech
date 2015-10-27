@@ -168,17 +168,10 @@ $customer = Mage::getModel('customer/customer')->load($subaccountid);
                 </ul>
             <?php } ?>
             <div class="field">
-                <div class="field name-firstname">
-                    <label for="order_confirmation_email">Order Confirmation Email(s)
-                        (separate emails by comma)
-                    </label>
-                    <div class="input-box">
-                        <input type="text" class="input-text" maxlength="255" title="Order Confirmation Emails" value="<?php echo $customer['order_confirmation_email']; ?>" name="order_confirmation_email" id="order_confirmation_email">
-                    </div>
-                </div>
+                <label for="user_previlages"><?php echo $this->__('User Previlages:') ?></label>
             </div>
             <ul>
-                <li class="control">
+                <li class="control" style="margin-left: 30px;">
                     <div class="input-box" style="float: left;margin-right: 10px;">
                         <input type="checkbox" name="can_place_order" title="<?php echo $this->__('Can Place Order')
                         ?>" value="1" id="can_place_order"<?php if($customer['can_place_order']): ?> checked="checked"<?php endif; ?> class="checkbox" />

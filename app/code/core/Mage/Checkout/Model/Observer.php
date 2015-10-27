@@ -70,9 +70,10 @@ class Mage_Checkout_Model_Observer
             $customer = Mage::getSingleton('customer/session')->getCustomer();
             if($customer['order_confirmation_email']){
                 $allEmails = $customer['order_confirmation_email'];
-                $email_to=explode(",",$allEmails);
+                $email_cc=explode(",",$allEmails);
             }
         }
+$email_to = $customer['email'];
     $order = Mage::getModel('sales/order')->load($orderId);
         $billingAddress = $order->getBillingAddress();
         $payment = $order->getPayment()->getMethodInstance()->getTitle();
@@ -100,12 +101,20 @@ class Mage_Checkout_Model_Observer
             // Other variables for our email template.
         );
 
+        if($customer['master_customer']){
+            $masterCustomer = Mage::getModel('customer/customer')->load($customer['master_customer']);
+            $email_bcc = $masterCustomer->getData('email');
+        }
+
+
         // I'm using the Store Name as sender name here.
         $sender_name = Mage::getStoreConfig(Mage_Core_Model_Store::XML_PATH_STORE_STORE_NAME);
         // I'm using the general store contact here as the sender email.
         $sender_email = Mage::getStoreConfig('trans_email/ident_general/email');
         $email_template->setSenderName($sender_name);
         $email_template->setSenderEmail($sender_email);
+        $email_template->getMail()->addCc($email_cc[0]);
+        $email_template->addBcc($email_bcc);
         $email_template->setTemplateSubject('Order created by '.$customer_name);
 
         //Send the email to the sub account

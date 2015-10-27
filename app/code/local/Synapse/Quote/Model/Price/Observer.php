@@ -14,6 +14,7 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
             }else{
                 $quote_id = Mage::getSingleton('core/session')->getCurrentQuote();
             }
+
             $model = Mage::getModel("quote/quote");
             $existing_quote_record = $model->load($quote_id);
             $quote_details = $existing_quote_record->getData();
@@ -23,6 +24,7 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
             $nzd_prices=explode(',',$quote_details['quote_product_prices_nzd']);
             $quote_product_price_aud = array_combine($quote_products,$aud_prices);
             $quote_product_price_nzd = array_combine($quote_products,$nzd_prices);
+            $quoteDiscount = Mage::getSingleton('core/session')->getQuoteDiscount();
             /* @var $item Mage_Sales_Model_Quote_Item */
             $item = $observer->getQuoteItem();
             $productid = $item->getProduct()->getId();
@@ -33,8 +35,20 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
             }
             $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
             if(sizeof(array_filter($aud_prices))!=0){
-                $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
-                $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];
+                if($quoteDiscount && Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload()){
+                    $quoteTotalAmount = Mage::getSingleton('core/session')->getQuoteAmount();
+                    $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
+                    $quoteDiscount = $quoteDiscount*-1;
+
+//                    Product unit price = product unit price -  (product unit price / Quote sub-Total ) * Total Discount
+                    $itemPriceAfterDiscountInAud =  $itemprice_aud - ($itemprice_aud/$quoteTotalAmount) * $quoteDiscount;
+                    $itemprice_aud = $itemPriceAfterDiscountInAud;
+                    $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];               $itemPriceAfterDiscountInNzd =  $itemprice_nzd - ($itemprice_nzd/$quoteTotalAmount) * $quoteDiscount;
+                    $itemprice_nzd = $itemPriceAfterDiscountInNzd;
+                }else{
+                    $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
+                    $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];
+                }
             }else{
                 $itemprice_aud = $product1->getFinalPrice()*1;
                 $itemprice_nzd = $this->priceinNzd($itemprice_aud);
@@ -65,11 +79,11 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
                     $productId=$prod->getId();
                     $product = Mage::getModel('catalog/product')->setStoreId($storeId)->load($productId);
                     $attribTxt1 = $product->getAttributeText('product_type');
-					if(strtolower($attribTxt1)=='maintenance product'){
-						Mage::getSingleton('checkout/session')->addError(Mage::helper('checkout')->__('Upgrade Assurance Product already added to the cart'));
-						header("Location: " . $product1->getProductUrl());
-						die();
-					}
+//					if(strtolower($attribTxt1)=='maintenance product'){
+//						Mage::getSingleton('checkout/session')->addError(Mage::helper('checkout')->__('Upgrade Assurance Product already added to the cart'));
+//						header("Location: " . $product1->getProductUrl());
+//						die();
+//					}
                 }
             }
             else{
@@ -103,11 +117,11 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
 				$productId=$prod->getId();
 				$product = Mage::getModel('catalog/product')->setStoreId($storeId)->load($productId);
 				$attribTxt1 = $product->getAttributeText('product_type');
-				if(strtolower($attribTxt1)=='maintenance product'){			
-					Mage::getSingleton('checkout/session')->addError(Mage::helper('checkout')->__('Upgrade Assurance Product already added to the cart'));
-					header("Location: " . $product1->getProductUrl());
-					die();
-				}
+//				if(strtolower($attribTxt1)=='maintenance product'){
+//					Mage::getSingleton('checkout/session')->addError(Mage::helper('checkout')->__('Upgrade Assurance Product already added to the cart'));
+//					header("Location: " . $product1->getProductUrl());
+//					die();
+//				}
 			}
 		}
 	}
@@ -232,9 +246,9 @@ public function sendQuoteCreatedEmail($data){
     $ItemData ='';
     if($rawData['customer']['order_confirmation_email']){
              $allemails = $rawData['customer']['order_confirmation_email'];
-            $email_to=explode(",",$allemails);
+            $emails_cc=explode(",",$allemails);
         }
-        $email_to[] = $rawData['customer']['email'];
+        $email_to = $rawData['customer']['email'];
 
 
     // Who were sending to...
@@ -257,9 +271,12 @@ public function sendQuoteCreatedEmail($data){
     }else{
         $productprices = explode(",",$rawData['quote']['quote_product_prices_nzd']);
     }
-    $total = 0;
+    $eachProductPrice= array();
+    $grandTotal=0;
+    $subTotal = 0;
+    $discount = -1;
     for($i=0;$i<count($productids);$i++){
-        $total += $productprices[$i];
+        $eachProductPrice[] = $productprices[$i];
         $_product = Mage::getModel('catalog/product')->load($productids[$i]);
         $ItemData .= "<tr><td valign='top' style='font-size:12px; text-align: center;padding:7px 9px 9px 9px; border-left:1px solid
 #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA;'>".$_product->getData('name')."</td><td valign='top'
@@ -268,41 +285,61 @@ border-left:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px
 </td><td valign='top' style='font-size:12px; text-align: center; padding:7px 9px 9px 9px; border-left:1px solid
 #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA;'>".$productprices[$i]."</td></tr>";
     }
+
+    $subTotal = array_sum($eachProductPrice);
+    $gst = ($subTotal*10)/100;
+    if($discount>1){
+        $calculations = '<table style="font-family: arial;font-size: 11px;text-align: right;">';
+        $calculations.= '<tr><td>Subtotal:</td><td>'.$subTotal.'</td></tr>';
+        $calculations.= '<tr><td>GST:</td><td>'.$gst.'</td></tr>';
+        $calculations.= '</table>';
+    }
+    if($discount<0){
+        $calculations = '<table style="font-family: arial;font-size: 11px;text-align: right;">';
+        $calculations.= '<tr><td>Subtotal:</td><td>'.$subTotal.'</td></tr>';
+        $calculations.= '<tr><td>Discount (-):</td><td>'.$discount.'</td></tr>';
+        $calculations.= '<tr><td>GST:</td><td>'.$gst.'</td></tr>';
+        $calculations.= '</table>';
+    }
+
         // Load our template by template_id
         //For templates which are useed in database
 
         $email_template  = Mage::getModel('core/email_template')->loadByCode('quote_created_template'); //where 'quote_created_template' is the name of template
-
         //If you define in config.xml then please use below code.
 //        $email_template  = Mage::getModel('core/email_template')->loadDefault($template_id);
     $searches = array('{{quote.customerName}}', '{{quote.id}}','{{quote.createdAt}}','{{quote.customerAddress}}',
-        '{{itemData}}','{{currency_code}}','{{total}}');
+        '{{itemData}}','{{currency_code}}','{{calculations}}','{{currencyCode}}');
     $replacements = array($customer_name, $rawData['quote']['quote_id'],$rawData['quote']['created_date'],
-        $customer_address,$ItemData,$currency_code,$total);
+        $customer_address,$ItemData,$currency_code,$calculations,$currency_code);
     $finalData = str_replace($searches, $replacements, $email_template->getData()['template_text']);
     $email_template->setData()['template_text'] = $finalData;
     // Here is where we can define custom variables to go in our email template!
+//    echo '<pre>';
+//    print_r($email_template); exit;
 
         $email_template_variables = array(
           // Other variables for our email template.
         );
 
-        // I'm using the Store Name as sender name here.
+    if($rawData['customer']['master_customer']){
+        $masterCustomer = Mage::getModel('customer/customer')->load($rawData['customer']['master_customer']);
+        $email_bcc = $masterCustomer->getData('email');
+    }
+
+    // I'm using the Store Name as sender name here.
         $sender_name = Mage::getStoreConfig(Mage_Core_Model_Store::XML_PATH_STORE_STORE_NAME);
         // I'm using the general store contact here as the sender email.
         $sender_email = Mage::getStoreConfig('trans_email/ident_general/email');
         $email_template->setSenderName($sender_name);
         $email_template->setSenderEmail($sender_email);
         $email_template->setTemplateSubject('Quote created by '.$customer_name);
-
+        $email_template->getMail()->addCc($emails_cc[0]);
+        $email_template->addBcc($email_bcc);
         //Send the email to the sub account
         $email_template->send($email_to, $customer_name, $email_template_variables);
 //        Send the email to the sub account master customer
-        if($rawData['customer']['master_customer']){
-            $masterCustomer = Mage::getModel('customer/customer')->load($rawData['customer']['master_customer']);
-            $email_to = $masterCustomer->getData('email');
-            $email_template->send($email_to, $customer_name, $email_template_variables);
-        }
+
 
     }
 }

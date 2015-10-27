@@ -176,11 +176,15 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
         $session = Mage::getSingleton("core/session");
         $products = array();
         $count = 0;
-        $products = $product = array();
+        $quotegst = 0;
+        $quoteDiscount = 0;
+        $quoteDiscountDescription = '';
+        $products = $product = $quoteSubTotalForAllProducts = array();
         if(sizeof($_REQUEST['orderJson'])){
             $rawdata = json_decode($_REQUEST['orderJson']);
 //echo '<pre>';
-
+//print_r($rawdata);
+//            exit;
             //        created for local purpose testing
 
 //            $url = 'http://localhost/response.json';
@@ -212,23 +216,31 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                 }
                 $items = $rawdata->orderLines;
                 $license_file_created_by = $rawdata->resellerCode;
+                $model = Mage::getModel('quote/quote');
                 foreach($items as $item){
                     if($item->description){
+                        if($item->description == "GST"){
+                            $quotegst = $item->subtotal;
+                        }
+                        if($item->subtotal < 0){
+                            $quoteDiscount = $item->subtotal;
+                            $quoteDiscountDescription = $item->description;
+                        }
+
+
                         $prodDetails = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',$item->description);
                         if($prodDetails['sku_mapping']==$item->description){
                             $ids[] = $product['id'] = $prodDetails->entity_id;
                             $product['name'] = $prodDetails->name;
                             $product['image'] = $prodDetails->image;
                             $quoteQty[$prodDetails->entity_id]=$qtys[] = $product['quantity'] = $item->quantity;
-                            $product['subtotal'] = $item->subtotal;
+                            $quoteSubTotalForAllProducts[] = $product['subtotal'] = $item->subtotal;
                             $products[$prodDetails->entity_id] = $product;
 
                             $prod_price = $item->price*$item->quantity;
                             $price[$prodDetails->entity_id] = $aud_prices[] = $prod_price;
                             $nzd_prices[] = $this->priceInNZD($prod_price);
-
-                            $count++;
-                            $model = Mage::getModel('quote/quote');
+                        }
                             $model->setData('quote_customer_id', $quote_customer_id);
                             $model->setData('quote_product_ids', implode(',',$ids));
                             $model->setData('quote_product_qtys', implode(',',$qtys));
@@ -238,6 +250,11 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                             $model->setData('created_date', date('Y-m-d'));
                             $model->setData('updated_date', date('Y-m-d'));
                             $model->setData('is_approved',0);
+                            $model->setData('discount_description',$quoteDiscountDescription);
+                            $model->setData('discount_value',$quoteDiscount);
+                            $model->setData('gst',$quotegst);
+
+                            $model->setData('quote_dump',serialize($_REQUEST['orderJson']));
 
                             try{
                                 $model->save();
@@ -257,6 +274,10 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                                 $this->_redirect('*/*/');
                             }
                             $uploadedLicense = true;
+                            $amount = array_sum($quoteSubTotalForAllProducts);
+                        $quoteTotalAmount = $amount;
+//                        echo $quoteTotalAmount; exit;
+                            Mage::getSingleton('core/session')->setQuoteAmount('1262');
                             Mage::getSingleton('customer/session')->setproducts($products);
                             Mage::getSingleton('customer/session')->setproducts($products);
                             Mage::getSingleton('customer/session')->setQuoteCreatedThroughUpload($model['quote_id']);
@@ -264,15 +285,20 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                             Mage::getSingleton('customer/session')->setQuoteQty($quoteQty);
                             Mage::getSingleton('core/session')->setProductsPrice($price);
                             Mage::getSingleton('core/session')->setLicensefileCreatedBy($license_file_created_by);
+                            Mage::getSingleton('core/session')->setQuoteDiscountDescription($quoteDiscountDescription);
+                            Mage::getSingleton('core/session')->setQuoteDiscount($quoteDiscount);
+                            Mage::getSingleton('core/session')->setQuotegst($quotegst);
+
                             if($count == 0){
                                 $session->addError("No products were added since it doesn't match with our records.");
                             }
                             else{
                                 $session->addError("Some products were not added since it doesn't match with our records.");
                             }
-                        }
+
                     }
                 }
+
 
 
             }
@@ -282,9 +308,9 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
 
         }
         $this->renderLayout();
-        //if(sizeof($_REQUEST['orderJson'])){
-        //  Mage::dispatchEvent('send_quote_created_email', $event_data_array);
-        // }
+        if(sizeof($_REQUEST['orderJson'])){
+          Mage::dispatchEvent('send_quote_created_email', $event_data_array);
+         }
     }
 }
 ?>
