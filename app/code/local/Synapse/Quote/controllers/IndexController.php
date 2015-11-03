@@ -16,7 +16,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 
 //				$quote_product_options = Mage::getSingleton('customer/session')->getProdOptions();
                 $qtys='';
-				$model = Mage::getModel('quote/quote');
+				$model = Mage::getModel('quote/quote');$grandTotal = Mage::getSingleton('checkout/session')->getQuoteViewGrandTotal();
 				foreach($quote_product_ids as $quote_prod){
 					$prod_id=$quote_prod;
 
@@ -137,6 +137,15 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 				$quote_qtys=array_filter($quote_qtys);
 				$quote_prices_AUD=array_filter($quote_prices_AUD);
 				$quote_prices_NZD=array_filter($quote_prices_NZD);
+                $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+                if($currency_code == 'AUD'){
+                    $grandTotal = array_sum($quote_prices_AUD);
+                    Mage::getSingleton('checkout/session')->setQuoteViewGrandTotal($grandTotal);
+                }
+                if($currency_code == 'NZD'){
+                    $grandTotal = array_sum($quote_prices_NZD);
+                    Mage::getSingleton('checkout/session')->setQuoteViewGrandTotal($grandTotal);
+                }
 				if($quote_products){
 				$quote_product_qty = array_combine($quote_products,$quote_qtys);
 				$valid_prods=$valid_qtys=$valid_prices_AUD=$valid_prices_NZD=array();
@@ -554,7 +563,8 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 
 			$requestType = $this->getRequest()->getParam('requestType');
 			$quoteId = Mage::getSingleton('customer/session')->getCurrentquote();
-			if(isset($quoteId) && $quoteId!="" && $productId){
+            $quoteTotal = Mage::getSingleton('checkout/session')->getQuoteViewGrandTotal();
+            if(isset($quoteId) && $quoteId!="" && $productId){
 				$model = Mage::getModel("quote/quote");
 		        $existing_quote_record = $model->load($quoteId);
 				$quote_details = $existing_quote_record->getData();
@@ -666,6 +676,9 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 					if(strtolower($attribTxt)=='software product'){
 						$this->updateQuote4Maintenance($added_products, $added_product_qtys, $aud_prices,$nzd_prices);
 					}
+
+                $quoteTotal += $prod_price*$qty;
+                Mage::getSingleton('checkout/session')->setQuoteViewGrandTotal($quoteTotal);
                 $productOptions=serialize(array_filter($arr));
                 $existing_quote_record->setData('quote_product_ids', implode(',', $added_products));
 				$existing_quote_record->setData('quote_product_prices_aud', implode(',', $aud_prices));

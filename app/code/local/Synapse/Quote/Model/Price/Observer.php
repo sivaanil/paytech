@@ -37,11 +37,18 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
             if(sizeof(array_filter($aud_prices))!=0){
                 if($quoteDiscount && Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload()){
                     $quoteTotalAmount = Mage::getSingleton('core/session')->getQuoteAmount();
+                    $quoteTotalAmount = $quoteTotalAmount+($quoteDiscount*-1);
                     $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
                     $quoteDiscount = $quoteDiscount*-1;
 
 //                    Product unit price = product unit price -  (product unit price / Quote sub-Total ) * Total Discount
                     $itemPriceAfterDiscountInAud =  $itemprice_aud - ($itemprice_aud/$quoteTotalAmount) * $quoteDiscount;
+//                    echo '<pre>';
+//                    echo '$itemprice_aud:'.$itemprice_aud.'<br/>';
+//                    echo '$quoteTotalAmount:'.$quoteTotalAmount.'<br/>';
+//                    echo '$quoteDiscount:'.$quoteDiscount.'<br/>';
+//                    print_r('$itemPriceAfterDiscountInAud:'.$itemPriceAfterDiscountInAud);
+//                    exit;
                     $itemprice_aud = $itemPriceAfterDiscountInAud;
                     $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];               $itemPriceAfterDiscountInNzd =  $itemprice_nzd - ($itemprice_nzd/$quoteTotalAmount) * $quoteDiscount;
                     $itemprice_nzd = $itemPriceAfterDiscountInNzd;
@@ -274,7 +281,7 @@ public function sendQuoteCreatedEmail($data){
     $eachProductPrice= array();
     $grandTotal=0;
     $subTotal = 0;
-    $discount = -1;
+    $discount = $rawData['quote']['discount_value'];
     for($i=0;$i<count($productids);$i++){
         $eachProductPrice[] = $productprices[$i];
         $_product = Mage::getModel('catalog/product')->load($productids[$i]);
@@ -289,16 +296,21 @@ border-left:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px
     $subTotal = array_sum($eachProductPrice);
     $gst = ($subTotal*10)/100;
     if($discount>1){
+        $grandTotal = $subTotal+$gst;
         $calculations = '<table style="font-family: arial;font-size: 11px;text-align: right;">';
         $calculations.= '<tr><td>Subtotal:</td><td>'.$subTotal.'</td></tr>';
         $calculations.= '<tr><td>GST:</td><td>'.$gst.'</td></tr>';
+        $calculations.= '<tr><td>Grand Total:</td><td>'.$grandTotal.'</td></tr>';
         $calculations.= '</table>';
     }
     if($discount<0){
         $calculations = '<table style="font-family: arial;font-size: 11px;text-align: right;">';
         $calculations.= '<tr><td>Subtotal:</td><td>'.$subTotal.'</td></tr>';
-        $calculations.= '<tr><td>Discount (-):</td><td>'.$discount.'</td></tr>';
+        $calculations.= '<tr><td>Discount:</td><td>'.$discount.'</td></tr>';
         $calculations.= '<tr><td>GST:</td><td>'.$gst.'</td></tr>';
+        $discount = $discount*-1;
+        $grandTotal = ($subTotal-$discount)+$gst;
+        $calculations.= '<tr><td>Grand Total:</td><td>'.$grandTotal.'</td></tr>';
         $calculations.= '</table>';
     }
 
@@ -315,9 +327,6 @@ border-left:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px
     $finalData = str_replace($searches, $replacements, $email_template->getData()['template_text']);
     $email_template->setData()['template_text'] = $finalData;
     // Here is where we can define custom variables to go in our email template!
-//    echo '<pre>';
-//    print_r($email_template); exit;
-
         $email_template_variables = array(
           // Other variables for our email template.
         );

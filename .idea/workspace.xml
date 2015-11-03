@@ -2,45 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b5b5d5e-584e-41bb-8b87-be7152b1bc5f" name="Default" comment="Minor Changes">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_LAYOUT_1A81705F2FEC60CD81B3E0DCE147B8AD5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_LAYOUT_1C61D7614DE6D16D8F288B9BB33C0384B" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_LAYOUT_1F5505CE6479AAB60A8EA70D7B3FF7417" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_LAYOUT_1A81705F2FEC60CD81B3E0DCE147B8AD5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_LAYOUT_1C61D7614DE6D16D8F288B9BB33C0384B" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_LAYOUT_1F5505CE6479AAB60A8EA70D7B3FF7417" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleC_en_US_am_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleC_en_US_pm_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleC_en_US_am_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleC_en_US_pm_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_Zend_LocaleC_en_US_date_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_Zend_LocaleC_en_US_time_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_Zend_LocaleC_en_US_date_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_Zend_LocaleC_en_US_time_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_AE10B88A9FD4E05D17772A552D09999E" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_B8E219FC91D3F10EF47D0868E5CCC766" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_Zend_LocaleC_en_US_month_gregorian_format_abbreviated_4" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_Zend_LocaleC_en_US_month_gregorian_format_abbreviated_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_AE10B88A9FD4E05D17772A552D09999E" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_B8E219FC91D3F10EF47D0868E5CCC766" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_Zend_LocaleC_en_US_month_gregorian_format_abbreviated_4" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_Zend_LocaleC_en_US_month_gregorian_format_abbreviated_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_customer_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_customer_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_3D7A88F81F09BA6DE5B4068240C99F484BCECE7E" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_6AAA460E1C133654D558A4BE8F2CAC15983CE396" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_3D7A88F81F09BA6DE5B4068240C99F484BCECE7E" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_6AAA460E1C133654D558A4BE8F2CAC15983CE396" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_1.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_2.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_3.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_4.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_5.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_6.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_7.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_8.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/locks/index_process_9.lock" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/session/sess_11054r25vec005tddjaoneugg4" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/session/sess_1rfa7irhcb5sqpl5a7qmph79a6" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/session/sess_98mt06pghikr1qmmqonrl2im27" afterPath="" />
@@ -57,12 +22,148 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/session/sess_qb6fqbqvkuh9472fbb17j46pm1" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/session/sess_tv739r3luf7dcduegrodjqvsg3" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/session/sess_uhqkg7abt2tltqqvo0cp6tj7j5" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/downloader/.cache/community/ASchroder_SMTPPro-2.0.6.tgz" afterPath="$PROJECT_DIR$/downloader/.cache/community/ASchroder_SMTPPro-2.0.6.tgz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/downloader/.cache/community/ArtsOnIT_AdvancedSmtp-0.1.7.tgz" afterPath="$PROJECT_DIR$/downloader/.cache/community/ArtsOnIT_AdvancedSmtp-0.1.7.tgz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_3D7A88F81F09BA6DE5B4068240C99F484BCECE7E" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_3D7A88F81F09BA6DE5B4068240C99F484BCECE7E" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_3FBDE6BD157F9747B69AE9111A635EF3" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_3FBDE6BD157F9747B69AE9111A635EF3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_6AAA460E1C133654D558A4BE8F2CAC15983CE396" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_6AAA460E1C133654D558A4BE8F2CAC15983CE396" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_7684A8AC2CA6040FA87A5EF331D81671" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_7684A8AC2CA6040FA87A5EF331D81671" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_A013436EADDB8112C2F77B37E78E6C56B2DE14EB" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_A013436EADDB8112C2F77B37E78E6C56B2DE14EB" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_AE10B88A9FD4E05D17772A552D09999E" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_AE10B88A9FD4E05D17772A552D09999E" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_APP_4E4ABDD8DC00C3DACB3C1597944A3B6C" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_APP_4E4ABDD8DC00C3DACB3C1597944A3B6C" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_APP_B1FB6E8F13287C01E5C05063633DDA4C" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_APP_B1FB6E8F13287C01E5C05063633DDA4C" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_APP_E4D52B98688947405EDE639E947EE03D" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_APP_E4D52B98688947405EDE639E947EE03D" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_B8E219FC91D3F10EF47D0868E5CCC766" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_B8E219FC91D3F10EF47D0868E5CCC766" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_DB_PDO_MYSQL_DDL_catalog_product_entity_1" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_DB_PDO_MYSQL_DDL_catalog_product_entity_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_1" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_website_1" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_website_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_eav_attribute_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_eav_attribute_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_customer_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_customer_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_DB_PDO_MYSQL_DDL_log_url_1" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_DB_PDO_MYSQL_DDL_log_url_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_url_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_url_info_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_EF888D9386868F7DB9D4F73345E4D68A" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_EF888D9386868F7DB9D4F73345E4D68A" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--e/mage---af9_F4298E6145BB3105A48403C78B654ED279257E5E" afterPath="$PROJECT_DIR$/var/cache/mage--e/mage---af9_F4298E6145BB3105A48403C78B654ED279257E5E" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_JAVASCRIPT_TRANSLATE_CONFIG" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_JAVASCRIPT_TRANSLATE_CONFIG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_SORTED_QUOTE_COLLECTORS" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_SORTED_QUOTE_COLLECTORS" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_STORE_ADMIN_CONFIG_CACHE" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_STORE_ADMIN_CONFIG_CACHE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_STORE_DEFAULT_CONFIG_CACHE" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_STORE_DEFAULT_CONFIG_CACHE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_Zend_LocaleC_en_US_country_AU" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_Zend_LocaleC_en_US_country_AU" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_currencynumber_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_currencynumber_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencysymbol_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencysymbol_AUD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencysymbol_USD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencysymbol_USD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_currencysymbol_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_currencysymbol_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencytoname_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencytoname_AUD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--5/mage---af9_Zend_LocaleC_en_US_currencytoregion_US" afterPath="$PROJECT_DIR$/var/cache/mage--5/mage---af9_Zend_LocaleC_en_US_currencytoregion_US" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_Zend_LocaleC_en_US_date_" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_Zend_LocaleC_en_US_date_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_Zend_LocaleC_en_US_month_gregorian_format_abbreviated_4" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_Zend_LocaleC_en_US_month_gregorian_format_abbreviated_4" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_AUD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_NZD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_NZD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_USD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_USD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_nametocurrency_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_nametocurrency_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleC_en_US_pm_" afterPath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleC_en_US_pm_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_Zend_LocaleC_en_US_time_" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_Zend_LocaleC_en_US_time_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleL_en_US_day_" afterPath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleL_en_US_day_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_Zend_LocaleL_en_US_month_" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_Zend_LocaleL_en_US_month_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_Zend_LocaleL_en_US_month_gregorian_format_abbreviated" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_Zend_LocaleL_en_US_month_gregorian_format_abbreviated" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--b/mage---af9_Zend_LocaleL_en_US_symbols_" afterPath="$PROJECT_DIR$/var/cache/mage--b/mage---af9_Zend_LocaleL_en_US_symbols_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_3D7A88F81F09BA6DE5B4068240C99F484BCECE7E" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_3D7A88F81F09BA6DE5B4068240C99F484BCECE7E" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_3FBDE6BD157F9747B69AE9111A635EF3" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_3FBDE6BD157F9747B69AE9111A635EF3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_6AAA460E1C133654D558A4BE8F2CAC15983CE396" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_6AAA460E1C133654D558A4BE8F2CAC15983CE396" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_7684A8AC2CA6040FA87A5EF331D81671" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_7684A8AC2CA6040FA87A5EF331D81671" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_A013436EADDB8112C2F77B37E78E6C56B2DE14EB" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_A013436EADDB8112C2F77B37E78E6C56B2DE14EB" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_AE10B88A9FD4E05D17772A552D09999E" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_AE10B88A9FD4E05D17772A552D09999E" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_4E4ABDD8DC00C3DACB3C1597944A3B6C" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_4E4ABDD8DC00C3DACB3C1597944A3B6C" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_B1FB6E8F13287C01E5C05063633DDA4C" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_B1FB6E8F13287C01E5C05063633DDA4C" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_E4D52B98688947405EDE639E947EE03D" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_E4D52B98688947405EDE639E947EE03D" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_B8E219FC91D3F10EF47D0868E5CCC766" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_B8E219FC91D3F10EF47D0868E5CCC766" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_catalog_product_entity_1" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_catalog_product_entity_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_1" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_website_1" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_website_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_eav_attribute_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_eav_attribute_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_customer_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_customer_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_1" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_info_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_visitor_info_1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_EF888D9386868F7DB9D4F73345E4D68A" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_EF888D9386868F7DB9D4F73345E4D68A" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--e/mage---internal-metadatas---af9_F4298E6145BB3105A48403C78B654ED279257E5E" afterPath="$PROJECT_DIR$/var/cache/mage--e/mage---internal-metadatas---af9_F4298E6145BB3105A48403C78B654ED279257E5E" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_JAVASCRIPT_TRANSLATE_CONFIG" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_JAVASCRIPT_TRANSLATE_CONFIG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_SORTED_QUOTE_COLLECTORS" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_SORTED_QUOTE_COLLECTORS" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_STORE_ADMIN_CONFIG_CACHE" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_STORE_ADMIN_CONFIG_CACHE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_STORE_DEFAULT_CONFIG_CACHE" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_STORE_DEFAULT_CONFIG_CACHE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_Zend_LocaleC_en_US_country_AU" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_Zend_LocaleC_en_US_country_AU" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencynumber_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencynumber_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_AUD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_USD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_USD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencytoname_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencytoname_AUD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--5/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencytoregion_US" afterPath="$PROJECT_DIR$/var/cache/mage--5/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencytoregion_US" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_Zend_LocaleC_en_US_date_" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_Zend_LocaleC_en_US_date_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_Zend_LocaleC_en_US_month_gregorian_format_abbreviated_4" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_Zend_LocaleC_en_US_month_gregorian_format_abbreviated_4" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_AUD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_NZD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_NZD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_USD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_USD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleC_en_US_pm_" afterPath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleC_en_US_pm_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_Zend_LocaleC_en_US_time_" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_Zend_LocaleC_en_US_time_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleL_en_US_day_" afterPath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleL_en_US_day_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_Zend_LocaleL_en_US_month_" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_Zend_LocaleL_en_US_month_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_Zend_LocaleL_en_US_month_gregorian_format_abbreviated" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_Zend_LocaleL_en_US_month_gregorian_format_abbreviated" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--b/mage---internal-metadatas---af9_Zend_LocaleL_en_US_symbols_" afterPath="$PROJECT_DIR$/var/cache/mage--b/mage---internal-metadatas---af9_Zend_LocaleL_en_US_symbols_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/lib/AmazonSES.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/lib/AmazonSES.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/locale/en_US/Aschroder_SMTPPro.csv" afterPath="$PROJECT_DIR$/app/locale/en_US/Aschroder_SMTPPro.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/locale/es_ES/Aschroder_SMTPPro.csv" afterPath="$PROJECT_DIR$/app/locale/es_ES/Aschroder_SMTPPro.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/locale/nl_NL/Aschroder_SMTPPro.csv" afterPath="$PROJECT_DIR$/app/locale/nl_NL/Aschroder_SMTPPro.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/locale/pt_BR/Aschroder_SMTPPro.csv" afterPath="$PROJECT_DIR$/app/locale/pt_BR/Aschroder_SMTPPro.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/locale/tr_TR/Aschroder_SMTPPro.csv" afterPath="$PROJECT_DIR$/app/locale/tr_TR/Aschroder_SMTPPro.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/etc/modules/Aschroder_SMTPPro.xml" afterPath="$PROJECT_DIR$/app/etc/modules/Aschroder_SMTPPro.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/System/Config/Source/Smtp/Authentication.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/System/Config/Source/Smtp/Authentication.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Basesmtp.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Basesmtp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Mysql4/Email/Log/Collection.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Mysql4/Email/Log/Collection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Helper/Data.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Helper/Data.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Disabled.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Disabled.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Email.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Email.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Google.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Google.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Log/Grid.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Log/Grid.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Helper/Mysql4/Install.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Helper/Mysql4/Install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Log.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Log.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Email/Log.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Email/Log.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Mysql4/Email/Log.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Mysql4/Email/Log.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/controllers/Smtp/LogController.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/controllers/Smtp/LogController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Mailup.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Mailup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Observer.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Observer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php" afterPath="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/System/Config/Source/Smtp/Option.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/System/Config/Source/Smtp/Option.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Email/Queue.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Email/Queue.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/System/Config/Source/Smtp/Queue.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/System/Config/Source/Smtp/Queue.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Sendgrid.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Sendgrid.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Ses.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Ses.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Mysql4/Setup.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Mysql4/Setup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Smtp.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Transports/Smtp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/System/Config/Source/Smtp/Ssl.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/System/Config/Source/Smtp/Ssl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Adminhtml/Table.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Adminhtml/Table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Email/Template.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Model/Email/Template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Adminhtml/Test.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Adminhtml/Test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/controllers/Smtp/TestController.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/controllers/Smtp/TestController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Log/View.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Log/View.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/etc/config.xml" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/etc/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_1.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_1.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_2.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_2.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_3.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_3.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_4.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_4.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_5.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_5.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_6.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_6.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_7.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_7.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_8.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_8.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/locks/index_process_9.lock" afterPath="$PROJECT_DIR$/var/locks/index_process_9.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/itemscollection.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/itemscollection.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--2/mage---af9_CONFIG_GLOBAL" afterPath="$PROJECT_DIR$/var/cache/mage--2/mage---af9_CONFIG_GLOBAL" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_CONFIG_GLOBAL_ADMINHTML" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_CONFIG_GLOBAL_ADMINHTML" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--5/mage---af9_CONFIG_GLOBAL_ADMIN" afterPath="$PROJECT_DIR$/var/cache/mage--5/mage---af9_CONFIG_GLOBAL_ADMIN" />
@@ -73,43 +174,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_CONFIG_GLOBAL_STORES_DEFAULT" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_CONFIG_GLOBAL_STORES_DEFAULT" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_CONFIG_GLOBAL_WEBSITES" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_CONFIG_GLOBAL_WEBSITES" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_CORE_CACHE_OPTIONS" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_CORE_CACHE_OPTIONS" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_DB_PDO_MYSQL_DDL_catalog_product_entity_1" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_DB_PDO_MYSQL_DDL_catalog_product_entity_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_1" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_website_1" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_website_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_eav_attribute_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_eav_attribute_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_DB_PDO_MYSQL_DDL_log_url_1" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_DB_PDO_MYSQL_DDL_log_url_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_url_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_DB_PDO_MYSQL_DDL_log_url_info_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_EF888D9386868F7DB9D4F73345E4D68A" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_EF888D9386868F7DB9D4F73345E4D68A" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--e/mage---af9_F4298E6145BB3105A48403C78B654ED279257E5E" afterPath="$PROJECT_DIR$/var/cache/mage--e/mage---af9_F4298E6145BB3105A48403C78B654ED279257E5E" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_JAVASCRIPT_TRANSLATE_CONFIG" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_JAVASCRIPT_TRANSLATE_CONFIG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_LAYOUT_1A81705F2FEC60CD81B3E0DCE147B8AD5" afterPath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_LAYOUT_1A81705F2FEC60CD81B3E0DCE147B8AD5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_LAYOUT_1C61D7614DE6D16D8F288B9BB33C0384B" afterPath="$PROJECT_DIR$/var/cache/mage--0/mage---af9_LAYOUT_1C61D7614DE6D16D8F288B9BB33C0384B" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--3/mage---af9_LAYOUT_FRONTEND_STORE1_DEFAULT_MAG090198" afterPath="$PROJECT_DIR$/var/cache/mage--3/mage---af9_LAYOUT_FRONTEND_STORE1_DEFAULT_MAG090198" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_SORTED_QUOTE_COLLECTORS" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_SORTED_QUOTE_COLLECTORS" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_STORE_ADMIN_CONFIG_CACHE" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_STORE_ADMIN_CONFIG_CACHE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_STORE_DEFAULT_CONFIG_CACHE" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---af9_STORE_DEFAULT_CONFIG_CACHE" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_TRANSLATE_EN_US_FRONTEND_1_DEFAULT_MAG090198" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---af9_TRANSLATE_EN_US_FRONTEND_1_DEFAULT_MAG090198" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_Zend_LocaleC_en_US_country_AU" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---af9_Zend_LocaleC_en_US_country_AU" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_currencynumber_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_currencynumber_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencysymbol_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencysymbol_AUD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencysymbol_USD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencysymbol_USD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_currencysymbol_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_currencysymbol_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencytoname_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_currencytoname_AUD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--5/mage---af9_Zend_LocaleC_en_US_currencytoregion_US" afterPath="$PROJECT_DIR$/var/cache/mage--5/mage---af9_Zend_LocaleC_en_US_currencytoregion_US" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_AUD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_NZD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_NZD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_USD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---af9_Zend_LocaleC_en_US_nametocurrency_USD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_nametocurrency_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---af9_Zend_LocaleC_en_US_nametocurrency_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleL_en_US_day_" afterPath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleL_en_US_day_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_Zend_LocaleL_en_US_month_" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---af9_Zend_LocaleL_en_US_month_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_Zend_LocaleL_en_US_month_gregorian_format_abbreviated" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---af9_Zend_LocaleL_en_US_month_gregorian_format_abbreviated" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--b/mage---af9_Zend_LocaleL_en_US_symbols_" afterPath="$PROJECT_DIR$/var/cache/mage--b/mage---af9_Zend_LocaleL_en_US_symbols_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleC_en_US_am_" afterPath="$PROJECT_DIR$/var/cache/mage--8/mage---af9_Zend_LocaleC_en_US_am_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--3/mage---af9_config_theme" afterPath="$PROJECT_DIR$/var/cache/mage--3/mage---af9_config_theme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_3FBDE6BD157F9747B69AE9111A635EF3" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_3FBDE6BD157F9747B69AE9111A635EF3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_7684A8AC2CA6040FA87A5EF331D81671" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_7684A8AC2CA6040FA87A5EF331D81671" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_A013436EADDB8112C2F77B37E78E6C56B2DE14EB" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_A013436EADDB8112C2F77B37E78E6C56B2DE14EB" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_4E4ABDD8DC00C3DACB3C1597944A3B6C" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_4E4ABDD8DC00C3DACB3C1597944A3B6C" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_B1FB6E8F13287C01E5C05063633DDA4C" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_B1FB6E8F13287C01E5C05063633DDA4C" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_E4D52B98688947405EDE639E947EE03D" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_APP_E4D52B98688947405EDE639E947EE03D" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--2/mage---internal-metadatas---af9_CONFIG_GLOBAL" afterPath="$PROJECT_DIR$/var/cache/mage--2/mage---internal-metadatas---af9_CONFIG_GLOBAL" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_CONFIG_GLOBAL_ADMINHTML" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_CONFIG_GLOBAL_ADMINHTML" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--5/mage---internal-metadatas---af9_CONFIG_GLOBAL_ADMIN" afterPath="$PROJECT_DIR$/var/cache/mage--5/mage---internal-metadatas---af9_CONFIG_GLOBAL_ADMIN" />
@@ -120,55 +190,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_CONFIG_GLOBAL_STORES_DEFAULT" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_CONFIG_GLOBAL_STORES_DEFAULT" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_CONFIG_GLOBAL_WEBSITES" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_CONFIG_GLOBAL_WEBSITES" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_CORE_CACHE_OPTIONS" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_CORE_CACHE_OPTIONS" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_catalog_product_entity_1" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_catalog_product_entity_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_1" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_website_1" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_customer_eav_attribute_website_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_eav_attribute_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_eav_attribute_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_1" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_info_1" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_DB_PDO_MYSQL_DDL_log_url_info_1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_EF888D9386868F7DB9D4F73345E4D68A" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_EF888D9386868F7DB9D4F73345E4D68A" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--e/mage---internal-metadatas---af9_F4298E6145BB3105A48403C78B654ED279257E5E" afterPath="$PROJECT_DIR$/var/cache/mage--e/mage---internal-metadatas---af9_F4298E6145BB3105A48403C78B654ED279257E5E" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" afterPath="$PROJECT_DIR$/var/cache/mage--f/mage---internal-metadatas---af9_FCC99117B49C7529C3D95550F8AFA48CA33DB04B" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_JAVASCRIPT_TRANSLATE_CONFIG" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_JAVASCRIPT_TRANSLATE_CONFIG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_LAYOUT_1A81705F2FEC60CD81B3E0DCE147B8AD5" afterPath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_LAYOUT_1A81705F2FEC60CD81B3E0DCE147B8AD5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_LAYOUT_1C61D7614DE6D16D8F288B9BB33C0384B" afterPath="$PROJECT_DIR$/var/cache/mage--0/mage---internal-metadatas---af9_LAYOUT_1C61D7614DE6D16D8F288B9BB33C0384B" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--3/mage---internal-metadatas---af9_LAYOUT_FRONTEND_STORE1_DEFAULT_MAG090198" afterPath="$PROJECT_DIR$/var/cache/mage--3/mage---internal-metadatas---af9_LAYOUT_FRONTEND_STORE1_DEFAULT_MAG090198" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_SORTED_QUOTE_COLLECTORS" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_SORTED_QUOTE_COLLECTORS" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_STORE_ADMIN_CONFIG_CACHE" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_STORE_ADMIN_CONFIG_CACHE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_STORE_DEFAULT_CONFIG_CACHE" afterPath="$PROJECT_DIR$/var/cache/mage--9/mage---internal-metadatas---af9_STORE_DEFAULT_CONFIG_CACHE" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_TRANSLATE_EN_US_FRONTEND_1_DEFAULT_MAG090198" afterPath="$PROJECT_DIR$/var/cache/mage--6/mage---internal-metadatas---af9_TRANSLATE_EN_US_FRONTEND_1_DEFAULT_MAG090198" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_Zend_LocaleC_en_US_country_AU" afterPath="$PROJECT_DIR$/var/cache/mage--d/mage---internal-metadatas---af9_Zend_LocaleC_en_US_country_AU" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencynumber_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencynumber_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_AUD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_USD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_USD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencysymbol_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencytoname_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencytoname_AUD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--5/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencytoregion_US" afterPath="$PROJECT_DIR$/var/cache/mage--5/mage---internal-metadatas---af9_Zend_LocaleC_en_US_currencytoregion_US" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_AUD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_AUD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_NZD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_NZD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_USD" afterPath="$PROJECT_DIR$/var/cache/mage--4/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_USD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_" afterPath="$PROJECT_DIR$/var/cache/mage--1/mage---internal-metadatas---af9_Zend_LocaleC_en_US_nametocurrency_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleL_en_US_day_" afterPath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleL_en_US_day_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_Zend_LocaleL_en_US_month_" afterPath="$PROJECT_DIR$/var/cache/mage--a/mage---internal-metadatas---af9_Zend_LocaleL_en_US_month_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_Zend_LocaleL_en_US_month_gregorian_format_abbreviated" afterPath="$PROJECT_DIR$/var/cache/mage--7/mage---internal-metadatas---af9_Zend_LocaleL_en_US_month_gregorian_format_abbreviated" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--b/mage---internal-metadatas---af9_Zend_LocaleL_en_US_symbols_" afterPath="$PROJECT_DIR$/var/cache/mage--b/mage---internal-metadatas---af9_Zend_LocaleL_en_US_symbols_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleC_en_US_am_" afterPath="$PROJECT_DIR$/var/cache/mage--8/mage---internal-metadatas---af9_Zend_LocaleC_en_US_am_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/mage--3/mage---internal-metadatas---af9_config_theme" afterPath="$PROJECT_DIR$/var/cache/mage--3/mage---internal-metadatas---af9_config_theme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/core/Mage/Customer/controllers/AccountController.php" afterPath="$PROJECT_DIR$/app/code/core/Mage/Customer/controllers/AccountController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php" afterPath="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php" afterPath="$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/core/Mage/Adminhtml/Block/Customer/Grid.php" afterPath="$PROJECT_DIR$/app/code/core/Mage/Adminhtml/Block/Customer/Grid.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Observer.php" afterPath="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Observer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php" afterPath="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/admincustom.js" afterPath="$PROJECT_DIR$/js/admincustom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/base/default/layout/customer.xml" afterPath="$PROJECT_DIR$/app/design/frontend/base/default/layout/customer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/base/default/template/clarion/customerattribute/form/edit.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/base/default/template/clarion/customerattribute/form/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/clarion/customerattribute/form/edit.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/clarion/customerattribute/form/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/subaccounts/editsubaccount.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/subaccounts/editsubaccount.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/catalog/product/list.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/catalog/product/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/account/navigation.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/account/navigation.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/subaccounts/subaccounts.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/subaccounts/subaccounts.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/page/html/topmenu.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/page/html/topmenu.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modman" afterPath="$PROJECT_DIR$/modman" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/sql/smtppro_setup/mysql4-install-1.1.0.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/sql/smtppro_setup/mysql4-install-1.1.0.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/sql/smtppro_setup/mysql4-upgrade-1.4.3-1.4.4.php" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/sql/smtppro_setup/mysql4-upgrade-1.4.3-1.4.4.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skin/frontend/default/MAG090198/css/megnor/style.css" afterPath="$PROJECT_DIR$/skin/frontend/default/MAG090198/css/megnor/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/etc/system.xml" afterPath="$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/etc/system.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/smtppro/view.phtml" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/smtppro/view.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/view.phtml" afterPath="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/view.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="paytec.iws" />
@@ -200,59 +234,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23316061" vertical-offset="9900" max-vertical-offset="12285">
-              <caret line="666" column="12" selection-start-line="666" selection-start-column="12" selection-end-line="666" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Observer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.75" vertical-offset="360" max-vertical-offset="5370">
-              <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+            <state vertical-scroll-proportion="-12.166667" vertical-offset="383" max-vertical-offset="5550">
+              <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="50" selection-end-column="27" />
               <folding>
-                <marker date="1445943663991" expanded="true" signature="11377:12034" placeholder="..." />
-                <marker date="1445943663991" expanded="true" signature="11402:11557" placeholder="..." />
-                <marker date="1445943663991" expanded="true" signature="11610:11820" placeholder="..." />
-                <marker date="1445943663991" expanded="true" signature="11618:11793" placeholder="..." />
-                <marker date="1445943663991" expanded="true" signature="11845:12001" placeholder="..." />
-                <marker date="1445943663991" expanded="true" signature="12182:12235" placeholder="..." />
-                <marker date="1445943663991" expanded="true" signature="12486:12539" placeholder="..." />
+                <marker date="1446559808408" expanded="true" signature="11859:12516" placeholder="..." />
+                <marker date="1446559808408" expanded="true" signature="11884:12039" placeholder="..." />
+                <marker date="1446559808408" expanded="true" signature="12092:12302" placeholder="..." />
+                <marker date="1446559808408" expanded="true" signature="12100:12275" placeholder="..." />
+                <marker date="1446559808408" expanded="true" signature="12327:12483" placeholder="..." />
+                <marker date="1446559808408" expanded="true" signature="12702:12755" placeholder="..." />
+                <marker date="1446559808408" expanded="true" signature="13088:13141" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php">
+      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625" vertical-offset="2490" max-vertical-offset="10410">
-              <caret line="198" column="51" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
+            <state vertical-scroll-proportion="-6.4038463" vertical-offset="3867" max-vertical-offset="4935">
+              <caret line="280" column="96" selection-start-line="280" selection-start-column="79" selection-end-line="280" selection-end-column="96" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cart.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php">
+      <file leaf-file-name="licensequote.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.5416667" vertical-offset="4265" max-vertical-offset="9375">
-              <caret line="313" column="13" selection-start-line="313" selection-start-column="13" selection-end-line="313" selection-end-column="13" />
+            <state vertical-scroll-proportion="-6.3076925" vertical-offset="1532" max-vertical-offset="2325">
+              <caret line="124" column="22" selection-start-line="104" selection-start-column="95" selection-end-line="124" selection-end-column="22" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#1;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#1;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#table#1;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#1;n#table#1;n#form#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/view.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.08395522" vertical-offset="1845" max-vertical-offset="6285">
+              <caret line="123" column="39" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Quote.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Sales/Model/Quote.php">
+      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7083333" vertical-offset="14926" max-vertical-offset="29310">
-              <caret line="1024" column="29" selection-start-line="1024" selection-start-column="29" selection-end-line="1024" selection-end-column="29" />
+            <state vertical-scroll-proportion="17.057692" vertical-offset="7637" max-vertical-offset="12420">
+              <caret line="450" column="35" selection-start-line="450" selection-start-column="35" selection-end-line="450" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -267,15 +306,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/code/core/Mage/Wishlist/Model/Observer.php" />
-        <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/maintenaceProducts.phtml" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/catalog/product/list/related_list.phtml" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/catalog/product/view.phtml" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/subaccounts/list.phtml" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/subaccounts/subaccountorders.phtml" />
         <option value="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Resource/Quote.php" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/subaccounts/subaccountquotes.phtml" />
-        <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/view.phtml" />
         <option value="$PROJECT_DIR$/lib/Papercut/a.php" />
         <option value="$PROJECT_DIR$/app/code/local/Synapse/Paytech/Model/observer.php" />
         <option value="$PROJECT_DIR$/app/code/local/Synapse/Paytech/etc/config.xml" />
@@ -312,12 +348,15 @@
         <option value="$PROJECT_DIR$/app/code/core/Mage/Customer/controllers/AccountController.php" />
         <option value="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Observer.php" />
         <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/catalog/product/list.phtml" />
-        <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml" />
-        <option value="$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php" />
-        <option value="$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php" />
-        <option value="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php" />
         <option value="$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php" />
+        <option value="$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php" />
+        <option value="$PROJECT_DIR$/skin/frontend/default/MAG090198/css/megnor/style.css" />
+        <option value="$PROJECT_DIR$/js/megnor/jquery.colorbox.min.js" />
+        <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml" />
+        <option value="$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php" />
+        <option value="$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php" />
+        <option value="$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/view.phtml" />
       </list>
     </option>
   </component>
@@ -368,7 +407,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -447,6 +485,76 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="locale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="en_US" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="en_US" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="email" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="design" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -567,11 +675,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="catalog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="product" />
+              <option name="myItemId" value="quote" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -602,74 +706,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MAG090198" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="catalog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="paytec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="paytec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="design" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MAG090198" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="paytec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="paytec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="design" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -704,44 +740,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="paytec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="paytec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Synapse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Quote" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resource" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -812,10 +810,6 @@
               <option name="myItemId" value="Quote" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -844,6 +838,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Quote" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -941,7 +939,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="etc" />
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1018,9 +1020,156 @@
               <option name="myItemId" value="code" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Checkout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Checkout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Checkout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="paytec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1029,7 +1178,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../magento" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="80" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -1143,7 +1292,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444899361367</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Changes as suggested by tilak from quote to cart">
+      <created>1445944159768</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1445944159768</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1151,15 +1306,15 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2881997" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31543118" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32643312" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32539684" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35079366" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35031846" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6698413" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280255" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1222,7 +1377,8 @@
     <MESSAGE value="rewrote &quot;responsefrompapercut&quot; method" />
     <MESSAGE value="&quot;Add to Quote, Add to Cart buttons&quot; are hidden for bundle and configurable products" />
     <MESSAGE value="Final Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final Changes" />
+    <MESSAGE value="Changes as suggested by tilak from quote to cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes as suggested by tilak from quote to cart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1231,62 +1387,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Type/Multishipping/State.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3577237" vertical-offset="2571" max-vertical-offset="2940">
-          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/review/button.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="270">
-          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/design/frontend/base/default/template/checkout/onepage/link.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.075" vertical-offset="0" max-vertical-offset="600">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/layout/quote.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33653846" vertical-offset="0" max-vertical-offset="624">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/layout/paytech.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4471154" vertical-offset="486" max-vertical-offset="1110">
-          <caret line="51" column="41" selection-start-line="42" selection-start-column="4" selection-end-line="51" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/OnepageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05" vertical-offset="8340" max-vertical-offset="9690">
-          <caret line="579" column="12" selection-start-line="579" selection-start-column="12" selection-end-line="579" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/local/Aschroder/SMTPPro/Block/Adminhtml/Test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.525" vertical-offset="165" max-vertical-offset="765">
-          <caret line="38" column="52" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/catalog/product/view.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5" vertical-offset="3900" max-vertical-offset="4500">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/catalog/product/view(Working fine for final price).phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4515">
@@ -1497,35 +1597,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1920">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4185" max-vertical-offset="4830">
-          <caret line="279" column="22" selection-start-line="279" selection-start-column="22" selection-end-line="279" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/etc/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321739" vertical-offset="259" max-vertical-offset="2040">
-          <caret line="30" column="59" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/etc/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.821429" vertical-offset="2974" max-vertical-offset="4290">
           <caret line="211" column="25" selection-start-line="211" selection-start-column="22" selection-end-line="211" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1533,31 +1608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.964286" vertical-offset="22894" max-vertical-offset="26730">
           <caret line="1543" column="27" selection-start-line="1543" selection-start-column="27" selection-end-line="1543" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/etc/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="293" max-vertical-offset="1800">
-          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/Model/observer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3851468" vertical-offset="17" max-vertical-offset="600">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Observer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.204947" vertical-offset="1024" max-vertical-offset="1590">
-          <caret line="98" column="33" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1565,46 +1615,153 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7083333" vertical-offset="14926" max-vertical-offset="29310">
           <caret line="1024" column="29" selection-start-line="1024" selection-start-column="29" selection-end-line="1024" selection-end-column="29" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/etc/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31413612" vertical-offset="0" max-vertical-offset="2055">
+          <caret line="12" column="51" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/etc/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57591623" vertical-offset="0" max-vertical-offset="1800">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/quotes.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2010" max-vertical-offset="2820">
+          <caret line="134" column="26" selection-start-line="116" selection-start-column="23" selection-end-line="134" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/layout/quote.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="630">
+          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skin/frontend/default/MAG090198/css/megnor/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2085">
+          <caret line="118" column="16" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/varien/js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.49084857" vertical-offset="2200" max-vertical-offset="10770">
+          <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Catalog/Model/Observer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30054644" vertical-offset="0" max-vertical-offset="4725">
+          <caret line="11" column="61" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/megnor/jquery.colorbox.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14205">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/layout/tempmela.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.025423728" vertical-offset="2670" max-vertical-offset="5340">
+          <caret line="154" column="12" selection-start-line="154" selection-start-column="12" selection-end-line="154" selection-end-column="90" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Cart.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5416667" vertical-offset="4265" max-vertical-offset="9375">
-          <caret line="313" column="13" selection-start-line="313" selection-start-column="13" selection-end-line="313" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.625" vertical-offset="4140" max-vertical-offset="9390">
+          <caret line="298" column="25" selection-start-line="298" selection-start-column="25" selection-end-line="298" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/Model/observer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41594455" vertical-offset="0" max-vertical-offset="600">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/Model/Observer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0491803" vertical-offset="831" max-vertical-offset="1605">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/code/core/Mage/Checkout/controllers/CartController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625" vertical-offset="2490" max-vertical-offset="10410">
-          <caret line="198" column="51" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.2109929" vertical-offset="2416" max-vertical-offset="10380">
+          <caret line="192" column="51" selection-start-line="192" selection-start-column="51" selection-end-line="192" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="17.057692" vertical-offset="7637" max-vertical-offset="12420">
+          <caret line="450" column="35" selection-start-line="450" selection-start-column="35" selection-end-line="450" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Paytech/controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.4038463" vertical-offset="3867" max-vertical-offset="4935">
+          <caret line="280" column="96" selection-start-line="280" selection-start-column="79" selection-end-line="280" selection-end-column="96" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/Model/Price/Observer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75" vertical-offset="360" max-vertical-offset="5370">
-          <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+        <state vertical-scroll-proportion="-12.166667" vertical-offset="383" max-vertical-offset="5550">
+          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="50" selection-end-column="27" />
           <folding>
-            <marker date="1445943663991" expanded="true" signature="11377:12034" placeholder="..." />
-            <marker date="1445943663991" expanded="true" signature="11402:11557" placeholder="..." />
-            <marker date="1445943663991" expanded="true" signature="11610:11820" placeholder="..." />
-            <marker date="1445943663991" expanded="true" signature="11618:11793" placeholder="..." />
-            <marker date="1445943663991" expanded="true" signature="11845:12001" placeholder="..." />
-            <marker date="1445943663991" expanded="true" signature="12182:12235" placeholder="..." />
-            <marker date="1445943663991" expanded="true" signature="12486:12539" placeholder="..." />
+            <marker date="1446559808408" expanded="true" signature="11859:12516" placeholder="..." />
+            <marker date="1446559808408" expanded="true" signature="11884:12039" placeholder="..." />
+            <marker date="1446559808408" expanded="true" signature="12092:12302" placeholder="..." />
+            <marker date="1446559808408" expanded="true" signature="12100:12275" placeholder="..." />
+            <marker date="1446559808408" expanded="true" signature="12327:12483" placeholder="..." />
+            <marker date="1446559808408" expanded="true" signature="12702:12755" placeholder="..." />
+            <marker date="1446559808408" expanded="true" signature="13088:13141" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/code/local/Synapse/Quote/controllers/IndexController.php">
+    <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/customer/licensequote.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23316061" vertical-offset="9900" max-vertical-offset="12285">
-          <caret line="666" column="12" selection-start-line="666" selection-start-column="12" selection-end-line="666" selection-end-column="12" />
+        <state vertical-scroll-proportion="-6.3076925" vertical-offset="1532" max-vertical-offset="2325">
+          <caret line="124" column="22" selection-start-line="104" selection-start-column="95" selection-end-line="124" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#1;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#1;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#1;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#table#1;n#form#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/design/frontend/default/MAG090198/template/quote/view.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08395522" vertical-offset="1845" max-vertical-offset="6285">
+          <caret line="123" column="39" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
           <folding />
         </state>
       </provider>

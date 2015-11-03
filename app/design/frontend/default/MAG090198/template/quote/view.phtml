@@ -4,7 +4,7 @@ $labels = array();
 $current_quote = Mage::getModel('quote/quote')->load($current_quote_id);
 if (Mage::getSingleton('customer/session')->isLoggedIn()) {
     $customer = Mage::getSingleton('customer/session')->getCustomer();
-   // echo '<pre>';
+    // echo '<pre>';
     //print_r($customer);
 }
 if(isset($current_quote['quote_product_params'])){
@@ -92,7 +92,7 @@ if(isset($current_quote['quote_product_params'])){
             $quote_product_qty = array_combine($quote_products,$quote_qtys);
             $audPrices = array_combine($quote_products,explode(',',$current_quote['quote_product_prices_aud']));
             $nzdPrices = array_combine($quote_products,explode(',',$current_quote['quote_product_prices_nzd']));
-           ?>
+            ?>
             <tbody>
             <?php $_odd = ''; ?>
             <?php
@@ -121,6 +121,57 @@ if(isset($current_quote['quote_product_params'])){
             </tbody>
         </table>
 
+        <table style="padding-left: 590px;">
+            <tr><td style="text-align: right">Sub Total:&nbsp</td><td style="text-align: right"><?php
+                    $qtys=explode(',',$current_quote['quote_product_qtys']);
+
+                    $amount=0;
+                    if($current_currency_code == 'NZD'){
+                        $amounts=array_filter(explode(',',$current_quote['quote_product_prices_nzd']));
+                        $currency="NZ$ ";
+                    }else {
+                        $amounts=array_filter(explode(',',$current_quote['quote_product_prices_aud']));
+                        $currency="AU$ ";
+                    }
+
+                    for($i=0;$i<count($qtys);$i++){
+                        $amount+=$qtys[$i]*$amounts[$i];
+                    }
+
+                    echo $amount;
+
+
+
+                    ?></td></tr>
+            <tr><td style="text-align: right">Discount:&nbsp</td><td style="text-align: right"><?php $current_quote['discount_value'] = $current_quote['discount_value']?$current_quote['discount_value']:'0';
+                    echo
+                    $current_quote['discount_value']
+                    ?></td></tr>
+            <tr><td style="text-align: right">GST:&nbsp</td><td style="text-align: right"><?php echo $current_quote['gst']?></td></tr>
+            <tr><td style="text-align: right">Grand Total:&nbsp</td><td style="text-align:
+    right"><?php
+                    $qtys=explode(',',$current_quote['quote_product_qtys']);
+
+                    $amount=0;
+                    if($current_currency_code == 'NZD'){
+                        $amounts=array_filter(explode(',',$current_quote['quote_product_prices_nzd']));
+                        $currency="NZ$ ";
+                    }else {
+                        $amounts=array_filter(explode(',',$current_quote['quote_product_prices_aud']));
+                        $currency="AU$ ";
+                    }
+
+                    for($i=0;$i<count($qtys);$i++){
+                        $amount+=$qtys[$i]*$amounts[$i];
+                    }
+
+                    echo $currency.$amount;
+
+
+
+                    ?>
+                </td></tr>
+        </table>
 
     <!-- For Buttons -->
         <div style="float:left">
@@ -138,9 +189,9 @@ if(isset($current_quote['quote_product_params'])){
                         <a style="float:right;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/refresh/id/'.$current_quote_id); ?>">Quote Expired  Refresh Quote</a>
                     <?php }else{
                         if(($customer['is_dealer']) || ($customer['can_place_order'])){
-                        ?>
-                        <a style="float:right;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/addCart/id/'.$current_quote_id); ?>">PLACE ORDER</a>
-                    <?php }} ?>
+                            ?>
+                            <a style="float:right;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/addCart/id/'.$current_quote_id); ?>">PLACE ORDER</a>
+                        <?php }} ?>
 
                 </li>
             </ul>
@@ -166,42 +217,42 @@ if(isset($current_quote['quote_product_params'])){
         <?php $_odd = ''; ?>
         <tr>
         <?php
-            foreach ($quote_product_qty as $k => $v):
-                    $check_product_type = explode('-',$k);
-                    if (count($check_product_type) > 1) {
-                        $product = Mage::getModel('catalog/product')->load($check_product_type[0]);
-                    } else {
-                        $product = Mage::getModel('catalog/product')->load($k);
-                    }
+        foreach ($quote_product_qty as $k => $v):
+            $check_product_type = explode('-',$k);
+            if (count($check_product_type) > 1) {
+                $product = Mage::getModel('catalog/product')->load($check_product_type[0]);
+            } else {
+                $product = Mage::getModel('catalog/product')->load($k);
+            }
 
-                    $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
-                    $prodId = $product->getId();
-                    $options = '';
-                    $qty = $quote_prod_qtys[$k];
-                if($current_currency_code == 'NZD'){
-                    $nzdPrice  = number_format($already_added_product_prices[$k], '2', '.', ',');
-                }else{
-                    $audPrice =  number_format($already_added_product_prices[$k], '2', '.', ',');
-                }
-                    $audPrice = $audPrice;
-                    $nzdPrice = $nzdPrice;
+            $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+            $prodId = $product->getId();
+            $options = '';
+            $qty = $quote_prod_qtys[$k];
+            if($current_currency_code == 'NZD'){
+                $nzdPrice  = number_format($already_added_product_prices[$k], '2', '.', ',');
+            }else{
+                $audPrice =  number_format($already_added_product_prices[$k], '2', '.', ',');
+            }
+            $audPrice = $audPrice;
+            $nzdPrice = $nzdPrice;
 
-                if(isset($productOptions[$prodId][0]['qty'])) {
+            if(isset($productOptions[$prodId][0]['qty'])) {
                 for($i=0;$i<count($productOptions[$prodId]);$i++){
                     if($current_currency_code == 'NZD'){
-                    $nzdPrice  = number_format($productOptions[$prodId][$i]['price'], '2', '.', ',');
+                        $nzdPrice  = number_format($productOptions[$prodId][$i]['price'], '2', '.', ',');
                     }else{
-                    $audPrice =  number_format($productOptions[$prodId][$i]['price'], '2', '.', ',');
+                        $audPrice =  number_format($productOptions[$prodId][$i]['price'], '2', '.', ',');
                     }
                     $options = $productOptions[$prodId];
                     $qty=$options[0]['qty'];
                     $audPrice=$audPrice;
                     $nzdPrice=$nzdPrice;
-                    }
                 }
-                echo renderProduct($product,$qty,$audPrice,$nzdPrice,$options);
+            }
+            echo renderProduct($product,$qty,$audPrice,$nzdPrice,$options);
 
-                ?>
+            ?>
 
             </tr>
         <?php endforeach; ?>
@@ -254,7 +305,7 @@ function renderProduct($product,$qty,$audPrice,$nzdPrice,$options=''){
     }
     $final=array();
     $optStr='';
-   //print_r($product_options);
+    //print_r($product_options);
     if($product_options){
         $qty=$product_options['qty'];
         $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
@@ -298,36 +349,36 @@ function renderProduct($product,$qty,$audPrice,$nzdPrice,$options=''){
 
     }
 
-        $row .= '<td><img src="' . Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(75, 75) . '"/></td>';
-        $row .= '<td><span class="nobr">' . $product->getName() . '</span><br/><span style="color:red">' . $optStr . '</span></td>';
-        if ($prodType == 'maintenance product'):
-            $row .= '<td>' . $qty . '<input type="hidden" name="qty[' . $prodId . ']" value=' . $qty . '></td>';
-        else:
-            $row .= '<td><input type="text" name="qty[' . $prodId . ']" value="' . $qty . '" style="width:25px; text-align:right;"></td>';
-        endif;
-        $row .= '<td>';
+    $row .= '<td><img src="' . Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(75, 75) . '"/></td>';
+    $row .= '<td><span class="nobr">' . $product->getName() . '</span><br/><span style="color:red">' . $optStr . '</span></td>';
+    if ($prodType == 'maintenance product'):
+        $row .= '<td>' . $qty . '<input type="hidden" name="qty[' . $prodId . ']" value=' . $qty . '></td>';
+    else:
+        $row .= '<td><input type="text" name="qty[' . $prodId . ']" value="' . $qty . '" style="width:25px; text-align:right;"></td>';
+    endif;
+    $row .= '<td>';
 
-        $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
-        if ($current_currency_code == 'NZD') {
-            $itemPrice = Mage::helper('tax')->getPrice($product, $nzdPrice);
-            $subPrice = $itemPrice * $qty;
-            $row .= "NZ$ " . number_format($subPrice, '2', '.', ',');
-        } else {
-            $itemPrice = Mage::helper('tax')->getPrice($product, $audPrice);
-            $subPrice = $itemPrice * $qty;
-            $row .= "AU$ " . number_format($subPrice, '2', '.', ',');
-        }
-        $row .= '</td>';
+    $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+    if ($current_currency_code == 'NZD') {
+        $itemPrice = Mage::helper('tax')->getPrice($product, $nzdPrice);
+        $subPrice = $itemPrice * $qty;
+        $row .= "NZ$ " . number_format($subPrice, '2', '.', ',');
+    } else {
+        $itemPrice = Mage::helper('tax')->getPrice($product, $audPrice);
+        $subPrice = $itemPrice * $qty;
+        $row .= "AU$ " . number_format($subPrice, '2', '.', ',');
+    }
+    $row .= '</td>';
 
-        if(sizeof($attrOptCodes)>=1){
-            $url = Mage::getUrl('quote/index/removeitem/id/' . $prodId.'/params/'.serialize($attrOptCodes));
-        }else{
-            $url = Mage::getUrl('quote/index/removeitem/id/' . $prodId);
-        }
+    if(sizeof($attrOptCodes)>=1){
+        $url = Mage::getUrl('quote/index/removeitem/id/' . $prodId.'/params/'.serialize($attrOptCodes));
+    }else{
+        $url = Mage::getUrl('quote/index/removeitem/id/' . $prodId);
+    }
 
 
-        $row .= '<td><a onclick="return confirm(/"Are you sure you want to delete the item/");" href="' . $url . '" title="Remove Item">Delete</td>';
-        $row .= '</tr>';
+    $row .= '<td><a onclick="return confirm(/"Are you sure you want to delete the item/");" href="' . $url . '" title="Remove Item">Delete</td>';
+    $row .= '</tr>';
 
     if(count($options)>1){
         $totalOptionsCount = count($options);

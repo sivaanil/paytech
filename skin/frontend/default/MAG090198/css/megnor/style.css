@@ -116,7 +116,7 @@ itemMenu.level2{border-bottom:none; border-top:none;}
 .custom_menu:hover .customblock_inner {    display: block;} 
 .customblock_inner		{ background:#FFF; width:250px; padding:5px;}
 #my-quote-table{
-margin-bottom:50px;
+margin-bottom:15px;
 }
 .btn-checkout{
 margin-left:15px !important;

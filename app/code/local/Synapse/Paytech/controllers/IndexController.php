@@ -215,7 +215,7 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
 
                 }
                 $items = $rawdata->orderLines;
-                $license_file_created_by = $rawdata->resellerCode;
+                $license_file_created_by = $rawdata->customerOrganizationName;
                 $model = Mage::getModel('quote/quote');
                 foreach($items as $item){
                     if($item->description){
@@ -258,6 +258,7 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
 
                             try{
                                 $model->save();
+                                $latestQuoteId = $model->getId();
                                 if (Mage::getSingleton('customer/session')->isLoggedIn()) {
                                     // Load the customer's data
                                     $customer = Mage::getSingleton('customer/session')->getCustomer();
@@ -277,7 +278,7 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                             $amount = array_sum($quoteSubTotalForAllProducts);
                         $quoteTotalAmount = $amount;
 //                        echo $quoteTotalAmount; exit;
-                            Mage::getSingleton('core/session')->setQuoteAmount('1262');
+                            Mage::getSingleton('core/session')->setQuoteAmount($quoteTotalAmount);
                             Mage::getSingleton('customer/session')->setproducts($products);
                             Mage::getSingleton('customer/session')->setproducts($products);
                             Mage::getSingleton('customer/session')->setQuoteCreatedThroughUpload($model['quote_id']);
@@ -288,6 +289,7 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                             Mage::getSingleton('core/session')->setQuoteDiscountDescription($quoteDiscountDescription);
                             Mage::getSingleton('core/session')->setQuoteDiscount($quoteDiscount);
                             Mage::getSingleton('core/session')->setQuotegst($quotegst);
+                            Mage::getSingleton('core/session')->setQuoteLatestId($latestQuoteId);
 
                             if($count == 0){
                                 $session->addError("No products were added since it doesn't match with our records.");

@@ -10,8 +10,11 @@ if (Mage::getSingleton('customer/session')->isLoggedIn()) {
 $products = Mage::getSingleton('customer/session')->getproducts();
 $quoteDiscount = Mage::getSingleton('core/session')->getQuoteDiscount();
 $quotegst = Mage::getSingleton('core/session')->getQuotegst();
+$latestQuoteId = Mage::getSingleton('core/session')->getQuoteLatestId();
+$current_quote = Mage::getModel('quote/quote')->load($latestQuoteId);
+//
 //echo "<pre>";
-//print_r($customer);
+//print_r($current_quote);
 //exit;
 $license_file_createdby =  Mage::getSingleton('core/session')->getLicensefileCreatedBy();
 $finalized=$discontinued_prod=$product_with_issues=array();
@@ -37,7 +40,7 @@ $finalized=$discontinued_prod=$product_with_issues=array();
 <?php if(!empty($products)){?>
      	<form id="my-quote" name="createquote" action="<?php echo Mage::getUrl('quote/index/save'); ?>" method="post">
 			<div class="quotefield">
-				<label>Quote Number #: NA</label>
+				<label>Quote Number #: <?php echo $latestQuoteId ?></label>
 			</div>
 			<div class="quotefield">
 				<label>End User Organization:</label>
@@ -98,8 +101,32 @@ if($quoteDiscount){
 
 <!--    <span style="padding-left: 830px;">Discount:&nbsp</span><span></span>--><?php //echo $quoteDiscount?><!--</span>-->
 <!--    <span style="padding-left: 830px;">GST:&nbsp</span><span></span>--><?php //echo $quotegst?><!--</span>-->
-        <table style="padding-left: 830px;"><tr><td>Discount:&nbsp</td><td style="text-align: right"><?php echo $quoteDiscount?></td></tr>
-        <tr><td>GST:&nbsp</td><td style="text-align: right"><?php echo $quotegst?></td></tr></table>
+        <table style="padding-left: 830px;">
+            <tr><td style="text-align: right">SubTotal:&nbsp</td><td style="text-align: right"><?php
+                    $qtys=explode(',',$current_quote['quote_product_qtys']);
+
+                    $amount=0;
+                    if($current_currency_code == 'NZD'){
+                        $amounts=array_filter(explode(',',$current_quote['quote_product_prices_nzd']));
+                        $currency="NZ$ ";
+                    }else {
+                        $amounts=array_filter(explode(',',$current_quote['quote_product_prices_aud']));
+                        $currency="AU$ ";
+                    }
+
+                    for($i=0;$i<count($qtys);$i++){
+                        $amount+=$qtys[$i]*$amounts[$i];
+                    }
+
+                    echo $amount;
+
+
+
+                    ?></td></tr>
+        <tr><td style="text-align: right">Discount:&nbsp</td><td style="text-align: right"><?php echo $quoteDiscount?></td></tr>
+        <tr><td style="text-align: right">GST:&nbsp</td><td style="text-align: right"><?php echo $quotegst?></td></tr>
+        <tr><td style="text-align: right">Grand Total:&nbsp</td><td style="text-align: right"><?php $quoteDiscount=$quoteDiscount*-1;$grandTotal = ($amount-$quoteDiscount)+$quotegst; echo $grandTotal?></td></tr>
+        </table>
             <?php }?>
 			<?php if($customer['is_dealer'] || $customer['can_place_order']){?>
 			<div class="quote" style="float:right;margin:10px 0px">
