@@ -226,9 +226,7 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                             $quoteDiscount = $item->subtotal;
                             $quoteDiscountDescription = $item->description;
                         }
-
-
-                        $prodDetails = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',$item->description);
+                        $prodDetails = Mage::getModel('catalog/product')->loadByAttribute('sku_mapping',trim($item->description));
                         if($prodDetails['sku_mapping']==$item->description){
                             $ids[] = $product['id'] = $prodDetails->entity_id;
                             $product['name'] = $prodDetails->name;
@@ -253,7 +251,6 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
                             $model->setData('discount_description',$quoteDiscountDescription);
                             $model->setData('discount_value',$quoteDiscount);
                             $model->setData('gst',$quotegst);
-
                             $model->setData('quote_dump',serialize($_REQUEST['orderJson']));
 
                             try{
@@ -309,7 +306,7 @@ class Synapse_Paytech_IndexController extends Mage_Core_Controller_Front_Action 
             Mage::getSingleton('customer/session')->setNotificationAboutNoProducts($noItems);
 
         }
-        $this->renderLayout();
+        $this->_redirect('quote/index/view/id/'.$latestQuoteId);
         if(sizeof($_REQUEST['orderJson'])){
           Mage::dispatchEvent('send_quote_created_email', $event_data_array);
          }

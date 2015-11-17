@@ -11,6 +11,10 @@ if(isset($current_quote['quote_product_params'])){
     $productOptions = unserialize($current_quote['quote_product_params']);
 }
 
+if($current_quote['discount_description']){
+    $papercut_products = explode(',',$current_quote['quote_product_ids']);
+}
+
 
 
 ?>
@@ -92,6 +96,7 @@ if(isset($current_quote['quote_product_params'])){
             $quote_product_qty = array_combine($quote_products,$quote_qtys);
             $audPrices = array_combine($quote_products,explode(',',$current_quote['quote_product_prices_aud']));
             $nzdPrices = array_combine($quote_products,explode(',',$current_quote['quote_product_prices_nzd']));
+
             ?>
             <tbody>
             <?php $_odd = ''; ?>
@@ -150,26 +155,16 @@ if(isset($current_quote['quote_product_params'])){
             <tr><td style="text-align: right">GST:&nbsp</td><td style="text-align: right"><?php echo $current_quote['gst']?></td></tr>
             <tr><td style="text-align: right">Grand Total:&nbsp</td><td style="text-align:
     right"><?php
-                    $qtys=explode(',',$current_quote['quote_product_qtys']);
+                    $discount = $current_quote['discount_value'] * -1;
+                    $grandTotal = ($amount - $discount)+$current_quote['gst'];
 
-                    $amount=0;
-                    if($current_currency_code == 'NZD'){
-                        $amounts=array_filter(explode(',',$current_quote['quote_product_prices_nzd']));
-                        $currency="NZ$ ";
-                    }else {
-                        $amounts=array_filter(explode(',',$current_quote['quote_product_prices_aud']));
-                        $currency="AU$ ";
+                    $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+                    if ($current_currency_code == 'NZD') {
+                        echo "NZ$ " . number_format($grandTotal, '2', '.', ',');
+                    } else {
+                        echo "AU$ " . number_format($grandTotal, '2', '.', ',');
                     }
-
-                    for($i=0;$i<count($qtys);$i++){
-                        $amount+=$qtys[$i]*$amounts[$i];
-                    }
-
-                    echo $currency.$amount;
-
-
-
-                    ?>
+                ?>
                 </td></tr>
         </table>
 
@@ -189,9 +184,10 @@ if(isset($current_quote['quote_product_params'])){
                         <a style="float:right;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/refresh/id/'.$current_quote_id); ?>">Quote Expired  Refresh Quote</a>
                     <?php }else{
                         if(($customer['is_dealer']) || ($customer['can_place_order'])){
+                            if($grandTotal > 0){
                             ?>
                             <a style="float:right;margin:10px 10px" href="<?php echo Mage::getUrl('quote/index/addCart/id/'.$current_quote_id); ?>">PLACE ORDER</a>
-                        <?php }} ?>
+                        <?php }}} ?>
 
                 </li>
             </ul>
@@ -299,7 +295,6 @@ function renderProduct($product,$qty,$audPrice,$nzdPrice,$options=''){
     $row='<tr>';
     $prodType = strtolower($product->getAttributeText('product_type'));
     $prodId=$product->getId();
-
     if($options){
         $product_options=$options[0];
     }
@@ -351,7 +346,7 @@ function renderProduct($product,$qty,$audPrice,$nzdPrice,$options=''){
 
     $row .= '<td><img src="' . Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(75, 75) . '"/></td>';
     $row .= '<td><span class="nobr">' . $product->getName() . '</span><br/><span style="color:red">' . $optStr . '</span></td>';
-    if ($prodType == 'maintenance product'):
+    if (($prodType == 'maintenance product') || !in_array($prodId,$papercut_products)):
         $row .= '<td>' . $qty . '<input type="hidden" name="qty[' . $prodId . ']" value=' . $qty . '></td>';
     else:
         $row .= '<td><input type="text" name="qty[' . $prodId . ']" value="' . $qty . '" style="width:25px; text-align:right;"></td>';

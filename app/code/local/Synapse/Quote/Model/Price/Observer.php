@@ -24,7 +24,8 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
             $nzd_prices=explode(',',$quote_details['quote_product_prices_nzd']);
             $quote_product_price_aud = array_combine($quote_products,$aud_prices);
             $quote_product_price_nzd = array_combine($quote_products,$nzd_prices);
-            $quoteDiscount = Mage::getSingleton('core/session')->getQuoteDiscount();
+//            $quoteDiscount = Mage::getSingleton('core/session')->getQuoteDiscount();
+            $quoteDiscount = $quote_details['discount_value'];
             /* @var $item Mage_Sales_Model_Quote_Item */
             $item = $observer->getQuoteItem();
             $productid = $item->getProduct()->getId();
@@ -35,28 +36,54 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
             }
             $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
             if(sizeof(array_filter($aud_prices))!=0){
-                if($quoteDiscount && Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload()){
-                    $quoteTotalAmount = Mage::getSingleton('core/session')->getQuoteAmount();
-                    $quoteTotalAmount = $quoteTotalAmount+($quoteDiscount*-1);
-                    $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
-                    $quoteDiscount = $quoteDiscount*-1;
+				
+//                if($quoteDiscount && Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload()){
+//                    $quoteTotalAmount = Mage::getSingleton('core/session')->getQuoteAmount();
+//                    $quoteTotalAmount = $quoteTotalAmount+($quoteDiscount*-1);
+//                    $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
+//                    $quoteDiscount = $quoteDiscount*-1;
+//
+////                    Product unit price = product unit price -  (product unit price / Quote sub-Total ) * Total Discount
+//                    $itemPriceAfterDiscountInAud = $itemprice_aud - ($itemprice_aud/$quoteTotalAmount) * $quoteDiscount;
+////                    echo '<pre>';
+////                    echo '$itemprice_aud:'.$itemprice_aud.'<br/>';
+////                    echo '$quoteTotalAmount:'.$quoteTotalAmount.'<br/>';
+////                    echo '$quoteDiscount:'.$quoteDiscount.'<br/>';
+////                    print_r('$itemPriceAfterDiscountInAud:'.$itemPriceAfterDiscountInAud);
+////                    exit;
+//                    $itemprice_aud = $itemPriceAfterDiscountInAud;
+//                    $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];               $itemPriceAfterDiscountInNzd =  $itemprice_nzd - ($itemprice_nzd/$quoteTotalAmount) * $quoteDiscount;
+//                    $itemprice_nzd = $itemPriceAfterDiscountInNzd;
+//                }else{
+                    $qtys=explode(',',$quote_details['quote_product_qtys']);
+
+                    $amount=0;
+                    if($current_currency_code == 'NZD'){
+                        $amounts=array_filter(explode(',',$quote_details['quote_product_prices_nzd']));
+                        $currency="NZ$ ";
+                    }else {
+                        $amounts=array_filter(explode(',',$quote_details['quote_product_prices_aud']));
+                        $currency="AU$ ";
+                    }
+
+                    for($i=0;$i<count($qtys);$i++){
+                        $amount+=$qtys[$i]*$amounts[$i];
+                    }
+
+                    $quoteTotalAmount =  $amount;
+                    $itemprice_aud = $quote_product_price_aud[$productid] * $quote_product_qty[$productid];
+                    $quoteDiscount = $quoteDiscount * -1;
 
 //                    Product unit price = product unit price -  (product unit price / Quote sub-Total ) * Total Discount
-                    $itemPriceAfterDiscountInAud =  $itemprice_aud - ($itemprice_aud/$quoteTotalAmount) * $quoteDiscount;
-//                    echo '<pre>';
-//                    echo '$itemprice_aud:'.$itemprice_aud.'<br/>';
-//                    echo '$quoteTotalAmount:'.$quoteTotalAmount.'<br/>';
-//                    echo '$quoteDiscount:'.$quoteDiscount.'<br/>';
-//                    print_r('$itemPriceAfterDiscountInAud:'.$itemPriceAfterDiscountInAud);
-//                    exit;
+                    $itemPriceAfterDiscountInAud = $itemprice_aud - ($itemprice_aud / $quoteTotalAmount) * $quoteDiscount;
                     $itemprice_aud = $itemPriceAfterDiscountInAud;
-                    $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];               $itemPriceAfterDiscountInNzd =  $itemprice_nzd - ($itemprice_nzd/$quoteTotalAmount) * $quoteDiscount;
+
+                    $itemprice_nzd = $quote_product_price_nzd[$productid] * $quote_product_qty[$productid];
+                    $itemPriceAfterDiscountInNzd = $itemprice_nzd - ($itemprice_nzd / $quoteTotalAmount) * $quoteDiscount;
                     $itemprice_nzd = $itemPriceAfterDiscountInNzd;
-                }else{
-                    $itemprice_aud = $quote_product_price_aud[$productid]*$quote_product_qty[$productid];
-                    $itemprice_nzd = $quote_product_price_nzd[$productid]*$quote_product_qty[$productid];
-                }
+//                }
             }else{
+				
                 $itemprice_aud = $product1->getFinalPrice()*1;
                 $itemprice_nzd = $this->priceinNzd($itemprice_aud);
             }
@@ -75,6 +102,7 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
                 $item->getCustomPrice();
             }
         }else{
+			
             $prodId = $item->getProduct()->getId();
             $storeId = Mage::app()->getStore()->getStoreId();
             $product1 = Mage::getModel('catalog/product')->setStoreId($storeId)->load($prodId);
@@ -94,12 +122,14 @@ class Synapse_Quote_Model_Price_Observer extends Varien_Object
                 }
             }
             else{
+
                 $this->getCustomPrice();
             }
         }
-    if(!Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload()){
-            $this->getCustomPrice();
-        }
+//    if(!Mage::getSingleton('customer/session')->getQuoteCreatedThroughUpload()){
+//
+//            $this->getCustomPparice();
+//        }
 
 
 
