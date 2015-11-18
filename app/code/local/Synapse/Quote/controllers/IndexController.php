@@ -191,7 +191,7 @@ class Synapse_Quote_IndexController extends Mage_Core_Controller_Front_Action {
 			$quote_details = $existing_quote_record->getData();
 			$quote_products = explode(',',$quote_details['quote_product_ids']);
 			foreach($quote_products as $quote_product){
-			$product = Mage::getModel('catalog/product')->load($quote_product);
+            $product = Mage::getModel('catalog/product')->load($quote_product);
 			  if($product->getSpecialPrice()){
 			       $prod_price_in_aud[] = $product->getSpecialPrice();
 			       $prod_price_in_nzd[] = Mage::helper('directory')->currencyConvert($product->getSpecialPrice(), AUD, NZD);

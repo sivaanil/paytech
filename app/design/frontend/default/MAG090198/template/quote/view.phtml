@@ -1,6 +1,7 @@
 <?php
 $current_quote_id = $this->getRequest()->getParam('id');
 $labels = array();
+$papercut_products = array();
 $current_quote = Mage::getModel('quote/quote')->load($current_quote_id);
 if (Mage::getSingleton('customer/session')->isLoggedIn()) {
     $customer = Mage::getSingleton('customer/session')->getCustomer();
@@ -10,13 +11,6 @@ if (Mage::getSingleton('customer/session')->isLoggedIn()) {
 if(isset($current_quote['quote_product_params'])){
     $productOptions = unserialize($current_quote['quote_product_params']);
 }
-
-if($current_quote['discount_description']){
-    $papercut_products = explode(',',$current_quote['quote_product_ids']);
-}
-
-
-
 ?>
 <div class="page-title">
     <h1>
@@ -92,6 +86,7 @@ if($current_quote['discount_description']){
             //for an existing quote the prices are fetched from the quote table
             if(isset($current_quote_id) && $current_quote_id!="" && $current_quote['quote_product_ids']!='' ){
             $quote_products = explode(',',$current_quote['quote_product_ids']);
+            $papercut_products = explode(',',$current_quote['papercut_products']);
             $quote_qtys = explode(',',$current_quote['quote_product_qtys']);
             $quote_product_qty = array_combine($quote_products,$quote_qtys);
             $audPrices = array_combine($quote_products,explode(',',$current_quote['quote_product_prices_aud']));
@@ -120,7 +115,7 @@ if($current_quote['discount_description']){
                     $audPrice=$audPrice;
                     $nzdPrice=$nzdPrice;
                 }
-                echo renderProduct($product,$qty,$audPrice,$nzdPrice,$options);
+                echo renderProduct($product,$qty,$audPrice,$nzdPrice,$options,$papercut_products);
             }
             ?>
             </tbody>
@@ -160,9 +155,9 @@ if($current_quote['discount_description']){
 
                     $current_currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
                     if ($current_currency_code == 'NZD') {
-                        echo "NZ$ " . number_format($grandTotal, '2', '.', ',');
+                        echo "NZ$ " .number_format($grandTotal, '2', '.', ',');
                     } else {
-                        echo "AU$ " . number_format($grandTotal, '2', '.', ',');
+                        echo "AU$ " .number_format($grandTotal, '2', '.', ',');
                     }
                 ?>
                 </td></tr>
@@ -246,7 +241,8 @@ if($current_quote['discount_description']){
                     $nzdPrice=$nzdPrice;
                 }
             }
-            echo renderProduct($product,$qty,$audPrice,$nzdPrice,$options);
+
+            echo renderProduct($product,$qty,$audPrice,$nzdPrice,$options,$papercut_products);
 
             ?>
 
@@ -269,6 +265,7 @@ if($current_quote['discount_description']){
 	<?php
     }
     ?>
+
     </form>
 </div>
 <script type="text/javascript">decorateTable('my-quote-table');</script>
@@ -288,9 +285,8 @@ if($current_quote['discount_description']){
     }
 </script>
 <?php
-
 // To render each product to table in Quote view page
-function renderProduct($product,$qty,$audPrice,$nzdPrice,$options=''){
+function renderProduct($product,$qty,$audPrice,$nzdPrice,$options='',$papercut_products){
     $options=array_filter($options);
     $row='<tr>';
     $prodType = strtolower($product->getAttributeText('product_type'));
@@ -346,7 +342,7 @@ function renderProduct($product,$qty,$audPrice,$nzdPrice,$options=''){
 
     $row .= '<td><img src="' . Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(75, 75) . '"/></td>';
     $row .= '<td><span class="nobr">' . $product->getName() . '</span><br/><span style="color:red">' . $optStr . '</span></td>';
-    if (($prodType == 'maintenance product') || !in_array($prodId,$papercut_products)):
+    if (($prodType == 'maintenance product') || in_array($prodId,$papercut_products)):
         $row .= '<td>' . $qty . '<input type="hidden" name="qty[' . $prodId . ']" value=' . $qty . '></td>';
     else:
         $row .= '<td><input type="text" name="qty[' . $prodId . ']" value="' . $qty . '" style="width:25px; text-align:right;"></td>';
